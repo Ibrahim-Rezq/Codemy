@@ -1,9 +1,13 @@
 import React from 'react'
+import { Helmet } from 'react-helmet-async'
 import udemyLogo from '../assets/udemy.svg'
 
 export default function Home() {
     return (
         <div>
+            <Helmet>
+                <title>page1</title>
+            </Helmet>
             <div className='avatar online'>
                 <div className='w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2'>
                     <img
