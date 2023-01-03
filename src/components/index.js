@@ -1,15 +1,5 @@
-import Footer from './footer'
-import InstructorCard from './instructorCard'
-import Navigation from './navigation'
-import CourseCard from './courseCard'
-import CourseCardList from './courseCardList'
-import CourseReview from './courseReview'
+import Footer from './global/footer'
+import Navigation from './global/navigation'
+import SEOHead from './global/SEOHead'
 
-export default {
-    Footer,
-    InstructorCard,
-    Navigation,
-    CourseCard,
-    CourseCardList,
-    CourseReview,
-}
+export { Footer, Navigation, SEOHead }
