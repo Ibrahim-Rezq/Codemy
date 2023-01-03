@@ -7,7 +7,6 @@ const user = {
     courses: [{ id: '1' }],
     type: 'user',
 }
-
 const instructor = {
     id: '1',
     name: 'mohamed',

@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Home } from './pages'
+
 const router = createBrowserRouter([
     {
         path: '/',
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
 
 export default function App() {
     return (
-        <div className='App'>
+        <div className="App">
             <RouterProvider router={router} />
         </div>
     )
