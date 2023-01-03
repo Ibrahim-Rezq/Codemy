@@ -1,9 +1,13 @@
 const user = {
     id: '1',
     name: 'hima',
+    avatarUrl: '',
+    email: 'example@hima.com',
     passwordHash: '',
     courses: [{ id: '1' }],
+    type: 'user',
 }
+
 const instructor = {
     id: '1',
     name: 'mohamed',
@@ -13,15 +17,19 @@ const instructor = {
     rating: 1902,
     courses: [{ id: 1 }],
     coursesCount: 1,
+    type: 'instructor',
 }
+
 const review = {
     id: '1',
     userId: '1',
+    courseId: '1',
     Description:
         "a course to master react from the begining to the end using moderen techeing and more just some more words to make this description seem longer than it seems and to add more data for usage and don't know what to wright next",
     rate: 4,
     created_at: '10-10-2020',
 }
+
 const lecture = {
     id: '1',
     courseId: '1',
@@ -30,6 +38,7 @@ const lecture = {
     videoUrl: 'www.example.com',
     watched: false,
 }
+
 const course = {
     id: '1',
     name: 'react mastery',
@@ -49,8 +58,8 @@ const course = {
     instructorId: '1',
     created_at: '10-10-2020',
     updated_at: '15-12-2020',
-    price: 34999,
+    price: 34999, // cents 349.99$
     onSale: true,
-    discount: 50, // in percent
+    discount: 50, // in percent  34999 * 50%
     bestseller: false,
 }

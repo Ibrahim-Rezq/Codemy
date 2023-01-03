@@ -1,5 +1,5 @@
 // import all pages for easier export
 
-import Home from './home'
+import Home from './Home'
 
 export { Home }
