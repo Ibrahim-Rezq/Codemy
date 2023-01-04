@@ -8,7 +8,7 @@ type SEOHeadProps = {
 export default function SEOHead({
     title = 'Home',
     description = 'The Wizard of the coding world.',
-    keywords = 'HTML, CSS, Javascript, React.js, Next.js, web developer, frondend developer',
+    keywords = 'HTML, Online Courses, CSS, Javascript, React.js, Next.js, web developer, frondend developer',
 }: SEOHeadProps) {
     return (
         <Helmet>
