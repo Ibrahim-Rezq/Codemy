@@ -1,9 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
+
 import './index.css'
+
+import ReactDOM from 'react-dom/client'
 import { HelmetProvider } from 'react-helmet-async'
 import { Provider } from 'react-redux'
+
+import App from './App'
 import { store } from './redux/store'
 
 const components = (
@@ -15,4 +17,5 @@ const components = (
 )
 
 const rootElement = document.querySelector('#root')
-ReactDOM.createRoot(rootElement).render(components)
+
+rootElement && ReactDOM.createRoot(rootElement).render(components)

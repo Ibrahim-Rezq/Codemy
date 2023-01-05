@@ -1,4 +1,6 @@
 // the navigation bar for the app
+
+import React from 'react'
 import udemyLogo from '../../assets/udemy.svg'
 
 export default function Navigation() {
@@ -8,7 +10,7 @@ export default function Navigation() {
                      <div className='w-40'>
                         <a href="/" >
                             <img
-                                    src={udemyLogo}
+                                    src={"udemyLogo"}
                                     className="object-contain  max-h-10 mx-7 my-4"
                                     alt='Udemy Logo'
                                 />
