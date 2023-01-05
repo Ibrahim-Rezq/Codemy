@@ -1,6 +1,9 @@
 import React from 'react'
 
 import { Home } from '../pages'
+import ForgotPassword from '../pages/Authentication/ForgotPassword'
+import SignIn from '../pages/Authentication/SignIn'
+import SignUp from '../pages/Authentication/SignUp'
 
 export const routes = [
     {
@@ -8,12 +11,16 @@ export const routes = [
         element: <Home />,
     },
     {
-        path: '/login',
-        // element: <App />,
+        path: '/join/login-popup',
+        element: <SignIn />,
     },
     {
-        path: '/register',
-        // element: <App />,
+        path: '/join/signup-popup',
+        element: <SignUp />,
+    },
+    {
+        path: '/user/forgot-password',
+        element: <ForgotPassword />,
     },
     {
         path: '/my-learning',

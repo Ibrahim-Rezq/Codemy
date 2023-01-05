@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .input-style {
+        @apply relative w-full flex border border-black 
+    }
+    .box-auth-format{
+      
+        @apply border border-black font-bold items-center flex gap-3 py-2 pl-4 h-fit justify-start w-full cursor-pointer hover:bg-slate-100
+    }
+    .form-link-style{
+        @apply underline underline-offset-4 text-violet-800 font-bold
+    }
+
+    .input-style input:focus ~ label {
+        @apply text-xs -translate-y-6	
+    }
+    .input-style label {
+        @apply absolute top-1/2 -translate-y-1/2 left-0 pl-4 font-bold duration-100  text-sm 
+    }
+  }
+
 :root {
     font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
 }
+

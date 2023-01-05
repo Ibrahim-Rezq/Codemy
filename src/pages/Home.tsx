@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { SEOHead } from '../components'
 import { selectUser } from '../redux/features/user/userSlice'
-
 export default function Home() {
     const state = useSelector(selectUser)
     const dispatch = useDispatch()
