@@ -4,7 +4,7 @@ import React from 'react'
 // import udemyLogo from '../assets/udemy.svg';
 import { useDispatch, useSelector } from 'react-redux'
 
-import { SEOHead, CourseCard } from '../components'
+import { CourseCard, SEOHead } from '../components'
 import { selectUser } from '../redux/features/user/userSlice'
 export default function Home() {
     const state = useSelector(selectUser)
