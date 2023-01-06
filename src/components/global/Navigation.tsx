@@ -48,7 +48,7 @@ export default function Navigation() {
                         {/* content of wish */}
                         <div
                             tabIndex={0}
-                            className="mt-3  card card-compact  dropdown-content w-52 bg-base-100 shadow border border-grey-400 w-96 rounded"
+                            className="mt-3 card card-compact dropdown-content bg-base-100 shadow border border-grey-400 w-96 rounded"
                         >
                             <div className="card-body mt-4 ">
                                 {/* product 1*/}
