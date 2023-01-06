@@ -14,7 +14,8 @@
         @apply underline underline-offset-4 text-violet-800 font-bold
     }
 
-    .input-style input:focus ~ label {
+    .input-style input:focus ~ label,
+    .input-style input:not(:placeholder-shown) ~ label{
         @apply text-xs -translate-y-6	
     }
     .input-style label {

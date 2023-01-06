@@ -1,9 +1,10 @@
 import React from 'react'
 
+import ForgotPassword from '../components/Authentication/ForgotPassword'
+import SignIn from '../components/Authentication/SignIn'
+import SignUp from '../components/Authentication/SignUp'
 import { Home } from '../pages'
-import ForgotPassword from '../pages/Authentication/ForgotPassword'
-import SignIn from '../pages/Authentication/SignIn'
-import SignUp from '../pages/Authentication/SignUp'
+import Join from '../pages/Join'
 
 export const routes = [
     {
@@ -11,12 +12,18 @@ export const routes = [
         element: <Home />,
     },
     {
-        path: '/join/login-popup',
-        element: <SignIn />,
-    },
-    {
-        path: '/join/signup-popup',
-        element: <SignUp />,
+        path: '/join',
+        element: <Join />,
+        children: [
+            {
+                path: 'signup-popup',
+                element: <SignUp />,
+            },
+            {
+                path: 'login-popup',
+                element: <SignIn />,
+            },
+        ],
     },
     {
         path: '/user/forgot-password',
