@@ -1,10 +1,7 @@
 import React from 'react'
 
-import ForgotPassword from '../components/Authentication/ForgotPassword'
-import SignIn from '../components/Authentication/SignIn'
-import SignUp from '../components/Authentication/SignUp'
-import { Cart, Home } from '../pages'
-import Join from '../pages/Join'
+import { ForgotPassword, SignIn, SignUp } from '../components/Authentication'
+import { Cart, Home, Join, User } from '../pages'
 
 export const routes = [
     {
@@ -26,8 +23,14 @@ export const routes = [
         ],
     },
     {
-        path: '/user/forgot-password',
-        element: <ForgotPassword />,
+        path: '/user',
+        element: <User />,
+        children: [
+            {
+                path: 'forgot-password',
+                element: <ForgotPassword />,
+            },
+        ],
     },
     {
         path: '/my-learning',

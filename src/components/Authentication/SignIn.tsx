@@ -3,28 +3,24 @@ import { BsApple } from 'react-icons/bs'
 import { FcGoogle } from 'react-icons/fc'
 import { Link } from 'react-router-dom'
 
-import apple from '../../assets/apple.svg'
-import facebook from '../../assets/facebook.svg'
-import google from '../../assets/google.svg'
 import InputField from '../global/InputField'
 function SignIn() {
+    const authBoxArr = [
+        { icon: FcGoogle, type: 'google' },
+        { icon: BsFacebook, type: 'facebook', fill: '#1877f2' },
+        { icon: BsApple, type: 'apple' },
+    ]
     return (
         <div className="sign-in ">
-            <div className="container ">
+            <div className="container">
                 <form className="form w-96 flex flex-col gap-3 items-center mt-16 m-auto">
                     <h2 className="font-bold text-center">Log in to your Codemy account</h2>
-                    <div className="border border-black font-bold items-center flex gap-3 py-2 pl-4 h-fit justify-start w-full cursor-pointer hover:bg-slate-100">
-                        <FcGoogle className="text-5xl" />
-                        <p>Continue with google</p>
-                    </div>
-                    <div className="border border-black font-bold items-center flex gap-3 py-2 pl-4 h-fit justify-start w-full cursor-pointer hover:bg-slate-100">
-                        <BsFacebook className="text-5xl  fill-blue-900" />
-                        <p>Continue with facebook</p>
-                    </div>
-                    <div className="border border-black font-bold items-center flex gap-3 py-2 pl-4 h-fit justify-start w-full cursor-pointer hover:bg-slate-100">
-                        <BsApple className="text-5xl" />
-                        <p>Continue with apple</p>
-                    </div>
+                    {authBoxArr.map((box) => (
+                        <div className="border border-black font-bold items-center flex gap-3 py-2 pl-4 h-fit justify-start w-full cursor-pointer hover:bg-slate-100">
+                            <box.icon className="text-5xl" fill={box.fill} />
+                            <p>Continue with {box.type}</p>
+                        </div>
+                    ))}
                     <InputField type={'email'} />
                     <InputField type={'password'} />
                     <button className="btn btn-primary rounded-none	normal-case w-full  text-base	">Log In</button>

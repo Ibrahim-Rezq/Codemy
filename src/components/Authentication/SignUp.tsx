@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import InputField from '../global/InputField'
 function SignUp() {
     return (
-        <div className="sign-in">
+        <div className="sign-up">
             <div className="container ">
                 <form className="form w-96 flex flex-col gap-3 items-center mt-16 mb-8 m-auto ">
                     <h2 className="font-bold text-center">Sign up and start learning</h2>

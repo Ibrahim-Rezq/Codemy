@@ -4,7 +4,7 @@ import InputField from '../global/InputField'
 
 function ForgotPassword() {
     return (
-        <div className="sign-in ">
+        <div className="forgot-password ">
             <div className="container ">
                 <form className="form w-96 flex flex-col gap-3 items-center mt-16 m-auto">
                     <h2 className="font-bold text-center">Forgot Password</h2>
