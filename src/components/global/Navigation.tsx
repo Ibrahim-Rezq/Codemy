@@ -27,7 +27,7 @@ export default function Navigation() {
                             <input
                                 type="text"
                                 placeholder="Search for everything"
-                                className="rounded-3xl bg-gray-50	 focus:outline-0 input input-bordered border-zinc-700 text-zinc-700"
+                                className="rounded-3xl bg-gray-50 focus:outline-0 input input-bordered border-zinc-700 text-zinc-700"
                             />
                         </div>
                     </div>
@@ -48,7 +48,6 @@ export default function Navigation() {
                     <NotificationsDropDown />
 
                     {/* profile actions */}
-
                     <UserProfileDropDown />
                 </div>
             </div>
@@ -266,41 +265,39 @@ const UserProfileDropDown = () => (
                 </div>
             </li>
             <li className="border-b border-grey-600">
-                <a href="#" className="mt-2">
-                    My learning
-                </a>
-                <a href="#" className="mt-2">
-                    My cart
-                </a>
-                <a href="#" className="mt-2">
-                    Wishlist
-                </a>
+                {['My Learning', 'My Cart', 'Wishlist'].map((item) => (
+                    <a href="#" className="mt-2">
+                        {item}
+                    </a>
+                ))}
             </li>
             <li className="border-b border-grey-600">
-                <a href="#" className="mt-2">
-                    Notification
-                </a>
-                <a href="#" className="mt-2">
-                    Messages
-                </a>
+                {['Notifications', 'Messages'].map((item) => (
+                    <a href="#" className="mt-2">
+                        {item}
+                    </a>
+                ))}
             </li>
             <li className="border-b border-grey-600">
-                <a href="#" className="mt-2">
-                    Account settings
-                </a>
-                <a href="#" className="mt-2">
-                    Purchase history
-                </a>
+                {['Account Settings', 'Payment Methods'].map((item) => (
+                    <a href="#" className="mt-2">
+                        {item}
+                    </a>
+                ))}
             </li>
             <li className="border-b border-grey-600">
-                <a href="#" className="mt-2">
-                    Edit Profile
-                </a>
+                {['Edit Profile'].map((item) => (
+                    <a href="#" className="mt-2">
+                        {item}
+                    </a>
+                ))}
             </li>
             <li>
-                <a href="#" className="mt-2">
-                    Logout
-                </a>
+                {['Logout'].map((item) => (
+                    <a href="#" className="mt-2">
+                        {item}
+                    </a>
+                ))}
             </li>
         </ul>
     </div>
