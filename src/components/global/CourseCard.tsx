@@ -15,7 +15,7 @@ const CourseCard = ({
     imageURL = 'https://reactjs.org/logo-og.png',
     title = 'React Udemy Clone',
     instructorName = 'Saif Mohamed',
-    totalRatings = 1200.00,
+    totalRatings = 1200.0,
     price = 1200,
     isBestSeller = true,
     isDiscount = true,
@@ -52,11 +52,11 @@ const CardRatings = ({ totalRatings }: CourseCardPropsType) => (
 const CardPrice = ({ price, isDiscount, discount }: CourseCardPropsType) =>
     isDiscount ? (
         <h1 className="text-md font-bold text-black">
-            {price && discount ? convertToCurrency((price * (100 - discount)) / 100) : convertToCurrency(price)}{' '}
-            <span className="line-through text-gray-400 text-md font-light">{convertToCurrency(price)}</span>
+            {price && discount ? convertToCurrency((price * (100 - discount)) / 100) : convertToCurrency(price ?? 0)}{' '}
+            <span className="line-through text-gray-400 text-md font-light">{convertToCurrency(price ?? 0)}</span>
         </h1>
     ) : (
-        <h1 className="text-md font-bold text-black">{convertToCurrency(price)}</h1>
+        <h1 className="text-md font-bold text-black">{convertToCurrency(price ?? 0)}</h1>
     )
 
 const CardBestSeller = () => <h1 className="bg-yellow-200 mt-4 text-black text-md font-bold p-1">Best Seller</h1>
