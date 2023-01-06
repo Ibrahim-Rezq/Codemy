@@ -34,7 +34,7 @@ export default function Navigation() {
                 </div>
                 <div className="flex-none mr-8">
                     <div className="ml-1">
-                        <a href="#" className="hover:text-blue-700 ">
+                        <a href="#" className="navbarLinkAnimate">
                             My learning
                         </a>
                     </div>
@@ -55,7 +55,7 @@ export default function Navigation() {
                 <div className="flex-1 container ml-12 ">
                     {Categories.map((category) => (
                         <div>
-                            <a className="mr-5" href={category.href}>
+                            <a className="navbarLinkAnimate mr-5" href={category.href}>
                                 {category.name}
                             </a>
                         </div>
@@ -98,7 +98,9 @@ const WhishListDropDown = () => (
                         </div>
                         <div className="ml-3">
                             <h3 className="font-bold text-base">
-                                <a href="#">Lorem, ipsum dolor sit amet consectetur </a>
+                                <a className="navbarLinkAnimate" href="#">
+                                    Lorem, ipsum dolor sit amet consectetur{' '}
+                                </a>
                             </h3>
                             <p className="text-gray-400 my-1">Robin jesper</p>
                             <p>
@@ -148,14 +150,16 @@ const CartDropDown = () => (
             className="mt-3  card card-compact  dropdown-content bg-base-100 shadow border border-grey-400 w-96 rounded"
         >
             <div className="card-body mt-4 ">
-                {/* product 1*/}
+                {/* will map on real data here --cart items*/}
                 <div className="flex mb-2">
                     <div className="w-20">
                         <img src="https://placeimg.com/80/80/people" />
                     </div>
                     <div className="ml-3">
                         <h3 className="font-bold text-base">
-                            <a href="#">Lorem, ipsum dolor sit amet consectetur </a>
+                            <a className="navbarLinkAnimate" href="#">
+                                Lorem, ipsum dolor sit amet consectetur{' '}
+                            </a>
                         </h3>
                         <p className="text-gray-400 my-1">Robin jesper</p>
                         <p>
@@ -165,8 +169,8 @@ const CartDropDown = () => (
                         </p>
                     </div>
                 </div>
-                {/* actions */}
 
+                {/* actions */}
                 <div className="border-t ">
                     <p className="mt-4">
                         <span className="font-bold text-xl">Total : 9.00 $</span>{' '}
@@ -220,7 +224,9 @@ const NotificationsDropDown = () => (
                         </div>
                         <div className="ml-3">
                             <h3 className="font-bold text-base">
-                                <a href="#">Lorem, ipsum dolor sit amet consectetur </a>
+                                <a className="navbarLinkAnimate" href="#">
+                                    Lorem, ipsum dolor sit amet consectetur{' '}
+                                </a>
                             </h3>
                             <p className="text-gray-500 text-sm">15 Hours ago</p>
                         </div>
@@ -229,7 +235,7 @@ const NotificationsDropDown = () => (
 
                 {/*actions */}
                 <div className="mt-4 border-t border-zinc-200 flex justify-between py-2	mb-0">
-                    <a href="#" className="font-bold mt-4 ml-2">
+                    <a href="#" className="font-bold mt-4 ml-2 navbarLinkAnimate">
                         Mark all as read
                     </a>
                     <a href="#" className="btn btn-outline mt-2 rounded">
