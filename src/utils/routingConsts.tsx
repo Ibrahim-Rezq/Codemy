@@ -3,7 +3,7 @@ import React from 'react'
 import ForgotPassword from '../components/Authentication/ForgotPassword'
 import SignIn from '../components/Authentication/SignIn'
 import SignUp from '../components/Authentication/SignUp'
-import { Home } from '../pages'
+import { Home, Cart } from '../pages'
 import Join from '../pages/Join'
 
 export const routes = [
@@ -39,7 +39,7 @@ export const routes = [
     },
     {
         path: '/cart',
-        // element: <App />,
+        element: <Cart />,
     },
 ]
 

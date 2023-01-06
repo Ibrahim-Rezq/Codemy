@@ -1,4 +1,4 @@
-const user = {
+export const user = {
     id: '1',
     name: 'hima',
     avatarUrl: '',
@@ -7,7 +7,7 @@ const user = {
     courses: [{ id: '1' }],
     type: 'user',
 }
-const instructor = {
+export const instructor = {
     id: '1',
     name: 'mohamed',
     Description:
@@ -19,7 +19,7 @@ const instructor = {
     type: 'instructor',
 }
 
-const review = {
+export const review = {
     id: '1',
     userId: '1',
     courseId: '1',
@@ -29,7 +29,7 @@ const review = {
     created_at: '10-10-2020',
 }
 
-const lecture = {
+export const lecture = {
     id: '1',
     courseId: '1',
     name: 'react mastery intro',
@@ -38,7 +38,7 @@ const lecture = {
     watched: false,
 }
 
-const course = {
+export const course = {
     id: '1',
     name: 'react mastery',
     Description:

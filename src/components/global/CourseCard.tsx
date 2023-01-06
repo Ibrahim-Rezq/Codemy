@@ -1,5 +1,3 @@
-import React from 'react'
-
 type CourseCardPropsType = {
     imageURL?: string
     title?: string
@@ -19,7 +17,7 @@ const CourseCard = ({
     price = 1200,
     isBestSeller = true,
     isDiscount = true,
-    discount = 50,
+    discount = 10,
 }: CourseCardPropsType) => {
     return (
         <div className="border-2 p-2 max-w-[320px] w-full flex flex-col items-start gap-2">
@@ -50,7 +48,7 @@ const CardRatings = ({ totalRatings }: CourseCardPropsType) => (
 const CardPrice = ({ price, isDiscount, discount }: CourseCardPropsType) =>
     isDiscount ? (
         <h1 className="text-md font-bold text-black">
-            EGP {price && discount ? (price * discount) / 100 : price}{' '}
+            EGP {price && discount ? (price * (100 - discount)) / 100 : price}{' '}
             <span className="line-through text-gray-400 text-md font-light">{price}</span>
         </h1>
     ) : (
