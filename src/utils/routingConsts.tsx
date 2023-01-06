@@ -1,6 +1,11 @@
 import React from 'react'
 
+<<<<<<< HEAD
 import { Cart, Home } from '../pages'
+=======
+import { ForgotPassword, SignIn, SignUp } from '../components/Authentication'
+import { Cart, Home, Join, User } from '../pages'
+>>>>>>> fa9395315d7bd8a0daab6ca80f30d6a7f702a363
 
 export const routes = [
     {
@@ -8,12 +13,28 @@ export const routes = [
         element: <Home />,
     },
     {
-        path: '/login',
-        // element: <App />,
+        path: '/join',
+        element: <Join />,
+        children: [
+            {
+                path: 'signup-popup',
+                element: <SignUp />,
+            },
+            {
+                path: 'login-popup',
+                element: <SignIn />,
+            },
+        ],
     },
     {
-        path: '/register',
-        // element: <App />,
+        path: '/user',
+        element: <User />,
+        children: [
+            {
+                path: 'forgot-password',
+                element: <ForgotPassword />,
+            },
+        ],
     },
     {
         path: '/my-learning',
