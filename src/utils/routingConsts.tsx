@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Home } from '../pages'
+import { Home, Cart } from '../pages'
 
 export const routes = [
     {
@@ -25,7 +25,7 @@ export const routes = [
     },
     {
         path: '/cart',
-        // element: <App />,
+        element: <Cart />,
     },
 ]
 
