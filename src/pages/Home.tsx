@@ -1,11 +1,7 @@
-// main page seen on website open -> path : /
-
 import React from 'react'
-// import udemyLogo from '../assets/udemy.svg';
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 
-import { SEOHead, CourseCard, Container } from '../components'
+import { Container, CourseCard, SEOHead } from '../components'
 import { selectUser } from '../redux/features/user/userSlice'
 
 export default function Home() {

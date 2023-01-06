@@ -1,6 +1,6 @@
 // import all pages for easier export
 
-import Home from './Home'
 import Cart from './Cart'
+import Home from './Home'
 
-export { Home, Cart }
+export { Cart, Home }
