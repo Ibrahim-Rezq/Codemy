@@ -34,7 +34,9 @@ export default function Navigation() {
                 </div>
                 <div className="flex-none mr-8">
                     <div className="ml-1">
-                        <a href="#">My learning</a>
+                        <a href="#" className="hover:text-blue-700 ">
+                            My learning
+                        </a>
                     </div>
 
                     {/* Wishlist */}
