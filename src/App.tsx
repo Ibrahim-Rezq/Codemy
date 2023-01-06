@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
 import { Navigation } from './components'
 import Hero from './components/heroSlider/Hero'
 import { routes } from './utils/routingConsts'
