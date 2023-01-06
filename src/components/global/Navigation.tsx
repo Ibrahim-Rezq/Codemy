@@ -1,4 +1,5 @@
 import React from 'react'
+
 import udemyLogo from '../../assets/udemy.svg'
 
 // That's will be dynamic from external data soon...
