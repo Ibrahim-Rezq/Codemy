@@ -1,27 +1,28 @@
+import { BsFacebook } from 'react-icons/bs'
+import { BsApple } from 'react-icons/bs'
+import { FcGoogle } from 'react-icons/fc'
 import { Link } from 'react-router-dom'
+
 import apple from '../../assets/apple.svg'
 import facebook from '../../assets/facebook.svg'
 import google from '../../assets/google.svg'
 import InputField from '../global/InputField'
-import {BsFacebook} from 'react-icons/bs'
-import {BsApple} from 'react-icons/bs'
-import {FcGoogle} from 'react-icons/fc'
 function SignIn() {
     return (
         <div className="sign-in ">
             <div className="container ">
-                <form className="form w-96 flex flex-col gap-3 items-center mt-48 m-auto">
+                <form className="form w-96 flex flex-col gap-3 items-center mt-16 m-auto">
                     <h2 className="font-bold text-center">Log in to your Codemy account</h2>
                     <div className="border border-black font-bold items-center flex gap-3 py-2 pl-4 h-fit justify-start w-full cursor-pointer hover:bg-slate-100">
-                        <FcGoogle className='text-5xl'/>
+                        <FcGoogle className="text-5xl" />
                         <p>Continue with google</p>
                     </div>
                     <div className="border border-black font-bold items-center flex gap-3 py-2 pl-4 h-fit justify-start w-full cursor-pointer hover:bg-slate-100">
-                    <BsFacebook className='text-5xl  fill-blue-900'/>
+                        <BsFacebook className="text-5xl  fill-blue-900" />
                         <p>Continue with facebook</p>
                     </div>
                     <div className="border border-black font-bold items-center flex gap-3 py-2 pl-4 h-fit justify-start w-full cursor-pointer hover:bg-slate-100">
-                    <BsApple className='text-5xl'/>
+                        <BsApple className="text-5xl" />
                         <p>Continue with apple</p>
                     </div>
                     <InputField type={'email'} />
