@@ -5,9 +5,8 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { SEOHead, CourseCard, Container } from '../components'
+import { Container, CourseCard, SEOHead } from '../components'
 import { selectUser } from '../redux/features/user/userSlice'
-
 export default function Home() {
     const state = useSelector(selectUser)
     const dispatch = useDispatch()
