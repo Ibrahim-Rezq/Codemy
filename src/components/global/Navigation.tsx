@@ -38,7 +38,6 @@ export default function Navigation() {
                             My learning
                         </a>
                     </div>
-
                     {/* Wishlist */}
                     <WhishListDropDown />
 
