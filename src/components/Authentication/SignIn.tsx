@@ -4,6 +4,7 @@ import { FcGoogle } from 'react-icons/fc'
 import { Link } from 'react-router-dom'
 
 import InputField from '../global/InputField'
+import Container from '../UI/Container'
 function SignIn() {
     const authBoxArr = [
         { icon: FcGoogle, type: 'google' },
@@ -12,7 +13,7 @@ function SignIn() {
     ]
     return (
         <div className="sign-in ">
-            <div className="container">
+            <Container>
                 <form className="form w-96 flex flex-col gap-3 items-center mt-16 m-auto">
                     <h2 className="font-bold text-center">Log in to your Codemy account</h2>
                     {authBoxArr.map((box) => (
@@ -43,7 +44,7 @@ function SignIn() {
                         Sign up
                     </Link>
                 </p>
-            </div>
+            </Container>
         </div>
     )
 }
