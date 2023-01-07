@@ -1,4 +1,5 @@
 import { Children } from 'react'
+import { IconType } from 'react-icons'
 import { BsCart, BsHeart } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 
@@ -215,7 +216,7 @@ const UserProfileDropDown = () => (
     </Dropdown>
 )
 
-const Dropdown = ({ children, icon }: any) => {
+const Dropdown = ({ children, icon }: React.HTMLAttributes<HTMLElement> & { icon?: IconType }) => {
     const Icon = icon
     return (
         <div className="dropdown dropdown-end ml-3">
@@ -232,7 +233,7 @@ const Dropdown = ({ children, icon }: any) => {
         </div>
     )
 }
-const NavigationLink = ({ path, children }: any) => {
+const NavigationLink = ({ path, children }: React.HTMLAttributes<HTMLElement> & { path: string }) => {
     return (
         <Link to={path}>
             {Children.map(children, (child) => (

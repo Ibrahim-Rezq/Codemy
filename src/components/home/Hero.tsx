@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
 import { RxDotFilled } from 'react-icons/rx'
+
 import HeroImage1 from '../../assets/hero1.jpg'
 import HeroImage2 from '../../assets/hero2.jpg'
 

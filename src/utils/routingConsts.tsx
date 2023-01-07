@@ -1,7 +1,7 @@
+import { Outlet } from 'react-router-dom'
+
 import { ForgotPassword, Navigation, SignIn, SignUp } from '../components'
 import { Cart, Home, Join, User } from '../pages'
-
-import { Outlet } from 'react-router-dom'
 
 export const routes = [
     {
