@@ -10,7 +10,7 @@ export default function App() {
     return (
         <div className="App">
             <Navigation />
-            <Hero />
+
             <RouterProvider router={router} />
         </div>
     )
