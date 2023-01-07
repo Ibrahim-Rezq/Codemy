@@ -35,7 +35,7 @@ const Hero = () => {
     }
 
     return (
-        <div className="h-[200px] md:h-[400px] w-full py-0 px-0 relative group">
+        <div className="h-[200px] md:h-[400px] w-full relative group -mt-2 mb-2">
             <div
                 style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
                 className=" w-full h-full bg-cover bg-center duration-500  "
