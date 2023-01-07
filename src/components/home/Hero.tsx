@@ -1,22 +1,19 @@
 import React, { useState } from 'react'
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
 import { RxDotFilled } from 'react-icons/rx'
+import HeroImage1 from '../../assets/hero1.jpg'
+import HeroImage2 from '../../assets/hero2.jpg'
 
 const Hero = () => {
     const slides = [
         {
-            url: 'https://s.udemycdn.com/browse_components/billboard/fallback_banner_image_udlite.jpg',
+            url: HeroImage1,
         },
         {
-            url: 'https://img-c.udemycdn.com/notices/web_banner/slide_1_image_udlite/3577cbf1-9e6c-4ad8-8d67-bea392a59d56.png',
-        },
-        {
-            url: 'https://img-c.udemycdn.com/notices/web_banner/slide_2_image_udlite/4f292676-2067-46c0-bfc5-9dbb50ed61df.png',
-        },
-        {
-            url: 'https://img-c.udemycdn.com/notices/web_banner/slide_1_image_udlite/3577cbf1-9e6c-4ad8-8d67-bea392a59d56.png',
+            url: HeroImage2,
         },
     ]
+
     const [currentIndex, setCurrentIndex] = useState(0)
     const prevSlide = () => {
         const isFirstSlide = currentIndex === 0
@@ -35,10 +32,10 @@ const Hero = () => {
     }
 
     return (
-        <div className="h-[200px] md:h-[400px] w-full relative group -mt-2 mb-0 pb-6">
+        <div className="h-[200px] md:h-[670px] w-full relative group -mt-2 mb-0 pb-6">
             <div
                 style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-                className=" w-full h-full bg-cover bg-center duration-500"
+                className=" w-full h-full bg-cover rounded-xl  bg-center duration-500"
             ></div>
             {/**left arrow **/}
             <div className=" hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5  text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
