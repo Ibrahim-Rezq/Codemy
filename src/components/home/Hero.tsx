@@ -4,9 +4,9 @@ import { RxDotFilled } from 'react-icons/rx'
 
 const Hero = () => {
     const slides = [
-        {
-            url: 'https://s.udemycdn.com/browse_components/billboard/fallback_banner_image_udlite.jpg',
-        },
+        // {
+        //     url: 'https://s.udemycdn.com/browse_components/billboard/fallback_banner_image_udlite.jpg',
+        // },
         {
             url: 'https://img-c.udemycdn.com/notices/web_banner/slide_1_image_udlite/3577cbf1-9e6c-4ad8-8d67-bea392a59d56.png',
         },
