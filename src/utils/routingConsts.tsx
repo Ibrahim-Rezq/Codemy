@@ -1,11 +1,7 @@
 import React from 'react'
 
-<<<<<<< HEAD
-import { Cart, Home } from '../pages'
-=======
 import { ForgotPassword, SignIn, SignUp } from '../components/Authentication'
 import { Cart, Home, Join, User } from '../pages'
->>>>>>> fa9395315d7bd8a0daab6ca80f30d6a7f702a363
 
 export const routes = [
     {
