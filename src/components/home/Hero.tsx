@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
 import { RxDotFilled } from 'react-icons/rx'
-import HeroImage1 from '../../assets/pexels-karolina-grabowska-4195504.jpg'
-import HeroImage2 from '../../assets/pexels-pixabay-414628.jpg'
-import HeroImage3 from '../../assets/pexels-pixabay-459403.jpg'
+import HeroImage1 from '../../assets/hero1.jpg'
+import HeroImage2 from '../../assets/hero2.jpg'
 
 const Hero = () => {
     const slides = [
@@ -12,9 +11,6 @@ const Hero = () => {
         },
         {
             url: HeroImage2,
-        },
-        {
-            url: HeroImage3,
         },
     ]
 
@@ -36,10 +32,10 @@ const Hero = () => {
     }
 
     return (
-        <div className="h-[200px] md:h-[500px] w-full relative group -mt-2 mb-0 pb-6">
+        <div className="h-[200px] md:h-[670px] w-full relative group -mt-2 mb-0 pb-6">
             <div
                 style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-                className=" w-full h-full bg-contain rounded-xl  bg-center duration-500"
+                className=" w-full h-full bg-cover rounded-xl  bg-center duration-500"
             ></div>
             {/**left arrow **/}
             <div className=" hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5  text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
