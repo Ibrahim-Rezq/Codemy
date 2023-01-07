@@ -23,7 +23,7 @@ const CourseCard = ({
 }: CourseCardPropsType) => {
     return (
         <div className="border-2 p-2 max-w-[240px] w-full flex flex-col items-start">
-            <CardImage imageURL={imageURL} />
+            <CardImage imageURL={imageURL} title={title} />
             <CardTitle title={title} />
             <CardInstructorName instructorName={instructorName} />
             <CardRatings totalRatings={totalRatings} />
@@ -33,8 +33,8 @@ const CourseCard = ({
     )
 }
 
-const CardImage = ({ imageURL }: CourseCardPropsType) => (
-    <img src={imageURL} className={'w-full h-[130px] object-cover'} />
+const CardImage = ({ imageURL, title }: CourseCardPropsType) => (
+    <img src={imageURL} alt={title} className={'w-full h-[130px] object-cover'} />
 )
 
 const CardTitle = ({ title }: CourseCardPropsType) => (

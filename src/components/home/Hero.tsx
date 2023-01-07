@@ -30,7 +30,7 @@ const Hero = () => {
         setCurrentIndex(newIndex)
     }
 
-    const goToSlide = (slideIndex) => {
+    const goToSlide = (slideIndex: number) => {
         setCurrentIndex(slideIndex)
     }
 
@@ -57,9 +57,9 @@ const Hero = () => {
             </div>
             <div className="flex top-4 justify-center py-2 ">
                 {slides.map((slide, slideIndex) => (
-                    <div key={slideIndex} onClick={() => goToSlide(slideIndex)} className="text-2xl cursor-pointer ">
+                    <button key={slideIndex} onClick={() => goToSlide(slideIndex)} className="text-2xl cursor-pointer ">
                         <RxDotFilled />
-                    </div>
+                    </button>
                 ))}
             </div>
         </div>
