@@ -9,6 +9,7 @@ type CourseCardPropsType = {
     isBestSeller?: boolean
     isDiscount?: boolean
     discount?: number
+    wide?: boolean
 }
 
 const CourseCard = ({
@@ -20,9 +21,29 @@ const CourseCard = ({
     isBestSeller = true,
     isDiscount = true,
     discount = 10,
+    wide = true,
 }: CourseCardPropsType) => {
+    // Wide Version of the card
+    const WideVersion = () => (
+        <div className={'flex flex-row max-w-[720px] w-full border-2 justify-between p-2'}>
+            <div className="flex flex-row gap-4 items-start">
+                <div>
+                    <CardImage imageURL={imageURL} title={title} />
+                </div>
+                <div className="flex flex-col h-full">
+                    <CardTitle title={title} />
+                    <CardInstructorName instructorName={instructorName} />
+                    <CardRatings totalRatings={totalRatings} />
+                    <CardPrice price={price} discount={discount} isDiscount={isDiscount} />
+                </div>
+            </div>
+            {isBestSeller ? <CardBestSeller /> : null}
+        </div>
+    )
+
+    if (wide) return <WideVersion />
     return (
-        <div className="border-2 p-2 max-w-[240px] w-full flex flex-col items-start">
+        <div className={'border-2 p-2 max-w-[240px] w-full flex flex-col items-start'}>
             <CardImage imageURL={imageURL} title={title} />
             <CardTitle title={title} />
             <CardInstructorName instructorName={instructorName} />
@@ -42,7 +63,7 @@ const CardTitle = ({ title }: CourseCardPropsType) => (
 )
 
 const CardInstructorName = ({ instructorName }: CourseCardPropsType) => (
-    <h1 className="text-sm text-gray-400 font-normal mb-[0.1rem]">{instructorName}</h1>
+    <h1 className="text-md text-gray-400 font-normal mb-[0.1rem]">{instructorName}</h1>
 )
 
 const CardRatings = ({ totalRatings }: CourseCardPropsType) => (
@@ -59,6 +80,6 @@ const CardPrice = ({ price, isDiscount, discount }: CourseCardPropsType) =>
         <h1 className="text-md font-bold text-black">{convertToCurrency(price ?? 0)}</h1>
     )
 
-const CardBestSeller = () => <h1 className="bg-yellow-200 mt-4 text-black text-md font-bold p-1">Best Seller</h1>
+const CardBestSeller = () => <h1 className="bg-yellow-200 self-start text-black text-md font-bold p-1">Best Seller</h1>
 
 export default CourseCard
