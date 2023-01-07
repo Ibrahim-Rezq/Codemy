@@ -62,4 +62,3 @@ const CardPrice = ({ price, isDiscount, discount }: CourseCardPropsType) =>
 const CardBestSeller = () => <h1 className="bg-yellow-200 mt-4 text-black text-md font-bold p-1">Best Seller</h1>
 
 export default CourseCard
- 
