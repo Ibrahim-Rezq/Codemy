@@ -12,7 +12,7 @@ export default function Home() {
     return (
         <div className="bg-white w-screen h-screen text-black">
             <Container>
-                <SEOHead title="Main" />
+                <SEOHead title="Main Page" />
                 <Hero />
                 <CourseCard />
             </Container>

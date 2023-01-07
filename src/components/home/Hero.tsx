@@ -11,6 +11,9 @@ import './styles.css'
 // import required modules
 import { Parallax, Pagination, Navigation } from 'swiper'
 
+import HeroImage1 from '../../assets/hero1.jpg'
+import HeroImage2 from '../../assets/hero2.jpg'
+
 const Hero = () => {
     // const slides = [
     //     {
