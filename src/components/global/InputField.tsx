@@ -24,8 +24,7 @@ function InputField({ type }: { type: string }) {
                 peer-focus:-translate-y-6 peer-focus:-translate-x-1 peer-focus:text-xs 
                 peer-placeholder-shown:-translate-y-1/2 
                 peer-placeholder-shown:font-bold
-                peer-placeholder-shown:text-sm
-               "
+                peer-placeholder-shown:text-sm"
             >
                 {type == 'name' ? 'Full Name' : type.slice(0, 1).toUpperCase() + type.slice(1)}
             </label>
