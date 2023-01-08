@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Container, CourseCard, SEOHead } from '../components'
 import Hero from '../components/home/Hero'
 import { selectUser } from '../redux/features/user/userSlice'
+import withAuth from '../utils/withAuth'
 
-export default function Home() {
+const Home = () => {
     const state = useSelector(selectUser)
     const dispatch = useDispatch()
 
@@ -19,3 +20,5 @@ export default function Home() {
         </div>
     )
 }
+
+export default withAuth(Home)
