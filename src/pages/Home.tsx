@@ -11,7 +11,7 @@ const Home = () => {
     const dispatch = useDispatch()
 
     return (
-        <div className="bg-white w-screen h-screen text-black">
+        <div className="bg-white w-screen min-h-screen text-black">
             <Container>
                 <SEOHead title="Main Page" />
                 <Hero />

@@ -7,7 +7,7 @@ const router = createBrowserRouter(routes)
 
 export default function App() {
     return (
-        <div className="App">
+        <div className="overflow-hidden">
             <RouterProvider router={router} />
         </div>
     )

@@ -25,6 +25,7 @@ const Hero = () => {
         <>
             <Swiper
                 style={{
+                    //@ts-ignore
                     '--swiper-pagination-color': '#fff',
                 }}
                 speed={600}
@@ -34,7 +35,7 @@ const Hero = () => {
                 }}
                 navigation={true}
                 modules={[Parallax, Pagination, Navigation]}
-                className="mySwiper w-full h-1/2 bg-dark"
+                className="w-full h-96 mb-4"
             >
                 <div
                     slot="container-start"
@@ -45,7 +46,11 @@ const Hero = () => {
                 </div>
                 {slides.map((slide) => {
                     return (
-                        <SwiperSlide className="text-white w-full h-full flex justify-center items-center" py-10 px-6>
+                        <SwiperSlide
+                            className="text-stone-100 w-full h-full flex justify-center items-center"
+                            py-10
+                            px-6
+                        >
                             <div>
                                 <div className="text-4xl font-[300] my-4" data-swiper-parallax="-300">
                                     {slide.title}
