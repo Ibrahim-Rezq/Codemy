@@ -77,8 +77,8 @@ const WhishListDropDown = () => (
                         <div className="w-20">
                             <img src="https://placeimg.com/80/80/tech" alt="Course name" />
                         </div>
-                        <div className="ml-3">
-                            <h3 className="font-bold text-base">
+                        <div className="ml-3 flex flex-col items-start">
+                            <h3 className="font-bold text-start">
                                 <NavigationLink path={'/'}>Lorem, ipsum dolor sit amet consectetur</NavigationLink>
                             </h3>
                             <p className="text-gray-400 my-1">Robin jesper</p>
@@ -110,15 +110,15 @@ const CartDropDown = () => (
     <Dropdown icon={BsCart}>
         <button
             tabIndex={0}
-            className="mt-3  card card-compact  dropdown-content bg-base-100 shadow border border-grey-400 w-96 rounded"
+            className="mt-3 card card-compact  dropdown-content bg-base-100 shadow border border-grey-400 w-96 rounded"
         >
             <div className="card-body mt-4 ">
                 <div className="flex mb-2">
                     <div className="w-20">
                         <img src="https://placeimg.com/80/80/tech" alt="course Cart Card" />
                     </div>
-                    <div className="ml-3">
-                        <h3 className="font-bold text-base">
+                    <div className="ml-3 flex flex-col items-start">
+                        <h3 className="font-bold text-start">
                             <NavigationLink path={'/cart'}>Lorem, ipsum dolor sit amet consectetur</NavigationLink>
                         </h3>
                         <p className="text-gray-400 my-1">Robin jesper</p>
@@ -129,8 +129,8 @@ const CartDropDown = () => (
                         </p>
                     </div>
                 </div>
-                <div className="border-t ">
-                    <p className="mt-4">
+                <div className="border-t">
+                    <p className="mt-4 text-start">
                         <span className="font-bold text-xl">Total : 9.00 $</span>{' '}
                         <span className="pl-1 line-through text-gray-500">$ 10.00</span>
                     </p>
