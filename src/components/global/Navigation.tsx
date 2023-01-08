@@ -110,7 +110,7 @@ const CartDropDown = () => (
     <Dropdown icon={BsCart}>
         <button
             tabIndex={0}
-            className="mt-3  card card-compact  dropdown-content bg-base-100 shadow border border-grey-400 w-96 rounded"
+            className="mt-3 card card-compact  dropdown-content bg-base-100 shadow border border-grey-400 w-96 rounded"
         >
             <div className="card-body mt-4 ">
                 <div className="flex mb-2">

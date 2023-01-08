@@ -4,8 +4,9 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 // Import Swiper styles
 import 'swiper/css'
-import 'swiper/css/pagination'
 import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/scrollbar'
 
 import './styles.css'
 // import required modules
@@ -33,10 +34,9 @@ const Hero = () => {
     return (
         <>
             <Swiper
-                // style={{
-                //     '--swiper-navigation-color': '#fff',
-                //     '--swiper-pagination-color': '#fff',
-                // }}
+                style={{
+                    '--swiper-pagination-color': '#fff',
+                }}
                 speed={600}
                 parallax={true}
                 pagination={{
