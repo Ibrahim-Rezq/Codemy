@@ -1,35 +1,26 @@
-import React, { useRef, useState } from 'react'
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react'
-
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
-import './styles.css'
-// import required modules
-import { Parallax, Pagination, Navigation } from 'swiper'
-
-import HeroImage1 from '../../assets/hero1.jpg'
-import HeroImage2 from '../../assets/hero2.jpg'
+import { Navigation, Pagination, Parallax } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 const Hero = () => {
-    // const slides = [
-    //     {
-    //         url: 'https://img-c.udemycdn.com/notices/web_banner/slide_1_image_udlite/bf1bd00b-e65c-4d18-8b3a-0176cfbb3601.jpg',
-    //     },
-    //     {
-    //         url: '	https://img-c.udemycdn.com/notices/web_banner/slid…e_udlite/e6cc1a30-2dec-4dc5-b0f2-c5b656909d5b.jpg',
-    //     },
-    //     {
-    //         url: 'https://img-c.udemycdn.com/notices/web_banner/slide_2_image_udlite/4f292676-2067-46c0-bfc5-9dbb50ed61df.png',
-    //     },
-    //     {
-    //         url: 'https://img-c.udemycdn.com/notices/web_banner/slide_1_image_udlite/3577cbf1-9e6c-4ad8-8d67-bea392a59d56.png',
-    //     },
-    // ]
-
+    const slides = [
+        {
+            title: 'Unlock the power of your people',
+            text: 'Udemy Business is trusted by 12.5K+ companies around the world. Find out what we can do for yours',
+        },
+        {
+            title: 'Learning that gets you',
+            text: 'Skills for your present (and your future). Get started with us.',
+        },
+        {
+            title: 'Learning that gets you',
+            text: 'Skills for your present (and your future). Get started with us.',
+        },
+    ]
     return (
         <>
             <Swiper
@@ -44,50 +35,27 @@ const Hero = () => {
                 }}
                 navigation={true}
                 modules={[Parallax, Pagination, Navigation]}
-                className="mySwiper"
+                className="mySwiper w-full h-1/2 bg-dark"
             >
                 <div
                     slot="container-start"
-                    className="parallax-bg"
-                    style={{
-                        'background-image':
-                            'url(https://img-c.udemycdn.com/notices/web_banner/slide_1_image_udlite/bf1bd00b-e65c-4d18-8b3a-0176cfbb3601.jpg)',
-                    }}
                     data-swiper-parallax="-23%"
+                    className="absolute left-0 top-0 w-[130%] h-full bg-cover bg-center bg-[url(https://img-c.udemycdn.com/notices/web_banner/slide_1_image_udlite/bf1bd00b-e65c-4d18-8b3a-0176cfbb3601.jpg)]"
                 ></div>
-                <SwiperSlide>
-                    <div className="title" data-swiper-parallax="-300">
-                        Unlock the power of your people
-                    </div>
-
-                    <div className="text" data-swiper-parallax="-100">
-                        <p>
-                            Udemy Business is trusted by 12.5K+ companies around the world. Find out what we can do for
-                            yours.
-                        </p>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="title" data-swiper-parallax="-300">
-                        Learning that gets you
-                    </div>
-
-                    <div className="text" data-swiper-parallax="-100">
-                        <p>Skills for your present (and your future). Get started with us.</p>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="title" data-swiper-parallax="-300">
-                        Learning that gets you
-                    </div>
-
-                    <div className="text" data-swiper-parallax="-100">
-                        <p>
-                            Udemy Business is trusted by 12.5K+ companies around the world. Find out what we can do for
-                            yours.
-                        </p>
-                    </div>
-                </SwiperSlide>
+                {slides.map((slide) => {
+                    return (
+                        <SwiperSlide className="text-white w-full h-full flex justify-center items-center" py-10 px-6>
+                            <div>
+                                <div className="text-4xl font-[300] my-4" data-swiper-parallax="-300">
+                                    {slide.title}
+                                </div>
+                                <div className="text-lg max-w-[25rem] leading-6" data-swiper-parallax="-100">
+                                    <p> {slide.text}</p>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    )
+                })}
             </Swiper>
         </>
     )
