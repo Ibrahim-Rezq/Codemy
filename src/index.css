@@ -8,3 +8,8 @@
 .navbar a:hover{
     color: rgb(116, 46, 182);
 }
+
+.breadcrumbs > ul > li + *:before {
+    color: white;
+    opacity: 1;
+}

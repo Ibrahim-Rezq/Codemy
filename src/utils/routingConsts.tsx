@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Home } from '../pages'
+import { Home, Course } from '../pages'
 
 export const routes = [
     {
@@ -21,7 +21,7 @@ export const routes = [
     },
     {
         path: '/course/:id',
-        // element: <App />,
+        element: <Course />,
     },
     {
         path: '/cart',
