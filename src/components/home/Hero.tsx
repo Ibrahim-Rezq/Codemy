@@ -33,10 +33,10 @@ const Hero = () => {
     return (
         <>
             <Swiper
-                style={{
-                    '--swiper-navigation-color': '#fff',
-                    '--swiper-pagination-color': '#fff',
-                }}
+                // style={{
+                //     '--swiper-navigation-color': '#fff',
+                //     '--swiper-pagination-color': '#fff',
+                // }}
                 speed={600}
                 parallax={true}
                 pagination={{
@@ -50,7 +50,7 @@ const Hero = () => {
                     slot="container-start"
                     className="parallax-bg"
                     style={{
-                        'background-image':
+                        backgroundImage:
                             'url(https://img-c.udemycdn.com/notices/web_banner/slide_1_image_udlite/bf1bd00b-e65c-4d18-8b3a-0176cfbb3601.jpg)',
                     }}
                     data-swiper-parallax="-23%"
