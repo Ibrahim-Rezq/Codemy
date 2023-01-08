@@ -1,10 +1,9 @@
-// Import Swiper styles
 import 'swiper/css'
-import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
 import { Navigation, Pagination, Parallax } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import Image from '../../assets/pexels-katerina-holmes-5905706 (1).jpg'
 
 const Hero = () => {
     const slides = [
@@ -21,13 +20,13 @@ const Hero = () => {
             text: 'Skills for your present (and your future). Get started with us.',
         },
     ]
+
     return (
         <>
             <Swiper
-                // style={{
-                //     '--swiper-navigation-color': '#fff',
-                //     '--swiper-pagination-color': '#fff',
-                // }}
+                style={{
+                    '--swiper-pagination-color': '#fff',
+                }}
                 speed={600}
                 parallax={true}
                 pagination={{
@@ -40,8 +39,10 @@ const Hero = () => {
                 <div
                     slot="container-start"
                     data-swiper-parallax="-23%"
-                    className="absolute left-0 top-0 w-[130%] h-full bg-cover bg-center bg-[url(https://img-c.udemycdn.com/notices/web_banner/slide_1_image_udlite/bf1bd00b-e65c-4d18-8b3a-0176cfbb3601.jpg)]"
-                ></div>
+                    className="absolute left-0 top-0 w-[130%] h-full "
+                >
+                    <img src={Image} style={{ width: '100%', height: '100%' }} />
+                </div>
                 {slides.map((slide) => {
                     return (
                         <SwiperSlide className="text-white w-full h-full flex justify-center items-center" py-10 px-6>
