@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Container, CourseCard, SEOHead } from '../components'
+import AboutUs from '../components/home/AboutUs'
 import Hero from '../components/home/Hero'
 import { selectUser } from '../redux/features/user/userSlice'
 
@@ -15,6 +16,7 @@ export default function Home() {
                 <SEOHead title="Main Page" />
                 <Hero />
                 <CourseCard />
+                <AboutUs />
             </Container>
         </div>
     )
