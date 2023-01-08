@@ -10,8 +10,7 @@ const withAuth = (Component: any) => {
                 navigate('/join/login-popup')
             }
         })
-
-        return <Component {...props}  />
+        return <Component {...props} />
     }
 
     return Auth
