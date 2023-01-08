@@ -3,6 +3,7 @@ import 'swiper/css/navigation'
 
 import { Navigation, Pagination, Parallax } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+
 import Image from '../../assets/pexels-katerina-holmes-5905706 (1).jpg'
 
 const Hero = () => {
@@ -42,11 +43,12 @@ const Hero = () => {
                     data-swiper-parallax="-23%"
                     className="absolute left-0 top-0 w-[130%] h-full "
                 >
-                    <img src={Image} style={{ width: '100%', height: '100%' }} />
+                    <img src={Image} style={{ width: '100%', height: '100%' }} alt="Hero" />
                 </div>
                 {slides.map((slide) => {
                     return (
                         <SwiperSlide
+                            key={slide.title}
                             className="text-stone-100 w-full h-full flex justify-center items-center"
                             py-10
                             px-6

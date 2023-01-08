@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Navigation } from './components'
 
 import { routes } from './utils/routingConsts'
 

@@ -1,4 +1,5 @@
 import React from 'react'
+
 // const image = require('./imgs/about_us.webp')
 import imy from './imgs/about.jpg'
 
@@ -15,7 +16,7 @@ const AboutUs = () => {
                     </p>
                 </div>
                 <div className="w-1/2 relative">
-                    <img className="w-full relative z-10 " src={imy} alt="image about us" />
+                    <img className="w-full relative z-10 " src={imy} alt="About us" />
                     <div className="bg-indigo-900 w-full h-full absolute top-6 -left-6"></div>
                 </div>
             </div>

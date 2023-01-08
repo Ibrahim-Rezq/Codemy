@@ -24,44 +24,46 @@ const profileData = [
 
 export default function Navigation() {
     return (
-        <Container>
-            <div className="navbar bg-base-100 border-b border-gray-300">
-                <div className="flex-1">
-                    <div className="w-40">
-                        <NavigationLink path={'/'}>
-                            <img src={udemyLogo} className="object-contain  max-h-10 mx-7 my-4" alt="Udemy Logo" />
-                        </NavigationLink>
-                    </div>
-                    <div className="mx-6 w-1/2">
-                        <div className="form-control">
-                            <input
-                                type="text"
-                                placeholder="Search for everything"
-                                className="rounded-3xl bg-gray-50 focus:outline-0 input input-bordered border-zinc-700 text-zinc-700"
-                            />
+        <div>
+            <Container wide>
+                <div className="navbar bg-base-100 border-b border-gray-300">
+                    <div className="flex-1">
+                        <div className="w-40">
+                            <NavigationLink path={'/'}>
+                                <img src={udemyLogo} className="object-contain  max-h-10 mx-7 my-4" alt="Udemy Logo" />
+                            </NavigationLink>
+                        </div>
+                        <div className="mx-6 w-1/2">
+                            <div className="form-control">
+                                <input
+                                    type="text"
+                                    placeholder="Search for everything"
+                                    className="rounded-3xl bg-gray-50 focus:outline-0 input input-bordered border-zinc-700 text-zinc-700"
+                                />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="mr-8">
-                    <div className="ml-1">
-                        <NavigationLink path={'/'}>My learning</NavigationLink>
-                    </div>
-                    <WhishListDropDown />
-                    <CartDropDown />
-                    {/* <NotificationsDropDown /> */}
-                    <UserProfileDropDown />
-                </div>
-            </div>
-            <div className="navbar bg-base-100 shadow">
-                <div className="mx-12 flex justify-evenly w-full">
-                    {categories.map((category) => (
-                        <div key={category.name}>
-                            <NavigationLink path={category.href}>{category.name} </NavigationLink>
+                    <div className="mr-8">
+                        <div className="ml-1">
+                            <NavigationLink path={'/'}>My learning</NavigationLink>
                         </div>
-                    ))}
+                        <WhishListDropDown />
+                        <CartDropDown />
+                        {/* <NotificationsDropDown /> */}
+                        <UserProfileDropDown />
+                    </div>
                 </div>
-            </div>
-        </Container>
+                <div className="navbar bg-base-100 shadow p-0">
+                    <div className="mx-12 flex justify-evenly w-full">
+                        {categories.map((category) => (
+                            <div key={category.name}>
+                                <NavigationLink path={category.href}>{category.name} </NavigationLink>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </Container>
+        </div>
     )
 }
 
@@ -77,8 +79,8 @@ const WhishListDropDown = () => (
                         <div className="w-20">
                             <img src="https://placeimg.com/80/80/tech" alt="Course name" />
                         </div>
-                        <div className="ml-3 flex flex-col items-start">
-                            <h3 className="font-bold text-start">
+                        <div className="ml-3">
+                            <h3 className="font-bold text-base">
                                 <NavigationLink path={'/'}>Lorem, ipsum dolor sit amet consectetur</NavigationLink>
                             </h3>
                             <p className="text-gray-400 my-1">Robin jesper</p>
@@ -110,15 +112,15 @@ const CartDropDown = () => (
     <Dropdown icon={BsCart}>
         <button
             tabIndex={0}
-            className="mt-3 card card-compact  dropdown-content bg-base-100 shadow border border-grey-400 w-96 rounded"
+            className="mt-3  card card-compact  dropdown-content bg-base-100 shadow border border-grey-400 w-96 rounded"
         >
             <div className="card-body mt-4 ">
                 <div className="flex mb-2">
                     <div className="w-20">
                         <img src="https://placeimg.com/80/80/tech" alt="course Cart Card" />
                     </div>
-                    <div className="ml-3 flex flex-col items-start">
-                        <h3 className="font-bold text-start">
+                    <div className="ml-3">
+                        <h3 className="font-bold text-base">
                             <NavigationLink path={'/cart'}>Lorem, ipsum dolor sit amet consectetur</NavigationLink>
                         </h3>
                         <p className="text-gray-400 my-1">Robin jesper</p>
@@ -129,8 +131,8 @@ const CartDropDown = () => (
                         </p>
                     </div>
                 </div>
-                <div className="border-t">
-                    <p className="mt-4 text-start">
+                <div className="border-t ">
+                    <p className="mt-4">
                         <span className="font-bold text-xl">Total : 9.00 $</span>{' '}
                         <span className="pl-1 line-through text-gray-500">$ 10.00</span>
                     </p>
@@ -233,7 +235,7 @@ const Dropdown = ({ children, icon }: React.HTMLAttributes<HTMLElement> & { icon
 }
 const NavigationLink = ({ path, children }: React.HTMLAttributes<HTMLElement> & { path: string }) => {
     return (
-        <Link to={path}>
+        <Link className="hover:text-violet-500 transition-all duration-200" to={path}>
             {Children.map(children, (child) => (
                 <>{child}</>
             ))}
