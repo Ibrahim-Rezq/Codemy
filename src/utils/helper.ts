@@ -12,21 +12,6 @@ export function formatNumber (number : number | undefined) : string {
     return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 }
 
-/**
- * format currency 
- * @param number 
- * @param localas 
- * @param currency 
- * @returns {string} formatted currency
- */
-export function formatCurrency(number : number, localas : string, currency : string) : string {
-    return new Intl.NumberFormat(localas, 
-        { 
-            style: 'currency',
-            currency: currency,
-            
-        }).format(number);
-}
 
 export function minutesToHoursMinutes(minutesToFormat : number | undefined) : string {
     if(minutesToFormat == undefined) {
@@ -36,3 +21,14 @@ export function minutesToHoursMinutes(minutesToFormat : number | undefined) : st
     const minutes = minutesToFormat % 60;
     return `${hours}h ${minutes}m`
 }
+
+export const convertToCurrency = (number: number) => {
+    const currency = new Intl.NumberFormat('en-us', {
+        style: 'currency',
+        currency: 'EGP',
+        minimumFractionDigits: 2,
+    }).format(number)
+
+    return currency
+}
+

@@ -11,7 +11,7 @@ import {
     FaClosedCaptioning,
     FaRegPlayCircle} from 'react-icons/fa';
 import { course } from '../utils/tempData';
-import { formatNumber, formatCurrency, minutesToHoursMinutes } from '../utils/helper';
+import { formatNumber, minutesToHoursMinutes, convertToCurrency } from '../utils/helper';
 
 type CoursePropsType = {
     onSale?: boolean,
@@ -26,10 +26,10 @@ const OnSale = ({onSale} : CoursePropsType) => {
             <>
                 <div className='flex items-center'>
                     <h2 className="card-title text-3xl pr-3">
-                        {formatCurrency(course.price * (course.discount / 100) / 100, 'en-US', 'USD')}
+                        {convertToCurrency(course.price * (course.discount / 100) / 100)}
                     </h2>
                     <h4 className='text-lg text-gray-400 line-through'>
-                        {formatCurrency(course.price / 100, 'en-US', 'USD')}
+                        {convertToCurrency(course.price / 100)}
                     </h4>
                 </div>
                 <p className='text-base font-semibold text-gray-500'>{course.discount}% off</p>
@@ -38,7 +38,7 @@ const OnSale = ({onSale} : CoursePropsType) => {
     }
     return (
         <h2 className="card-title text-2xl pr-3">
-            {formatCurrency(course.price / 100, 'en-US', 'USD')}
+            {convertToCurrency(course.price / 100)}
         </h2>
     );
 }
