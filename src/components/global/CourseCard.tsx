@@ -21,11 +21,11 @@ const CourseCard = ({
     isBestSeller = true,
     isDiscount = true,
     discount = 10,
-    wide = false,
+    wide = true,
 }: CourseCardPropsType) => {
     // Wide Version of the card
     const WideVersion = () => (
-        <div className={'flex flex-row max-w-[720px] w-full border-2 justify-between p-2'}>
+        <div className={'flex flex-row w-full border-b-2 justify-between p-2 px-4'}>
             <div className="flex flex-row gap-4 items-start">
                 <div>
                     <CardImage imageURL={imageURL} title={title} />
@@ -34,16 +34,18 @@ const CourseCard = ({
                     <CardTitle title={title} />
                     <CardInstructorName instructorName={instructorName} />
                     <CardRatings totalRatings={totalRatings} />
-                    <CardPrice price={price} discount={discount} isDiscount={isDiscount} />
                 </div>
             </div>
-            {isBestSeller ? <CardBestSeller /> : null}
+            <div className="flex flex-col items-end">
+                <CardPrice price={price} discount={discount} isDiscount={isDiscount} />
+                {isBestSeller ? <CardBestSeller /> : null}
+            </div>
         </div>
     )
 
     if (wide) return <WideVersion />
     return (
-        <div className={'border-2 p-2 max-w-[260px] w-full flex flex-col items-start'}>
+        <div className={'p-2 max-w-[260px] w-full flex flex-col items-start'}>
             <CardImage imageURL={imageURL} title={title} />
             <div className="mt-[0.4rem] mb-[0.1rem]">
                 <CardTitle title={title} />
@@ -71,7 +73,13 @@ const CardInstructorName = ({ instructorName }: CourseCardPropsType) => (
 )
 
 const CardRatings = ({ totalRatings }: CourseCardPropsType) => (
-    <h1 className="text-sm text-gray-400">stars -- ({totalRatings}+)</h1>
+    <h1 className="text-sm text-gray-400">
+        {
+            <>
+                <Stars rating={2} /> <>({totalRatings}+)</>
+            </>
+        }
+    </h1>
 )
 
 const CardPrice = ({ price, isDiscount, discount }: CourseCardPropsType) =>
@@ -84,6 +92,39 @@ const CardPrice = ({ price, isDiscount, discount }: CourseCardPropsType) =>
         <h1 className="text-md font-bold text-black">{convertToCurrency(price ?? 0)}</h1>
     )
 
-const CardBestSeller = () => <h1 className="bg-yellow-200 self-start text-black text-md font-bold p-1">Best Seller</h1>
+const CardBestSeller = () => (
+    <h1 className="bg-yellow-200 self-start text-black text-md font-bold p-1 ml-auto">Best Seller</h1>
+)
+const Stars = ({ rating }: { rating: number }) => {
+    return (
+        <div className="rating rating-sm rating-half">
+            {rating >= 0 &&
+                [...Array(10)].map((x, i) => {
+                    if (i % 2 === 0) {
+                        return (
+                            <input
+                                key={i}
+                                type="radio"
+                                name="rating-10"
+                                className="bg-yellow-500 mask mask-star-2 mask-half-1"
+                                checked={rating * 2 === i}
+                                disabled
+                            />
+                        )
+                    } else
+                        return (
+                            <input
+                                key={i}
+                                type="radio"
+                                name="rating-10"
+                                className="bg-yellow-500 mask mask-star-2 mask-half-2"
+                                checked={rating * 2 === i}
+                                disabled
+                            />
+                        )
+                })}
+        </div>
+    )
+}
 
 export default CourseCard
