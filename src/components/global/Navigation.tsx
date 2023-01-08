@@ -24,46 +24,44 @@ const profileData = [
 
 export default function Navigation() {
     return (
-        <div>
-            <Container>
-                <div className="navbar bg-base-100 border-b border-gray-300">
-                    <div className="flex-1">
-                        <div className="w-40">
-                            <NavigationLink path={'/'}>
-                                <img src={udemyLogo} className="object-contain  max-h-10 mx-7 my-4" alt="Udemy Logo" />
-                            </NavigationLink>
-                        </div>
-                        <div className="mx-6 w-1/2">
-                            <div className="form-control">
-                                <input
-                                    type="text"
-                                    placeholder="Search for everything"
-                                    className="rounded-3xl bg-gray-50 focus:outline-0 input input-bordered border-zinc-700 text-zinc-700"
-                                />
-                            </div>
-                        </div>
+        <Container>
+            <div className="navbar bg-base-100 border-b border-gray-300">
+                <div className="flex-1">
+                    <div className="w-40">
+                        <NavigationLink path={'/'}>
+                            <img src={udemyLogo} className="object-contain  max-h-10 mx-7 my-4" alt="Udemy Logo" />
+                        </NavigationLink>
                     </div>
-                    <div className="mr-8">
-                        <div className="ml-1">
-                            <NavigationLink path={'/'}>My learning</NavigationLink>
+                    <div className="mx-6 w-1/2">
+                        <div className="form-control">
+                            <input
+                                type="text"
+                                placeholder="Search for everything"
+                                className="rounded-3xl bg-gray-50 focus:outline-0 input input-bordered border-zinc-700 text-zinc-700"
+                            />
                         </div>
-                        <WhishListDropDown />
-                        <CartDropDown />
-                        {/* <NotificationsDropDown /> */}
-                        <UserProfileDropDown />
                     </div>
                 </div>
-                <div className="navbar bg-base-100 shadow">
-                    <div className="mx-12 flex justify-evenly w-full">
-                        {categories.map((category) => (
-                            <div key={category.name}>
-                                <NavigationLink path={category.href}>{category.name} </NavigationLink>
-                            </div>
-                        ))}
+                <div className="mr-8">
+                    <div className="ml-1">
+                        <NavigationLink path={'/'}>My learning</NavigationLink>
                     </div>
+                    <WhishListDropDown />
+                    <CartDropDown />
+                    {/* <NotificationsDropDown /> */}
+                    <UserProfileDropDown />
                 </div>
-            </Container>
-        </div>
+            </div>
+            <div className="navbar bg-base-100 shadow">
+                <div className="mx-12 flex justify-evenly w-full">
+                    {categories.map((category) => (
+                        <div key={category.name}>
+                            <NavigationLink path={category.href}>{category.name} </NavigationLink>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </Container>
     )
 }
 

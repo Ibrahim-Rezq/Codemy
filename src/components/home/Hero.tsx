@@ -24,10 +24,10 @@ const Hero = () => {
     return (
         <>
             <Swiper
-                style={{
-                    '--swiper-navigation-color': '#fff',
-                    '--swiper-pagination-color': '#fff',
-                }}
+                // style={{
+                //     '--swiper-navigation-color': '#fff',
+                //     '--swiper-pagination-color': '#fff',
+                // }}
                 speed={600}
                 parallax={true}
                 pagination={{

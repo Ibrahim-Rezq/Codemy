@@ -9,7 +9,7 @@ export const routes = [
         element: <NavbarWrapper />,
         children: [
             {
-                path: '/',
+                path: '',
                 element: <Home />,
             },
             {
@@ -54,7 +54,7 @@ export const routes = [
 
 export function NavbarWrapper() {
     return (
-        <div>
+        <div className="">
             <Navigation />
             <Outlet />
         </div>
