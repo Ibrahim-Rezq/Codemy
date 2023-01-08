@@ -21,7 +21,7 @@ const CourseCard = ({
     isBestSeller = true,
     isDiscount = true,
     discount = 10,
-    wide = false,
+    wide = true,
 }: CourseCardPropsType) => {
     // Wide Version of the card
     const WideVersion = () => (
