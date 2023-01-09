@@ -10,7 +10,10 @@ const withAuth = (Component: any) => {
                 navigate('/join/login-popup')
             }
         })
+<<<<<<< HEAD
+=======
 
+>>>>>>> e8bd4b907479452e05dc036b357fecf7d540cca6
         return <Component {...props} />
     }
 
