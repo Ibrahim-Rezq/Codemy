@@ -71,7 +71,6 @@ export const routes = [
         ],
     },
 ]
-
 export function NavbarWrapper() {
     return (
         <div className="">

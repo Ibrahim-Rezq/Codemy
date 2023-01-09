@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { BsFacebook } from 'react-icons/bs'
 import { BsApple } from 'react-icons/bs'
 import { FcGoogle } from 'react-icons/fc'
@@ -5,12 +6,15 @@ import { Link } from 'react-router-dom'
 
 import InputField from '../global/InputField'
 import Container from '../UI/Container'
+
+const authBoxArr = [
+    { icon: FcGoogle, type: 'google' },
+    { icon: BsFacebook, type: 'facebook', fill: '#1877f2' },
+    { icon: BsApple, type: 'apple' },
+]
+
 function SignIn() {
-    const authBoxArr = [
-        { icon: FcGoogle, type: 'google' },
-        { icon: BsFacebook, type: 'facebook', fill: '#1877f2' },
-        { icon: BsApple, type: 'apple' },
-    ]
+    const [passwordShown, setPasswordShown] = useState(false)
     return (
         <div className="sign-in ">
             <Container>
