@@ -1,11 +1,31 @@
 import { Outlet } from 'react-router-dom'
-
 import { ForgotPassword, Navigation, SignIn, SignUp } from '../components'
-import { Cart, Home, Join, User } from '../pages'
+import { Cart, Home, Join, User, Course } from '../pages'
 
 export const routes = [
     {
         path: '/',
+        element: <Home />,
+    },
+    {
+        path: '/login',
+        // element: <App />,
+    },
+    {
+        path: '/register',
+        // element: <App />,
+    },
+    {
+        path: '/my-learning',
+        // element: <App />,
+    },
+    {
+        path: '/course/:id',
+        element: <Course />,
+    },
+    {
+        path: '/cart',
+        // element: <App />,
         element: <NavbarWrapper />,
         children: [
             {
@@ -42,7 +62,7 @@ export const routes = [
             },
             {
                 path: '/course/:id',
-                // element: <App />,
+                element:<Course />,
             },
             {
                 path: '/cart',

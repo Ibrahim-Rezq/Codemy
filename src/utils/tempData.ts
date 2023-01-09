@@ -50,7 +50,7 @@ export const course = {
     lecturesCount: 10,
     lectures: [{ id: 1 }],
     reviews: [{ id: 1 }],
-    time: 6000, //in minutes
+    time: 6050, //in minutes
     progress: 16, // in percent
     students: 5900,
     instructor: 'mohamed',

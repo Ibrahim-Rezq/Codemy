@@ -29,7 +29,7 @@ const Home = () => {
                     {[...Array(5)].map(() => {
                         return (
                             <>
-                                <CourseCard wide={false} />
+                                <CourseCard />
                             </>
                         )
                     })}
@@ -39,7 +39,7 @@ const Home = () => {
                     {[...Array(5)].map(() => {
                         return (
                             <>
-                                <CourseCard wide={false} />
+                                <CourseCard />
                             </>
                         )
                     })}
