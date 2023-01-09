@@ -5,7 +5,6 @@ import { Container, CourseCard, SEOHead } from '../components'
 import AboutUs from '../components/home/AboutUs'
 import Hero from '../components/home/Hero'
 import { selectUser } from '../redux/features/user/userSlice'
-import withAuth from '../utils/withAuth'
 
 const Home = () => {
     const state = useSelector(selectUser)

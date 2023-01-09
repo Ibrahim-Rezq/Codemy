@@ -29,7 +29,7 @@ function SignIn() {
                             <p>Continue with {box.type}</p>
                         </div>
                     ))}
-                    <InputField type={'email'}  />
+                    <InputField type={'email'} />
                     <InputField type={'password'} />
                     <button className="btn btn-primary rounded-none	normal-case w-full  text-base	">Log In</button>
                 </form>
