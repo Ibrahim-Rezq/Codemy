@@ -43,7 +43,7 @@ const CourseCard = ({
 
     // if (wide) return <WideVersion />
     return (
-        <div className={'border-2 p-2 max-w-[260px] w-full flex flex-col items-start'}>
+        <div className={'p-2 max-w-[260px] w-full flex flex-col items-start'}>
             <CardImage imageURL={imageURL} title={title} />
             <div className="mt-[0.4rem] mb-[0.1rem]">
                 <CardTitle title={title} />
@@ -71,7 +71,13 @@ const CardInstructorName = ({ instructorName }: CourseCardPropsType) => (
 )
 
 const CardRatings = ({ totalRatings }: CourseCardPropsType) => (
-    <h1 className="text-sm text-gray-400">stars -- ({totalRatings}+)</h1>
+    <h1 className="text-sm text-gray-400">
+        {
+            <>
+                <Stars rating={2} /> <>({totalRatings}+)</>
+            </>
+        }
+    </h1>
 )
 
 const CardPrice = ({ price, isDiscount, discount }: CourseCardPropsType) =>
@@ -84,6 +90,39 @@ const CardPrice = ({ price, isDiscount, discount }: CourseCardPropsType) =>
         <h1 className="text-md font-bold text-black">{convertToCurrency(price ?? 0)}</h1>
     )
 
-const CardBestSeller = () => <h1 className="bg-yellow-200 self-start text-black text-md font-bold p-1">Best Seller</h1>
+const CardBestSeller = () => (
+    <h1 className="bg-yellow-200 self-start text-black text-md font-bold p-1 ml-auto">Best Seller</h1>
+)
+const Stars = ({ rating }: { rating: number }) => {
+    return (
+        <div className="rating rating-sm rating-half">
+            {rating >= 0 &&
+                [...Array(10)].map((x, i) => {
+                    if (i % 2 === 0) {
+                        return (
+                            <input
+                                key={i}
+                                type="radio"
+                                name="rating-10"
+                                className="bg-yellow-500 mask mask-star-2 mask-half-1"
+                                checked={rating * 2 === i}
+                                disabled
+                            />
+                        )
+                    } else
+                        return (
+                            <input
+                                key={i}
+                                type="radio"
+                                name="rating-10"
+                                className="bg-yellow-500 mask mask-star-2 mask-half-2"
+                                checked={rating * 2 === i}
+                                disabled
+                            />
+                        )
+                })}
+        </div>
+    )
+}
 
 export default CourseCard

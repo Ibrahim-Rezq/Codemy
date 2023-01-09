@@ -7,3 +7,19 @@
 .navbarLinkAnimate {
     @apply hover:text-violet-500 transition-all duration-200;
 }
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: rgb(241 245 249);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgb(30 41 59);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: rgb(51 65 85);
+}
