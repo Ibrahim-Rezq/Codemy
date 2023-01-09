@@ -5,45 +5,52 @@ import { Cart, Home, Join, User, Course } from '../pages'
 export const routes = [
     {
         path: '/',
-        element: <Home />,
-    },
-    {
-        path: '/join',
-        element: <Join />,
+        element: <NavbarWrapper />,
         children: [
             {
-                path: 'signup-popup',
-                element: <SignUp />,
+                path: '',
+                element: <Home />,
             },
             {
-                path: 'login-popup',
-                element: <SignIn />,
+                path: '/join',
+                element: <Join />,
+                children: [
+                    {
+                        path: 'signup-popup',
+                        element: <SignUp />,
+                    },
+                    {
+                        path: 'login-popup',
+                        element: <SignIn />,
+                    },
+                ],
             },
-        ],
-    },
-    {
-        path: '/user',
-        element: <User />,
-        children: [
             {
-                path: 'forgot-password',
-                element: <ForgotPassword />,
+                path: '/user',
+                element: <User />,
+                children: [
+                    {
+                        path: 'forgot-password',
+                        element: <ForgotPassword />,
+                    },
+                ],
+            },
+            {
+                path: '/my-learning',
+                // element: <App />,
+            },
+            {
+                path: '/course/:id',
+                element: <Course />,
+            },
+            {
+                path: '/cart',
+                element: <Cart />,
             },
         ],
-    },
-    {
-        path: '/my-learning',
-        // element: <App />,
-    },
-    {
-        path: '/course/:id',
-        element: <Course />,
-    },
-    {
-        path: '/cart',
-        element: <Cart />,
     },
 ]
+
 export function NavbarWrapper() {
     return (
         <div className="">
