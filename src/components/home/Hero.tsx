@@ -41,7 +41,7 @@ const Hero = () => {
                 <div
                     slot="container-start"
                     data-swiper-parallax="-23%"
-                    className="absolute left-0 top-0 w-[130%] h-full "
+                    className="absolute left-0 top-0 w-[130%] h-full"
                 >
                     <img src={Image} style={{ width: '100%', height: '100%' }} alt="Hero" />
                 </div>
