@@ -8,12 +8,28 @@ export const routes = [
         element: <Home />,
     },
     {
-        path: '/login',
-        // element: <App />,
+        path: '/join',
+        element: <Join />,
+        children: [
+            {
+                path: 'signup-popup',
+                element: <SignUp />,
+            },
+            {
+                path: 'login-popup',
+                element: <SignIn />,
+            },
+        ],
     },
     {
-        path: '/register',
-        // element: <App />,
+        path: '/user',
+        element: <User />,
+        children: [
+            {
+                path: 'forgot-password',
+                element: <ForgotPassword />,
+            },
+        ],
     },
     {
         path: '/my-learning',
@@ -25,50 +41,7 @@ export const routes = [
     },
     {
         path: '/cart',
-        // element: <App />,
-        element: <NavbarWrapper />,
-        children: [
-            {
-                path: '',
-                element: <Home />,
-            },
-            {
-                path: '/join',
-                element: <Join />,
-                children: [
-                    {
-                        path: 'signup-popup',
-                        element: <SignUp />,
-                    },
-                    {
-                        path: 'login-popup',
-                        element: <SignIn />,
-                    },
-                ],
-            },
-            {
-                path: '/user',
-                element: <User />,
-                children: [
-                    {
-                        path: 'forgot-password',
-                        element: <ForgotPassword />,
-                    },
-                ],
-            },
-            {
-                path: '/my-learning',
-                // element: <App />,
-            },
-            {
-                path: '/course/:id',
-                element:<Course />,
-            },
-            {
-                path: '/cart',
-                element: <Cart />,
-            },
-        ],
+        element: <Cart />,
     },
 ]
 export function NavbarWrapper() {
