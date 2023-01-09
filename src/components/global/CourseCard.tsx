@@ -16,32 +16,32 @@ const CourseCard = ({
     imageURL = 'https://reactjs.org/logo-og.png',
     title = 'React Udemy Clone',
     instructorName = 'Saif Mohamed',
-    totalRatings = 1200.0,
+    totalRatings = 1200,
     price = 1200,
     isBestSeller = true,
     isDiscount = true,
     discount = 10,
-    wide = true,
+    wide = false,
 }: CourseCardPropsType) => {
     // Wide Version of the card
-    // const WideVersion = () => (
-    //     <div className={'flex flex-row max-w-[720px] w-full border-2 justify-between p-2'}>
-    //         <div className="flex flex-row gap-4 items-start">
-    //             <div>
-    //                 <CardImage imageURL={imageURL} title={title} />
-    //             </div>
-    //             <div className="flex flex-col h-full">
-    //                 <CardTitle title={title} />
-    //                 <CardInstructorName instructorName={instructorName} />
-    //                 <CardRatings totalRatings={totalRatings} />
-    //                 <CardPrice price={price} discount={discount} isDiscount={isDiscount} />
-    //             </div>
-    //         </div>
-    //         {isBestSeller ? <CardBestSeller /> : null}
-    //     </div>
-    // )
+    const WideVersion = () => (
+        <div className={'flex flex-row max-w-[720px] w-full border-2 justify-between p-2'}>
+            <div className="flex flex-row gap-4 items-start">
+                <div>
+                    <CardImage imageURL={imageURL} title={title} />
+                </div>
+                <div className="flex flex-col h-full">
+                    <CardTitle title={title} />
+                    <CardInstructorName instructorName={instructorName} />
+                    <CardRatings totalRatings={totalRatings} />
+                    <CardPrice price={price} discount={discount} isDiscount={isDiscount} />
+                </div>
+            </div>
+            {isBestSeller ? <CardBestSeller /> : null}
+        </div>
+    )
 
-    // if (wide) return <WideVersion />
+    if (wide) return <WideVersion />
     return (
         <div className={'p-2 max-w-[260px] w-full flex flex-col items-start'}>
             <CardImage imageURL={imageURL} title={title} />
@@ -74,7 +74,7 @@ const CardRatings = ({ totalRatings }: CourseCardPropsType) => (
     <h1 className="text-sm text-gray-400">
         {
             <>
-                <Stars rating={2} /> <>({totalRatings}+)</>
+                <Stars rating={317} /> <>({totalRatings}+)</>
             </>
         }
     </h1>
