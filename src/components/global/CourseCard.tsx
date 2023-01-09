@@ -93,6 +93,7 @@ const CardPrice = ({ price, isDiscount, discount }: CourseCardPropsType) =>
 const CardBestSeller = () => (
     <h1 className="bg-yellow-200 self-start text-black text-md font-bold p-1 ml-auto">Best Seller</h1>
 )
+
 const Stars = ({ rating }: { rating: number }) => {
     return (
         <div className="rating rating-sm rating-half">
