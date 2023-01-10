@@ -48,8 +48,21 @@ export const course = {
     ratingStars: 4.5,
     rating: 1902,
     lecturesCount: 10,
-    lectures: [{ id: 1 }],
+    lectures: [
+        { id: 1, text: 'Course Structure and projectes', time: '5:35'},
+        { id: 2, text: 'Setting up our code editor', time: '9:20'},
+        { id: 3, text: 'Your Very First Webpage!', time: '15:00'},
+    ],
     reviews: [{ id: 1 }],
+    whatYouWellLearn: [
+        {id: 1, text: 'Create a React js project from scratch'},
+        {id: 2, text: 'Use Firebase auth for complete authentication'},
+        {id: 3, text: 'Work with latest versions like React js 18, Firebase 9 and Tailwind CSS 3'},
+        {id: 4, text: 'Add forgot password functionality using Firebase auth'},
+        {id: 5, text: 'Learn how to sign up/in the users using username/password and Google oAuth using Firebase auth' },
+        {id: 6, text: 'Use Firebase Firestore to store and fetch data' },
+        {id: 7, text: 'Use Firebase auth for complete authentication'}
+    ],
     time: 6050, //in minutes
     progress: 16, // in percent
     students: 5900,
