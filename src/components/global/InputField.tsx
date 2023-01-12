@@ -3,6 +3,7 @@ import { FaEye } from 'react-icons/fa'
 
 function InputField({ type }: { type: string }) {
     const [passwordShown, setPasswordShown] = useState(false)
+
     return (
         <div className="relative w-full flex border border-black">
             <input

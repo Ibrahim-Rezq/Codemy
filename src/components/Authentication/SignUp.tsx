@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 
 import InputField from '../global/InputField'
 import Container from '../UI/Container'
+
 function SignUp() {
     return (
         <div className="sign-up">
