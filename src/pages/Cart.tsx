@@ -2,9 +2,9 @@ import { BsX } from 'react-icons/bs'
 
 import { Button, CourseCard, PageTitle } from '../components'
 import { Container } from '../components'
-
+import { Course, course } from '../utils/tempData'
 type CartProps = {
-    cartItems?: number[]
+    cartItems?: Course[]
     totalAmount?: number
     total?: number
     discountTotal?: number
@@ -12,7 +12,7 @@ type CartProps = {
 }
 
 const Cart = ({
-    cartItems = [1],
+    cartItems = [course],
     totalAmount = 500,
     total = 500,
     discountTotal = 0,
@@ -27,7 +27,7 @@ const Cart = ({
                         <div className="subtitle font-bold">1 Course in Cart</div>
                         <hr className="border-stone-400 border-solid w-full my-4" />
                         {cartItems.map((item) => {
-                            return <CourseCard key={item} />
+                            return <CourseCard key={item.id} />
                         })}
                     </div>
                     <CartCheckoutData
