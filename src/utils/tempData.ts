@@ -7,6 +7,7 @@ export const user: User = {
     courses: [{ id: '1' }],
     type: 'user',
 }
+
 export const instructor: User = {
     id: '1',
     name: 'mohamed',

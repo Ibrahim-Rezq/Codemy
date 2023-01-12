@@ -1,17 +1,16 @@
 import { Link } from 'react-router-dom'
 
 import InputField from '../global/InputField'
+import Container from '../UI/Container'
 
 function ForgotPassword() {
     return (
-        <div className="forgot-password ">
-            <div className="container ">
+        <Container>
+            <div className="forgot-password">
                 <form className="form w-96 flex flex-col gap-3 items-center mt-16 m-auto">
                     <h2 className="font-bold text-center">Forgot Password</h2>
                     <InputField type={'email'} />
-                    <button className="btn btn-primary rounded-none	normal-case w-full  text-base	">
-                        Reset Password
-                    </button>
+                    <button className="btn btn-primary rounded-none	normal-case w-full text-base">Reset Password</button>
                 </form>
                 <p className="text-center mt-4">
                     or{' '}
@@ -20,7 +19,7 @@ function ForgotPassword() {
                     </Link>
                 </p>
             </div>
-        </div>
+        </Container>
     )
 }
 
