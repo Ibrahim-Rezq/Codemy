@@ -25,7 +25,7 @@ const CourseCard = ({
 }: CourseCardPropsType) => {
     // Wide Version of the card
     const WideVersion = () => (
-        <div className={'flex flex-row max-w-[720px] w-full border-2 justify-between p-2'}>
+        <div className={'flex flex-row w-full border-b-2 justify-between p-2 px-4'}>
             <div className="flex flex-row gap-4 items-start">
                 <div>
                     <CardImage imageURL={imageURL} title={title} />
@@ -37,7 +37,10 @@ const CourseCard = ({
                     <CardPrice price={price} discount={discount} isDiscount={isDiscount} />
                 </div>
             </div>
-            {isBestSeller ? <CardBestSeller /> : null}
+            <div className="flex flex-col items-end">
+                <CardPrice price={price} discount={discount} isDiscount={isDiscount} />
+                {isBestSeller ? <CardBestSeller /> : null}
+            </div>{' '}
         </div>
     )
 
@@ -74,7 +77,7 @@ const CardRatings = ({ totalRatings }: CourseCardPropsType) => (
     <h1 className="text-sm text-gray-400">
         {
             <>
-                <Stars rating={317} /> <>({totalRatings}+)</>
+                <Stars rating={2} /> <>({totalRatings}+)</>
             </>
         }
     </h1>
