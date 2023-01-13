@@ -1,18 +1,19 @@
-import { useParams } from 'react-router-dom'
 import {
+    FaCheck,
+    FaClosedCaptioning,
+    FaInfinity,
     FaInfoCircle,
     FaLanguage,
-    FaCheck,
+    FaMobileAlt,
     FaPlayCircle,
     FaRegHeart,
-    FaTv,
-    FaInfinity,
-    FaMobileAlt,
-    FaClosedCaptioning,
     FaRegPlayCircle,
+    FaTv,
 } from 'react-icons/fa'
+import { useParams } from 'react-router-dom'
+
+import { convertToCurrency, formatNumber, minutesToHoursMinutes } from '../utils/helper'
 import { course } from '../utils/tempData'
-import { formatNumber, minutesToHoursMinutes, convertToCurrency } from '../utils/helper'
 
 type CoursePropsType = {
     onSale?: boolean
@@ -78,15 +79,9 @@ const SideCard = ({ time }: CoursePropsType) => {
                     </li>
                 </ul>
                 <div className="flex justify-between">
-                    <a href="#" className="text-sm font-semibold">
-                        Share
-                    </a>
-                    <a href="#" className="text-sm font-semibold">
-                        Gift this course
-                    </a>
-                    <a href="#" className="text-sm font-semibold">
-                        Apply Coupon
-                    </a>
+                    <p className="text-sm font-semibold">Share</p>
+                    <p className="text-sm font-semibold">Gift this course</p>
+                    <p className="text-sm font-semibold">Apply Coupon</p>
                 </div>
             </div>
         </div>
@@ -108,9 +103,7 @@ const Rating = ({ rating, ratingStars }: CoursePropsType) => {
                     return <RatingElement key={i} checked={i % stars == 0} />
                 }
             })}
-            <a href="#" className="text-purple-500 ml-3 text-sm">
-                ({formatNumber(rating)})
-            </a>
+            <p className="text-purple-500 ml-3 text-sm">({formatNumber(rating)})</p>
         </div>
     )
 }
@@ -118,7 +111,7 @@ const Rating = ({ rating, ratingStars }: CoursePropsType) => {
 const WhatYouWellLearn = ({ whatYouWellLearn }: CoursePropsType) => {
     return (
         <div className="border p-5">
-            <h1 className="text-2xl font-bold mb-3">What you'll learn</h1>
+            <h1 className="text-2xl font-bold mb-3">What you&apos;ll learn</h1>
             <ul className="text-sm flex flex-wrap">
                 {whatYouWellLearn?.map((data) => (
                     <li key={data.id} className="flex items-baseline w-1/2">
@@ -143,7 +136,7 @@ const CourseContent = ({ lectures, time }: CoursePropsType) => {
                 </button>
             </div>
             <div>
-                <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100">
+                <div className="collapse collapse-arrow border border-base-300 bg-base-100">
                     <input type="checkbox" className="peer" />
                     <div className="collapse-title text-lg font-semibold bg-gray-100 text-black">
                         <div className="flex justify-between items-center">
@@ -174,7 +167,7 @@ const BestSeller = () => (
 )
 
 export default function Course() {
-    let { id } = useParams()
+    const { id } = useParams()
 
     return (
         <>
@@ -183,13 +176,13 @@ export default function Course() {
                     <div className="text-sm breadcrumbs">
                         <ul className="text-purple-500 font-semibold">
                             <li>
-                                <a href="#">Development</a>
+                                <p>Development</p>
                             </li>
                             <li>
-                                <a href="#">Web Development</a>
+                                <p>Web Development</p>
                             </li>
                             <li>
-                                <a href="#">Javascript</a>
+                                <p>Javascript</p>
                             </li>
                         </ul>
                     </div>
@@ -203,10 +196,7 @@ export default function Course() {
                         <span className="text-white text-sm">{formatNumber(course.students)} students</span>
                     </div>
                     <div className="text-white text-sm mb-3">
-                        Created by{' '}
-                        <a href="#" className="text-purple-500 underline">
-                            {course.instructor}
-                        </a>
+                        Created by <p className="text-purple-500 underline">{course.instructor}</p>
                     </div>
 
                     <div className="flex text-white text-sm">
@@ -221,10 +211,7 @@ export default function Course() {
                         <div className="flex items-center ml-5">
                             <FaClosedCaptioning />
                             <span className="pl-2">
-                                English [CC], Arabic[Auto],{' '}
-                                <a className="text-purple-500 underline" href="#">
-                                    13 more
-                                </a>
+                                English [CC], Arabic[Auto], <p className="text-purple-500 underline">13 more</p>
                             </span>
                         </div>
                     </div>
@@ -238,10 +225,7 @@ export default function Course() {
                         <h3 className="font-bold">Top companies offer this course to their employees</h3>
                         <p className="text-sm">
                             This course was selected for our collection of top-rated courses trusted by businesses
-                            worldwide.{' '}
-                            <a className="underline text-purple-500" href="#">
-                                Learn more
-                            </a>
+                            worldwide. <p className="underline text-purple-500">Learn more</p>
                         </p>
                     </div>
 

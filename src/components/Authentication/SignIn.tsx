@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { BsFacebook } from 'react-icons/bs'
 import { BsApple } from 'react-icons/bs'
 import { FcGoogle } from 'react-icons/fc'
@@ -14,7 +13,6 @@ const authBoxArr = [
 ]
 
 function SignIn() {
-    const [passwordShown, setPasswordShown] = useState(false)
     return (
         <div className="sign-in ">
             <Container>

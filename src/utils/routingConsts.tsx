@@ -3,8 +3,7 @@ import { loadStripe } from '@stripe/stripe-js'
 import { Outlet } from 'react-router-dom'
 
 import { ForgotPassword, Navigation, SignIn, SignUp } from '../components'
-
-import { Cart, Checkout, Home, Join, User, Course } from '../pages'
+import { Cart, Checkout, Course, Home, Join, User } from '../pages'
 
 const promise = loadStripe(
     'pk_test_51LHoCuCajsSYQyt62Mk7QQpfFB02M0WlxvV2ChvnuLC53AdryXEeCz6IMnrOULpEZxywKLwccWcqNF4EF5Bzgjob00gMQhTwWR',

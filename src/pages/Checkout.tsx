@@ -1,9 +1,9 @@
-import React, { FormEventHandler, useEffect, useState } from 'react'
-import { Container, PageTitle } from '../components'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
+import axios from 'axios'
+import { FormEventHandler, useEffect, useState } from 'react'
 import CurrencyFormat from 'react-currency-format'
 
-import axios from 'axios'
+import { Container, PageTitle } from '../components'
 
 const CHECKOUT_BASE_URI = 'https://us-central1-saif-d8a42.cloudfunctions.net/app'
 
