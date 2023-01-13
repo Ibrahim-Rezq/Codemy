@@ -8,7 +8,7 @@ import axios from 'axios'
 const CHECKOUT_BASE_URI = 'https://us-central1-saif-d8a42.cloudfunctions.net/app'
 
 const Checkout = () => {
-    // const { cartItems } = useSelector(state => state.cart) -- This is just an imagination of how we'll get the cart items from redux
+    // const { cartItems } = useSelector(state => state.cart) -- ## This is just an imagination of how we'll get the cart items from redux
     const [error, setError] = useState(null)
     const [processing, setProcessing] = useState(false)
     const [disabled, setDisabled] = useState(true)
@@ -22,23 +22,18 @@ const Checkout = () => {
         e.preventDefault()
         setProcessing(true)
 
-        const payload = await stripe
-            .confirmCardPayment(clientSecret, {
-                payment_method: {
-                    card: elements.getElement(CardElement),
-                },
-            })
-            .then(({ paymentIntent }: any) => {
-                setSucceeded(true)
-                setError(null)
-                setProcessing(false)
+        const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: elements.getElement(CardElement),
+            },
+        })
 
-                // ## todo: clear the cart store
-
-                alert('Your Order has been made successfully')
-
-                // ## todo: redirect to homepage
-            })
+        setSucceeded(true)
+        setError(null)
+        setProcessing(false)
+        // ## todo: clear the cart store
+        alert(`Your Order has been made successfully --  ${JSON.stringify(paymentIntent)}`)
+        // ## todo: redirect to homepage
     }
 
     // ## Handling whenever you edit credit card details at the <CardElement />
@@ -55,6 +50,8 @@ const Checkout = () => {
                 {},
                 { params: { total: 120000 } }, // ## total needs to be updated as our cart total
             )
+
+            // Client Secret to be sent to stripe
             setClientSecret(res.data.clientSecret)
         }
 
