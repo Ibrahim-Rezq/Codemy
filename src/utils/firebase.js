@@ -6,13 +6,12 @@ import { initializeApp } from 'firebase/app'
 //import { } from 'firebase/auth';
 
 const firebaseConfig = {
-    apiKey: 'AIzaSyDfo1PrCJPGzLpith9hziZmN-83wrDoZeQ',
-    authDomain: 'codemy-391.firebaseapp.com',
-    projectId: 'codemy-391',
-    storageBucket: 'codemy-391.appspot.com',
-    messagingSenderId: '776638981550',
-    appId: '1:776638981550:web:2b05a04e037386b958943f',
-    measurementId: 'G-ELMYX4D1KB',
+    apiKey: 'AIzaSyA8EEsPA_dqx04K_v7fMTAOtYg4GJvF4Gs',
+    authDomain: 'codemy-e5921.firebaseapp.com',
+    projectId: 'codemy-e5921',
+    storageBucket: 'codemy-e5921.appspot.com',
+    messagingSenderId: '501982173086',
+    appId: '1:501982173086:web:738eba89e349a7b87de88f',
 }
 
 const app = initializeApp(firebaseConfig)
