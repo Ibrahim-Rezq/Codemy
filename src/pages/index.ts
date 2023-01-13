@@ -5,6 +5,6 @@ import Home from './Home'
 import Course from './Course'
 import Join from './Join'
 import User from './User'
+import Checkout from './Checkout'
 
-export { Cart, Home, Join, User, Course }
-
+export { Cart, Home, Checkout, Join, User, Course }

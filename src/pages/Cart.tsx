@@ -3,6 +3,7 @@ import { BsX } from 'react-icons/bs'
 import { Button, CourseCard, PageTitle } from '../components'
 import { Container } from '../components'
 import { Course, course } from '../utils/tempData'
+
 type CartProps = {
     cartItems?: Course[]
     totalAmount?: number
@@ -55,6 +56,7 @@ const CartCheckoutData = ({ total, discountTotal, discountCode }: CartProps) => 
         </div>
     )
 }
+
 const CartDiscounts = ({ discountCode }: CartProps) => {
     return (
         <div className="m-2">
@@ -80,6 +82,7 @@ const CartDiscounts = ({ discountCode }: CartProps) => {
         </div>
     )
 }
+
 const CartTotal = ({ discountTotal, total }: CartProps) =>
     discountTotal !== undefined && discountTotal > 0 ? (
         <h1 className="text-md font-bold text-black">
