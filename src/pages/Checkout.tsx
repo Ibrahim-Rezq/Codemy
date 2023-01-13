@@ -32,7 +32,7 @@ const Checkout = () => {
         setError(null)
         setProcessing(false)
         // ## todo: clear the cart store
-        alert(`Your Order has been made successfully --  ${JSON.stringify(paymentIntent)}`)
+        alert(`Your Order has been made successfully --  ${paymentIntent.amount}`)
         // ## todo: redirect to homepage
     }
 
