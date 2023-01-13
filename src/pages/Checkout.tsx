@@ -4,6 +4,7 @@ import { FormEventHandler, useEffect, useState } from 'react'
 import CurrencyFormat from 'react-currency-format'
 
 import { Container, PageTitle } from '../components'
+import { convertToCurrency } from '../utils/helper'
 
 const CHECKOUT_BASE_URI = 'https://us-central1-saif-d8a42.cloudfunctions.net/app'
 
@@ -105,18 +106,7 @@ const PaymentMethodForm = ({
             </button>
         </div>
         <div>
-            <CurrencyFormat
-                renderText={(value) => (
-                    <>
-                        <h3>Order Total : {value}</h3>
-                    </>
-                )}
-                decimalScale={2}
-                value={120000} // We need the real total here
-                displayType={'text'}
-                thousandSeparator
-                prefix={'EGP'}
-            />
+            <h3>Order Total : {convertToCurrency(12000)}</h3>
         </div>
         {error && <div>{error}</div>}
     </form>
