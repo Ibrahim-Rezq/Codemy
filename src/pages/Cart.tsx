@@ -1,4 +1,5 @@
 import { BsX } from 'react-icons/bs'
+import { useNavigate } from 'react-router'
 
 import { Button, CourseCard, PageTitle } from '../components'
 import { Container } from '../components'
@@ -44,12 +45,20 @@ const Cart = ({
 }
 
 const CartCheckoutData = ({ total, discountTotal, discountCode }: CartProps) => {
+    const router = useNavigate()
     return (
         <div className="w-96">
             <div className="prices m-2 ">
                 <h4 className="text-lg font-bold text-stone-600">Total:</h4>
                 <CartTotal total={total} discountTotal={discountTotal} />
-                <Button wide="true">checkout</Button>
+                <Button
+                    wide="true"
+                    onClick={() => {
+                        router('/cart/checkout')
+                    }}
+                >
+                    checkout
+                </Button>
                 <hr className="border-stone-400 border-solid w-full my-4" />
             </div>
             <CartDiscounts discountCode={discountCode} />
