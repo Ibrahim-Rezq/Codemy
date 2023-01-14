@@ -220,7 +220,7 @@ const Dropdown = ({ children, icon }: React.HTMLAttributes<HTMLElement> & { icon
     const Icon = icon
     return (
         <div className="dropdown dropdown-end ml-3">
-            <button tabIndex={0} className="btn btn-ghost btn-circle avatar">
+            <button tabIndex={0} className="peer btn border-2 btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full ">
                     <p className="flex justify-center items-center w-full h-full text-lg">
                         {Icon !== undefined ? <Icon /> : <img src="https://placeimg.com/80/80/tech" alt="for now" />}

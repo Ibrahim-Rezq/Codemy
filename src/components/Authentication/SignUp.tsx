@@ -8,6 +8,7 @@ function SignUp() {
             <div className="container ">
 =======
 import Container from '../UI/Container'
+
 function SignUp() {
     return (
         <div className="sign-up">
