@@ -1,9 +1,14 @@
+<<<<<<< HEAD
+=======
+import { useState } from 'react'
+>>>>>>> upstream/master
 import { BsFacebook } from 'react-icons/bs'
 import { BsApple } from 'react-icons/bs'
 import { FcGoogle } from 'react-icons/fc'
 import { Link } from 'react-router-dom'
 
 import InputField from '../global/InputField'
+<<<<<<< HEAD
 function SignIn() {
     const authBoxArr = [
         { icon: FcGoogle, type: 'google' },
@@ -17,6 +22,28 @@ function SignIn() {
                     <h2 className="font-bold text-center">Log in to your Codemy account</h2>
                     {authBoxArr.map((box) => (
                         <div className="border border-black font-bold items-center flex gap-3 py-2 pl-4 h-fit justify-start w-full cursor-pointer hover:bg-slate-100">
+=======
+import Container from '../UI/Container'
+
+const authBoxArr = [
+    { icon: FcGoogle, type: 'google' },
+    { icon: BsFacebook, type: 'facebook', fill: '#1877f2' },
+    { icon: BsApple, type: 'apple' },
+]
+
+function SignIn() {
+    const [passwordShown, setPasswordShown] = useState(false)
+    return (
+        <div className="sign-in ">
+            <Container>
+                <form className="form w-96 flex flex-col gap-3 items-center mt-16 m-auto">
+                    <h2 className="font-bold text-center">Log in to your Codemy account</h2>
+                    {authBoxArr.map((box) => (
+                        <div
+                            key={box.type}
+                            className="border border-black font-bold items-center flex gap-3 py-2 pl-4 h-fit justify-start w-full cursor-pointer hover:bg-slate-100"
+                        >
+>>>>>>> upstream/master
                             <box.icon className="text-5xl" fill={box.fill} />
                             <p>Continue with {box.type}</p>
                         </div>
@@ -43,7 +70,11 @@ function SignIn() {
                         Sign up
                     </Link>
                 </p>
+<<<<<<< HEAD
             </div>
+=======
+            </Container>
+>>>>>>> upstream/master
         </div>
     )
 }

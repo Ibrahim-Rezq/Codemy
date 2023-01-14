@@ -1,22 +1,44 @@
-// main page seen on website open -> path : /
-
 import React from 'react'
-// import udemyLogo from '../assets/udemy.svg';
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 
-import { Container, CourseCard, SEOHead } from '../components'
+import { Container, CourseCard, PageTitle, SEOHead } from '../components'
+import AboutUs from '../components/home/AboutUs'
+import Hero from '../components/home/Hero'
 import { selectUser } from '../redux/features/user/userSlice'
-export default function Home() {
+
+const Home = () => {
     const state = useSelector(selectUser)
     const dispatch = useDispatch()
 
     return (
-        <div className="bg-white w-screen h-screen text-black">
+        <div className="bg-white w-screen min-h-screen text-black">
+            <SEOHead title="Main Page" />
+            <Hero />
             <Container>
-                <SEOHead title="Main" />
-                <CourseCard />
+                <PageTitle title={'It & Software'} />
+                <div className="grid grid-cols-5 gap-2 my-10">
+                    {[...Array(5)].map(() => {
+                        return (
+                            <>
+                                <CourseCard />
+                            </>
+                        )
+                    })}
+                </div>
+                <PageTitle title={'Deveolpment'} />
+                <div className="grid grid-cols-5 gap-2 my-10">
+                    {[...Array(5)].map(() => {
+                        return (
+                            <>
+                                <CourseCard />
+                            </>
+                        )
+                    })}
+                </div>
+                <AboutUs />
             </Container>
         </div>
     )
 }
+
+export default Home
