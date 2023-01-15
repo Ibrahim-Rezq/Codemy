@@ -13,15 +13,15 @@ import {
 import { useParams } from 'react-router-dom'
 
 import { convertToCurrency, formatNumber, minutesToHoursMinutes } from '../utils/helper'
-import { course } from '../utils/tempData'
+import { course, Lecture } from '../utils/tempData'
 
 type CoursePropsType = {
     onSale?: boolean
     rating?: number
-    lectures?: { id: number; text: string; time: string }[]
+    lectures?: Lecture[]
     time?: number
     ratingStars?: number
-    whatYouWellLearn?: { id: number; text: string }[]
+    whatYouWellLearn?: { id: string; text: string }[]
 }
 
 const OnSale = ({ onSale }: CoursePropsType) => {
@@ -149,7 +149,7 @@ const CourseContent = ({ lectures, time }: CoursePropsType) => {
                             {lectures?.map((lecture) => (
                                 <li key={lecture.id} className="flex justify-between mb-3">
                                     <div className="flex items-center">
-                                        <FaPlayCircle className="mr-3" /> <span>{lecture.text}</span>
+                                        <FaPlayCircle className="mr-3" /> <span>{lecture.name}</span>
                                     </div>
                                     <span>{lecture.time}</span>
                                 </li>

@@ -1,9 +1,7 @@
 // fire base init file
 import { initializeApp } from 'firebase/app'
-// import { getAnalytics } from 'firebase/analytics'
-
-//import { } from 'firebase/firestore';
-//import { } from 'firebase/auth';
+import { getAuth, connectAuthEmulator } from 'firebase/auth'
+import { getAnalytics } from 'firebase/analytics'
 
 const firebaseConfig = {
     apiKey: 'AIzaSyA8EEsPA_dqx04K_v7fMTAOtYg4GJvF4Gs',
@@ -15,4 +13,12 @@ const firebaseConfig = {
 }
 
 const app = initializeApp(firebaseConfig)
-// const analytics = getAnalytics(app)
+const analytics = getAnalytics(app)
+export const auth = getAuth(app)
+connectAuthEmulator(auth, 'http://localhost:9099')
+
+//9099 auth
+//5001 func
+//8080 store
+//5000 host
+//5500 hoUI

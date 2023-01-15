@@ -9,13 +9,16 @@
         "preview": "vite preview",
         "lint": "eslint . --ext .ts,.tsx",
         "lint-fix": "eslint . --ext .ts,.tsx --fix",
-        "prettier": "prettier --config .prettierrc \"./src/*.tsx\" \"./src/*/*.ts\" \"./src/*/*.tsx\" --write"
+        "prettier": "prettier --config .prettierrc \"./src/*.tsx\" \"./src/*/*.ts\" \"./src/*/*.tsx\" --write",
+        "watch": "watch \"yarn build\" src",
+        "firebase": "concurrently \"firebase emulators:start\"  \"npm run watch\""
     },
     "dependencies": {
         "@reduxjs/toolkit": "^1.9.1",
         "@stripe/react-stripe-js": "^1.16.3",
         "@stripe/stripe-js": "^1.46.0",
         "axios": "^1.2.2",
+        "concurrently": "^7.6.0",
         "firebase": "^9.15.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
@@ -24,7 +27,8 @@
         "react-redux": "^8.0.5",
         "react-router": "^6.6.1",
         "react-router-dom": "^6.6.1",
-        "swiper": "^8.4.5"
+        "swiper": "^8.4.5",
+        "watch": "^0.13.0"
     },
     "devDependencies": {
         "@types/firebase": "^3.2.1",

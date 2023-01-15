@@ -9,7 +9,7 @@ function SignUp() {
             <Container>
                 <form className="form w-96 flex flex-col gap-3 items-center mt-16 mb-8 m-auto ">
                     <h2 className="font-bold text-center">Sign up and start learning</h2>
-                    <InputField type={'name'} />
+                    <InputField type={'text'} />
                     <InputField type={'email'} />
                     <InputField type={'password'} />
                     <ul className="password-strength flex gap-2 justify-start mr-auto">

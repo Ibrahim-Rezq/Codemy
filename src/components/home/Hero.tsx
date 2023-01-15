@@ -26,6 +26,7 @@ const Hero = () => {
         <>
             <Swiper
                 style={{
+                    // @ts-ignore
                     '--swiper-pagination-color': '#fff',
                 }}
                 speed={600}
