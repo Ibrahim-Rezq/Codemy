@@ -50,11 +50,7 @@ function SignIn() {
                         Sign up
                     </Link>
                 </p>
-<<<<<<< HEAD
-            </div>
-=======
             </Container>
->>>>>>> upstream/master
         </div>
     )
 }

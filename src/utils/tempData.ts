@@ -139,3 +139,8 @@ export type Course = {
     discount: number // in percent  34999 * 50%
     bestseller: boolean
 }
+export type Filter = {
+    name: string
+    active: boolean
+    value: string
+}
