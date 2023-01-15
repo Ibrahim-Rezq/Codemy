@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { Button, Container, CourseCard, PageTitle, SEOHead } from '../components'
+import { Container, CourseCard, PageTitle, SEOHead } from '../components'
 import AboutUs from '../components/home/AboutUs'
 import Hero from '../components/home/Hero'
 import { selectUser } from '../redux/features/user/userSlice'
@@ -16,16 +16,23 @@ const Home = () => {
                 <PageTitle title={'It & G'} />
                 <div className="grid grid-cols-5 gap-2 my-10">
                     {[...Array(5)].map(() => {
-                        return <CourseCard />
+                        return (
+                            <>
+                                <CourseCard />
+                            </>
+                        )
                     })}
                 </div>
                 <PageTitle title={'Deveolpment'} />
                 <div className="grid grid-cols-5 gap-2 my-10">
                     {[...Array(5)].map(() => {
-                        return <CourseCard />
+                        return (
+                            <>
+                                <CourseCard />
+                            </>
+                        )
                     })}
                 </div>
-                <Button>Hello</Button>
                 <AboutUs />
             </Container>
         </div>

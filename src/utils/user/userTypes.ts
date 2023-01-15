@@ -9,6 +9,18 @@ export type SignUpData = {
     password: string
 }
 export interface UserData extends User {
+    //////////////////// important data from User ////////////////////
+    // uid
+    // accessToken
+    // displayName
+    // photoURL
+    // email
+    // emailVerified
+    // phoneNumber // if using a phone sign in
+    // isAnonymous
+    // metadata
+    //////////////////////////////////////////////////////////////////
+
     // global
     role?: 'admin' | 'user' | 'instructor'
     // user
