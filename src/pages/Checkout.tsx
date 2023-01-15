@@ -1,7 +1,6 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import axios from 'axios'
 import { FormEventHandler, useEffect, useState } from 'react'
-import CurrencyFormat from 'react-currency-format'
 
 import { Container, PageTitle } from '../components'
 import { convertToCurrency } from '../utils/helper'
