@@ -10,8 +10,9 @@
         "lint": "eslint . --ext .ts,.tsx",
         "lint-fix": "eslint . --ext .ts,.tsx --fix",
         "prettier": "prettier --config .prettierrc \"./src/*.tsx\" \"./src/*/*.ts\" \"./src/*/*.tsx\" --write",
-        "watch": "watch \"yarn build\" src",
-        "firebase": "concurrently \"firebase emulators:start\"  \"npm run watch\""
+        "watch": "watch \"npm run build\" src",
+        "firebase": "firebase emulators:start",
+        "fire-dev": "concurrently \"npm run watch\"  \"npm run firebase\""
     },
     "dependencies": {
         "@reduxjs/toolkit": "^1.9.1",

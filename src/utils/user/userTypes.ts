@@ -1,4 +1,4 @@
-import { User } from 'firebase/auth'
+import { User as FirebaseUser } from 'firebase/auth'
 
 export type SignInData = {
     email: string
@@ -8,7 +8,7 @@ export type SignUpData = {
     email: string
     password: string
 }
-export interface UserData extends User {
+export interface User extends FirebaseUser {
     //////////////////// important data from User ////////////////////
     // uid
     // accessToken
@@ -20,9 +20,9 @@ export interface UserData extends User {
     // isAnonymous
     // metadata
     //////////////////////////////////////////////////////////////////
-
-    // global
     role?: 'admin' | 'user' | 'instructor'
+}
+export interface UserData {
     // user
     courses?: { id: string }[]
     // instructor

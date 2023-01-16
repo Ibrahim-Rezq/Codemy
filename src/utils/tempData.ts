@@ -16,7 +16,7 @@ export const instructor: User = {
     passwordHash: '',
     description:
         "a course to master react from the begining to the end using moderen techeing and more just some more words to make this description seem longer than it seems and to add more data for usage and don't know what to wright next",
-    ratingStars: 4.5,
+    starsRating: 4.5,
     rating: 1902,
     coursesCount: 1,
     type: 'instructor',
@@ -43,12 +43,13 @@ export const lecture: Lecture = {
 
 export const course: Course = {
     id: '1',
-    name: 'react mastery',
+    title: 'react mastery',
+    imageURL: 'https://reactjs.org/logo-og.png',
     description:
         "a course to master react from the begining to the end using moderen techeing and more just some more words to make this description seem longer than it seems and to add more data for usage and don't know what to wright next",
     slug: 'react-mastery',
     requirements: ['English Language', 'javascript Knowlage'],
-    ratingStars: 4.5,
+    starsRating: 4.5,
     rating: 1902,
     lecturesCount: 10,
     lectures: [
@@ -76,10 +77,11 @@ export const course: Course = {
     instructorId: '1',
     created_at: '10-10-2020',
     updated_at: '15-12-2020',
-    price: 34999, // cents 349.99$
+    price: 1500, // cents 349.99$
     onSale: true,
-    discount: 50, // in percent  34999 * 50%
-    bestseller: false,
+    discount: 33.334, // in percent  34999 * 50%
+    isBestSeller: false,
+    isDiscounted: true,
 }
 export type User = {
     id: string
@@ -93,7 +95,7 @@ export type User = {
     // instructor
     description?: string
     coursesCount?: 1
-    ratingStars?: 4.5
+    starsRating?: 4.5
     rating?: 1902
 }
 
@@ -117,11 +119,12 @@ export type Lecture = {
 
 export type Course = {
     id: string
-    name: string
+    title: string
     description: string
+    imageURL: string
     slug: string
     requirements: string[]
-    ratingStars: number
+    starsRating: number
     rating: number
     lecturesCount: number
     lectures: Lecture[]
@@ -136,6 +139,7 @@ export type Course = {
     updated_at: string
     price: number // cents 349.99$
     onSale: boolean
+    isDiscounted: boolean
     discount: number // in percent  34999 * 50%
-    bestseller: boolean
+    isBestSeller: boolean
 }
