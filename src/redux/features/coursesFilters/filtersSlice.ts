@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { Filter } from '../../../utils/tempData';
+import { Filter } from '../../../utils/tempData'
 
 const initialState: Filter[] = [
     {
@@ -13,7 +13,7 @@ export const filterSlice = createSlice({
     initialState,
     reducers: {
         addFilter: (state, action: { type: any; payload: Filter }) => {
-            ;[...state, action.payload]
+            return (state = [...state, action.payload])
         },
         removeFilter: (state, action: { type: any; payload: Filter }) => {
             state.filter((filter) => filter !== action.payload)
