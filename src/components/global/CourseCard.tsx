@@ -1,90 +1,71 @@
 import { convertToCurrency } from '../../utils/helper'
+import { Course, course } from '../../utils/tempData'
 
-type CourseCardPropsType = {
-    imageURL?: string
-    title?: string
-    instructorName?: string
-    totalRatings?: number
-    price?: number
-    isBestSeller?: boolean
-    isDiscount?: boolean
-    discount?: number
-    wide?: boolean
-}
+const CourseCard = () => {
+    const { imageURL, instructor, rating, name, price, discount, onSale, bestseller, isWide } = course
 
-const CourseCard = ({
-    imageURL = 'https://reactjs.org/logo-og.png',
-    title = 'React Udemy Clone',
-    instructorName = 'Saif Mohamed',
-    totalRatings = 1200,
-    price = 1200,
-    isBestSeller = true,
-    isDiscount = true,
-    discount = 10,
-    wide = false,
-}: CourseCardPropsType) => {
     // Wide Version of the card
     const WideVersion = () => (
         <div className={'flex flex-row w-full border-b-2 justify-between p-2 px-4'}>
             <div className="flex flex-row gap-4 items-start">
                 <div>
-                    <CardImage imageURL={imageURL} title={title} />
+                    <CardImage imageURL={imageURL} name={name} />
                 </div>
                 <div className="flex flex-col h-full">
-                    <CardTitle title={title} />
-                    <CardInstructorName instructorName={instructorName} />
-                    <CardRatings totalRatings={totalRatings} />
-                    <CardPrice price={price} discount={discount} isDiscount={isDiscount} />
+                    <CardTitle name={name} />
+                    <CardInstructorName instructor={instructor} />
+                    <CardRatings rating={rating} />
+                    <CardPrice price={price} discount={discount} onSale={onSale} />
                 </div>
             </div>
             <div className="flex flex-col items-end">
-                <CardPrice price={price} discount={discount} isDiscount={isDiscount} />
-                {isBestSeller ? <CardBestSeller /> : null}
+                <CardPrice price={price} discount={discount} onSale={onSale} />
+                {bestseller ? <CardBestSeller /> : null}
             </div>{' '}
         </div>
     )
 
-    if (wide) return <WideVersion />
+    if (isWide) return <WideVersion />
     return (
         <div className={'p-2 max-w-[260px] w-full flex flex-col items-start'}>
-            <CardImage imageURL={imageURL} title={title} />
+            <CardImage imageURL={imageURL} name={name} />
             <div className="mt-[0.4rem] mb-[0.1rem]">
-                <CardTitle title={title} />
+                <CardTitle name={name} />
             </div>
             <div className="mb-[0.1rem]">
-                <CardInstructorName instructorName={instructorName} />
+                <CardInstructorName instructor={instructor} />
             </div>
             <div>
-                <CardRatings totalRatings={totalRatings} />
+                <CardRatings rating={rating} />
             </div>
-            <CardPrice price={price} discount={discount} isDiscount={isDiscount} />
-            <div className="mt-[24px]">{isBestSeller ? <CardBestSeller /> : null}</div>
+            <CardPrice price={price} discount={discount} onSale={onSale} />
+            <div className="mt-[24px]">{bestseller ? <CardBestSeller /> : null}</div>
         </div>
     )
 }
 
-const CardImage = ({ imageURL, title }: CourseCardPropsType) => (
-    <img src={imageURL} alt={title} className={'w-full h-[130px] object-cover'} />
+const CardImage = ({ imageURL, name }: Course) => (
+    <img src={imageURL} alt={name} className={'w-full h-[130px] object-cover'} />
 )
 
-const CardTitle = ({ title }: CourseCardPropsType) => <h1 className="text-lg font-bold text-black ">{title}</h1>
+const CardTitle = ({ name }: Course) => <h1 className="text-lg font-bold text-black ">{name}</h1>
 
-const CardInstructorName = ({ instructorName }: CourseCardPropsType) => (
-    <h1 className="text-md text-gray-400 font-normal">{instructorName}</h1>
+const CardInstructorName = ({ instructor }: Course) => (
+    <h1 className="text-md text-gray-400 font-normal">{instructor}</h1>
 )
 
-const CardRatings = ({ totalRatings }: CourseCardPropsType) => (
+const CardRatings = ({ rating }: Course) => (
     <h1 className="text-sm text-gray-400">
         {
             <>
-                <Stars rating={2} /> <>({totalRatings}+)</>
+                <Stars rating={2} /> <>({rating}+)</>
             </>
         }
     </h1>
 )
 
-const CardPrice = ({ price, isDiscount, discount }: CourseCardPropsType) =>
-    isDiscount ? (
+const CardPrice = ({ price, onSale, discount }: Course) =>
+    onSale ? (
         <h1 className="text-md font-bold text-black">
             {price && discount ? convertToCurrency((price * (100 - discount)) / 100) : convertToCurrency(price ?? 0)}{' '}
             <span className="line-through text-gray-400 text-md font-light">{convertToCurrency(price ?? 0)}</span>
