@@ -30,7 +30,7 @@ const Cart = ({
                         <div className="subtitle font-bold">1 Course in Cart</div>
                         <hr className="border-stone-400 border-solid w-full my-4" />
                         {cartItems.map((item) => {
-                            return <CourseCard key={item.id} wide />
+                            return <CourseCard key={item.id} course={item} wide />
                         })}
                     </div>
                     <CartCheckoutData

@@ -186,12 +186,12 @@ export default function Course() {
                             </li>
                         </ul>
                     </div>
-                    <h1 className="text-white text-3xl font-bold">{course.name}</h1>
+                    <h1 className="text-white text-3xl font-bold">{course.title}</h1>
                     <p className="text-white text-lg py-3">{course.description}</p>
                     <div className="flex items-center mb-2">
-                        {course.bestseller ? <BestSeller /> : null}
+                        {course.isBestSeller ? <BestSeller /> : null}
 
-                        <Rating rating={course.rating} ratingStars={course.ratingStars} />
+                        <Rating rating={course.rating} ratingStars={course.starsRating} />
 
                         <span className="text-white text-sm">{formatNumber(course.students)} students</span>
                     </div>
