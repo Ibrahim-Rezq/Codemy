@@ -49,6 +49,7 @@ export const course: Course = {
     slug: 'react-mastery',
     requirements: ['English Language', 'javascript Knowlage'],
     ratingStars: 4.5,
+    imageURL: 'https://reactjs.org/logo-og.png',
     rating: 1902,
     lecturesCount: 10,
     lectures: [
@@ -116,26 +117,28 @@ export type Lecture = {
 }
 
 export type Course = {
-    id: string
-    name: string
-    description: string
-    slug: string
-    requirements: string[]
-    ratingStars: number
-    rating: number
-    lecturesCount: number
-    lectures: Lecture[]
-    reviews: { id: string }[]
-    whatYouWellLearn: { id: string; text: string }[]
-    time: number //in minutes
-    progress: number // in percent
-    students: number
-    instructor: string
-    instructorId: string
-    created_at: string
-    updated_at: string
-    price: number // cents 349.99$
-    onSale: boolean
-    discount: number // in percent  34999 * 50%
-    bestseller: boolean
+    id?: string
+    name?: string
+    description?: string
+    slug?: string
+    requirements?: string[]
+    ratingStars?: number
+    rating?: number
+    lecturesCount?: number
+    lectures?: Lecture[]
+    reviews?: { id: string }[]
+    whatYouWellLearn?: { id: string; text: string }[]
+    time?: number //in minutes
+    progress?: number // in percent
+    students?: number
+    instructor?: string
+    imageURL?: string
+    instructorId?: string
+    created_at?: string
+    updated_at?: string
+    price?: number // cents 349.99$
+    onSale?: boolean
+    discount?: number // in percent  34999 * 50%
+    bestseller?: boolean
+    isWide?: boolean
 }
