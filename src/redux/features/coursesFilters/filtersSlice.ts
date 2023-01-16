@@ -1,13 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { Filter } from '../../../utils/tempData'
 
-const initialState: Filter[] = [
+const initialState: Filter = 
     {
-        name: 'rating',
-        active: false,
-        value: '',
-    },
-]
+        rating:0,
+        language:[],
+        videoDuration:[],
+        features:[],
+        topic:[],
+        level:[],
+        subtitle:[],
+        price:[],
+    }
+
 export const filterSlice = createSlice({
     name: 'filters',
     initialState,

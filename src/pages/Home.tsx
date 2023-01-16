@@ -9,6 +9,7 @@ import { selectUser } from '../redux/features/user/userSlice'
 const Home = () => {
     const state = useSelector(selectUser)
     const dispatch = useDispatch()
+    
 
     return (
         <div className="bg-white w-screen min-h-screen text-black">

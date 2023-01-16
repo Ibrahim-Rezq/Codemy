@@ -140,7 +140,12 @@ export type Course = {
     bestseller: boolean
 }
 export type Filter = {
-    name: string
-    active: boolean
-    value: string
+    rating:number,
+    language:string[],
+    videoDuration:string[],
+    features:string[],
+    topic:string[],
+    level:string[],
+    subtitle:string[],
+    price:string[],
 }
