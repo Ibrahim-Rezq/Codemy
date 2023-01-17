@@ -1,10 +1,11 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import { Stripe, StripeCardElement, StripeCardElementChangeEvent, StripeElements } from '@stripe/stripe-js'
-import { FormEvent, FormEventHandler, useEffect, useState } from 'react'
-import { Container, PageTitle } from '../components'
-import { convertToCurrency } from '../utils/helper'
 import { httpsCallable } from 'firebase/functions'
+import { FormEvent, FormEventHandler, useEffect, useState } from 'react'
+
+import { Container, PageTitle } from '../components'
 import { functions } from '../utils/firebase'
+import { convertToCurrency } from '../utils/helper'
 
 type dataType = {
     clientSecret: string

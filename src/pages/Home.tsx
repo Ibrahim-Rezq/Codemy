@@ -5,8 +5,7 @@ import AboutUs from '../components/home/AboutUs'
 import CoursesCarosel from '../components/home/CoursesCarosel'
 import Hero from '../components/home/Hero'
 import { selectUser } from '../redux/features/user/userSlice'
-import { course } from '../utils/tempData'
-
+import { createRandomCourse } from '../utils/fakerData'
 const Home = () => {
     const state = useSelector(selectUser)
     const dispatch = useDispatch()
@@ -16,7 +15,15 @@ const Home = () => {
             <SEOHead title="Main Page" />
             <Hero />
             <Container>
-                <CoursesCarosel courses={[course, course, course, course, course]} />
+                <CoursesCarosel
+                    courses={[
+                        createRandomCourse(),
+                        createRandomCourse(),
+                        createRandomCourse(),
+                        createRandomCourse(),
+                        createRandomCourse(),
+                    ]}
+                />
                 <AboutUs />
             </Container>
         </div>

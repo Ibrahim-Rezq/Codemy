@@ -26,9 +26,9 @@ const Stars = ({ rating }: { rating: number }) => {
                             <input
                                 key={i}
                                 type="radio"
-                                name="rating-10"
+                                name={`rating-${rating}`}
                                 className="bg-yellow-500 mask mask-star-2 mask-half-1"
-                                checked={rating * 2 === i}
+                                checked={Math.floor(rating * 2) === i}
                                 disabled
                             />
                         )
@@ -39,7 +39,7 @@ const Stars = ({ rating }: { rating: number }) => {
                                 type="radio"
                                 name="rating-10"
                                 className="bg-yellow-500 mask mask-star-2 mask-half-2"
-                                checked={rating * 2 === i}
+                                checked={Math.floor(rating * 2) === i}
                                 disabled
                             />
                         )
