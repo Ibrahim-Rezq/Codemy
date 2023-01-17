@@ -1,12 +1,23 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import { Stripe, StripeCardElement, StripeCardElementChangeEvent, StripeElements } from '@stripe/stripe-js'
-import axios from 'axios'
 import { FormEvent, FormEventHandler, useEffect, useState } from 'react'
-
 import { Container, PageTitle } from '../components'
 import { convertToCurrency } from '../utils/helper'
+import { httpsCallable } from 'firebase/functions'
+import { functions } from '../utils/firebase'
 
-const CHECKOUT_BASE_URI = 'https://us-central1-saif-d8a42.cloudfunctions.net/app'
+type dataType = {
+    clientSecret: string
+    msg: string
+    success: boolean
+}
+
+const CreatingPaymentIntent = async ({ total }: { total: number }): Promise<dataType> => {
+    const createPaymentIntent = httpsCallable(functions, 'createPaymentIntent')
+    const res = await createPaymentIntent({ total })
+    const data = (await res.data) as dataType
+    return data
+}
 
 const Checkout = () => {
     // const { cartItems } = useSelector(state => state.cart) -- ## This is just an imagination of how we'll get the cart items from redux
@@ -14,7 +25,7 @@ const Checkout = () => {
     const [processing, setProcessing] = useState(false)
     const [disabled, setDisabled] = useState(true)
     const [succeeded, setSucceeded] = useState(false)
-    const [clientSecret, setClientSecret] = useState(null)
+    const [clientSecret, setClientSecret] = useState('')
     const stripe: Stripe | null = useStripe()
     const elements: StripeElements | null = useElements()
 
@@ -46,18 +57,9 @@ const Checkout = () => {
 
     // ## generate special stripe client secret with the total amount
     useEffect(() => {
-        const getClientSecret = async () => {
-            const res = await axios.post(
-                `${CHECKOUT_BASE_URI}/payment/create`,
-                {},
-                { params: { total: 120000 } }, // ## total needs to be updated as our cart total
-            )
-
-            // Client Secret to be sent to stripe
-            setClientSecret(res.data.clientSecret)
-        }
-
-        getClientSecret()
+        CreatingPaymentIntent({ total: 12000 }).then((data) => {
+            setClientSecret(data.clientSecret)
+        })
     }, []) // ## use effect will have a dependency of [cartItems] as it needs to run every time we change anything in the cart
 
     return (

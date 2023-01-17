@@ -1,11 +1,10 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth'
-import { connectFunctionsEmulator, httpsCallable } from 'firebase/functions'
+import { httpsCallable } from 'firebase/functions'
 
 import { auth, functions } from '../firebase'
 import { SignInData, SignUpData, User } from './userTypes'
 
 //  uncomment in case of running local emulator
-connectFunctionsEmulator(functions, 'localhost', 5001)
 
 export const SignIn = async ({ email, password }: SignInData) => {
     if (email && password) {
