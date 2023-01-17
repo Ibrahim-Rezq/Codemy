@@ -11,10 +11,12 @@ import {
     FaTv,
 } from 'react-icons/fa'
 import { useParams } from 'react-router-dom'
+import { createRandomCourse } from '../utils/fakerData'
 
 import { convertToCurrency, formatNumber, minutesToHoursMinutes } from '../utils/helper'
-import { course, Lecture } from '../utils/tempData'
+import { Lecture } from '../utils/tempData'
 
+const course = createRandomCourse()
 type CoursePropsType = {
     onSale?: boolean
     rating?: number

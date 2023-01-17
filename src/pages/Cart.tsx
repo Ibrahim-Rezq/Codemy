@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router'
 
 import { Button, CourseCard, PageTitle } from '../components'
 import { Container } from '../components'
+import { createRandomCourse } from '../utils/fakerData'
 import { convertToCurrency } from '../utils/helper'
-import { Course, course } from '../utils/tempData'
+import { Course } from '../utils/tempData'
 
 type CartProps = {
     cartItems?: Course[]
@@ -15,7 +16,7 @@ type CartProps = {
 }
 
 const Cart = ({
-    cartItems = [course],
+    cartItems = [createRandomCourse(), createRandomCourse()],
     totalAmount = 500,
     total = 500,
     discountTotal = 12,
