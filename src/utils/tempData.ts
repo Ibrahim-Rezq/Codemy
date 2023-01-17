@@ -44,8 +44,7 @@ export const lecture: Lecture = {
 export const course: Course = {
     id: '1',
     name: 'react mastery',
-    description:
-        "a course to master react from the begining to the end using moderen techeing and more just some more words to make this description seem longer than it seems and to add more data for usage and don't know what to wright next",
+    description: "a course to master react from the begining to the end using moderen techeing and more just some more words to make this description seem longer than it seems and to add more data for usage and don't know what to wright next",
     slug: 'react-mastery',
     requirements: ['English Language', 'javascript Knowlage'],
     ratingStars: 4.5,
@@ -69,17 +68,22 @@ export const course: Course = {
         { id: '6', text: 'Use Firebase Firestore to store and fetch data' },
         { id: '7', text: 'Use Firebase auth for complete authentication' },
     ],
-    time: 6050, //in minutes
-    progress: 16, // in percent
+    time: 6050,
+    progress: 16,
     students: 5900,
     instructor: 'mohamed',
     instructorId: '1',
     created_at: '10-10-2020',
     updated_at: '15-12-2020',
-    price: 34999, // cents 349.99$
+    price: 34999,
     onSale: true,
-    discount: 50, // in percent  34999 * 50%
+    discount: 50,
     bestseller: false,
+    language: "",
+    subtitle: [],
+    topic: [],
+    level: "",
+    features: []
 }
 export type User = {
     id: string
@@ -138,14 +142,19 @@ export type Course = {
     onSale: boolean
     discount: number // in percent  34999 * 50%
     bestseller: boolean
+    language: string
+    subtitle: string[]
+    topic:string[]
+    level: string
+    features: string[]
 }
 export type Filter = {
-    rating:number,
-    language:string[],
-    videoDuration:string[],
-    features:string[],
-    topic:string[],
-    level:string[],
-    subtitle:string[],
-    price:string[],
+    rating: number
+    language: string[]
+    videoDuration: {min:number,max:number}[]
+    features: string[]
+    topic: string[]
+    level: string[]
+    subtitle:  string[]
+    price: string[]
 }
