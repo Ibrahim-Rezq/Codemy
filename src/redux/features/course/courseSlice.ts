@@ -30,7 +30,7 @@ export const courseSlice = createSlice({
                 let filteredCourses: Course[] = []
                 const { rating, price, language, videoDuration, features, topic, level, subtitle } = filters
                 filteredCourses = courses.filter((course: Course) => {
-                    if (course.ratingStars < rating) return false
+                    if (course.starsRating < rating) return false
                     if (price.length) {
                         if (price.length === 2) {
                         } else {

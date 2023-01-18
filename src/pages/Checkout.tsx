@@ -1,62 +1,66 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
-import axios from 'axios'
-import { FormEventHandler, useEffect, useState } from 'react'
-import CurrencyFormat from 'react-currency-format'
+import { Stripe, StripeCardElement, StripeCardElementChangeEvent, StripeElements } from '@stripe/stripe-js'
+import { httpsCallable } from 'firebase/functions'
+import { FormEvent, FormEventHandler, useEffect, useState } from 'react'
 
 import { Container, PageTitle } from '../components'
+import { functions } from '../utils/firebase'
 import { convertToCurrency } from '../utils/helper'
 
-const CHECKOUT_BASE_URI = 'https://us-central1-saif-d8a42.cloudfunctions.net/app'
+type dataType = {
+    clientSecret: string
+    msg: string
+    success: boolean
+}
+
+const CreatingPaymentIntent = async ({ total }: { total: number }): Promise<dataType> => {
+    const createPaymentIntent = httpsCallable(functions, 'createPaymentIntent')
+    const res = await createPaymentIntent({ total })
+    const data = (await res.data) as dataType
+    return data
+}
 
 const Checkout = () => {
     // const { cartItems } = useSelector(state => state.cart) -- ## This is just an imagination of how we'll get the cart items from redux
-    const [error, setError] = useState(null)
+    const [error, setError] = useState('')
     const [processing, setProcessing] = useState(false)
     const [disabled, setDisabled] = useState(true)
     const [succeeded, setSucceeded] = useState(false)
-    const [clientSecret, setClientSecret] = useState(null)
-    const stripe: any = useStripe()
-    const elements: any = useElements()
+    const [clientSecret, setClientSecret] = useState('')
+    const stripe: Stripe | null = useStripe()
+    const elements: StripeElements | null = useElements()
 
     // ## Submit a request to stripe with the clientSecret that contains the amount of order.
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = async (e: FormEvent<Element>) => {
         e.preventDefault()
-        setProcessing(true)
-
-        const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
-            payment_method: {
-                card: elements.getElement(CardElement),
-            },
-        })
-
-        setSucceeded(true)
-        setError(null)
-        setProcessing(false)
-        // ## todo: clear the cart store
-        alert(`Your Order has been made successfully --  ${paymentIntent.amount}`)
-        // ## todo: redirect to homepage
+        if (stripe && elements && clientSecret) {
+            setProcessing(true)
+            const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+                payment_method: {
+                    card: elements?.getElement(CardElement) as StripeCardElement,
+                },
+            })
+            setSucceeded(true)
+            setError('')
+            setProcessing(false)
+            // ## todo: clear the cart store
+            if (paymentIntent && paymentIntent?.amount)
+                alert(`Your Order has been made successfully --  ${paymentIntent.amount}`)
+            // ## todo: redirect to homepage
+        }
     }
 
     // ## Handling whenever you edit credit card details at the <CardElement />
-    const handleChange = (e: any) => {
+    const handleChange = (e: StripeCardElementChangeEvent) => {
         setDisabled(e.empty)
-        setError(e.error ? e.error.message : '')
+        setError(e?.error ? e.error?.message : '')
     }
 
     // ## generate special stripe client secret with the total amount
     useEffect(() => {
-        const getClientSecret = async () => {
-            const res = await axios.post(
-                `${CHECKOUT_BASE_URI}/payment/create`,
-                {},
-                { params: { total: 120000 } }, // ## total needs to be updated as our cart total
-            )
-
-            // Client Secret to be sent to stripe
-            setClientSecret(res.data.clientSecret)
-        }
-
-        getClientSecret()
+        CreatingPaymentIntent({ total: 12000 }).then((data) => {
+            setClientSecret(data.clientSecret)
+        })
     }, []) // ## use effect will have a dependency of [cartItems] as it needs to run every time we change anything in the cart
 
     return (
@@ -81,11 +85,12 @@ const Checkout = () => {
     )
 }
 
-type PaymenyMethodProps = {
+interface PaymenyMethodProps
+    extends React.DetailedHTMLProps<React.FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> {
     handleSubmit: FormEventHandler<HTMLFormElement>
-    handleChange: any
+    handleChange: (event: StripeCardElementChangeEvent) => void
     processing: boolean
-    error: null | any
+    error: string
     disabled: boolean
     succeeded: boolean
 }

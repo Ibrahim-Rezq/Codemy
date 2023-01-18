@@ -11,17 +11,19 @@ import {
     FaTv,
 } from 'react-icons/fa'
 import { useParams } from 'react-router-dom'
+import { createRandomCourse } from '../utils/fakerData'
 
 import { convertToCurrency, formatNumber, minutesToHoursMinutes } from '../utils/helper'
-import { course } from '../utils/tempData'
+import { Lecture } from '../utils/tempData'
 
+const course = createRandomCourse()
 type CoursePropsType = {
     onSale?: boolean
     rating?: number
-    lectures?: { id: number; text: string; time: string }[]
+    lectures?: Lecture[]
     time?: number
     ratingStars?: number
-    whatYouWellLearn?: { id: number; text: string }[]
+    whatYouWellLearn?: { id: string; text: string }[]
 }
 
 const OnSale = ({ onSale }: CoursePropsType) => {
@@ -149,7 +151,7 @@ const CourseContent = ({ lectures, time }: CoursePropsType) => {
                             {lectures?.map((lecture) => (
                                 <li key={lecture.id} className="flex justify-between mb-3">
                                     <div className="flex items-center">
-                                        <FaPlayCircle className="mr-3" /> <span>{lecture.text}</span>
+                                        <FaPlayCircle className="mr-3" /> <span>{lecture.name}</span>
                                     </div>
                                     <span>{lecture.time}</span>
                                 </li>
@@ -186,12 +188,12 @@ export default function Course() {
                             </li>
                         </ul>
                     </div>
-                    <h1 className="text-white text-3xl font-bold">{course.name}</h1>
+                    <h1 className="text-white text-3xl font-bold">{course.title}</h1>
                     <p className="text-white text-lg py-3">{course.description}</p>
                     <div className="flex items-center mb-2">
-                        {course.bestseller ? <BestSeller /> : null}
+                        {course.isBestSeller ? <BestSeller /> : null}
 
-                        <Rating rating={course.rating} ratingStars={course.ratingStars} />
+                        <Rating rating={course.rating} ratingStars={course.starsRating} />
 
                         <span className="text-white text-sm">{formatNumber(course.students)} students</span>
                     </div>

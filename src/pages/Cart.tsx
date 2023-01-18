@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router'
 
 import { Button, CourseCard, PageTitle } from '../components'
 import { Container } from '../components'
-import { Course, course } from '../utils/tempData'
+import { createRandomCourse } from '../utils/fakerData'
+import { convertToCurrency } from '../utils/helper'
+import { Course } from '../utils/tempData'
 
 type CartProps = {
     cartItems?: Course[]
@@ -14,10 +16,10 @@ type CartProps = {
 }
 
 const Cart = ({
-    cartItems = [course],
+    cartItems = [createRandomCourse(), createRandomCourse()],
     totalAmount = 500,
     total = 500,
-    discountTotal = 0,
+    discountTotal = 12,
     discountCode = 'NYSALE2EXT3',
 }: CartProps) => {
     return (
@@ -29,7 +31,7 @@ const Cart = ({
                         <div className="subtitle font-bold">1 Course in Cart</div>
                         <hr className="border-stone-400 border-solid w-full my-4" />
                         {cartItems.map((item) => {
-                            return <CourseCard key={item.id} wide />
+                            return <CourseCard key={item.id} course={item} wide />
                         })}
                     </div>
                     <CartCheckoutData
@@ -95,12 +97,14 @@ const CartDiscounts = ({ discountCode }: CartProps) => {
 const CartTotal = ({ discountTotal, total }: CartProps) =>
     discountTotal !== undefined && discountTotal > 0 ? (
         <h1 className="text-md font-bold text-black">
-            <p className="text-2xl">E£{total && discountTotal ? (total * (100 - discountTotal)) / 100 : total}</p>
-            <span className="line-through text-stone-500">E£{total}</span>
-            <p>{discountTotal}% off</p>
+            <p className="text-2xl">
+                {convertToCurrency(total && discountTotal ? (total * (100 - discountTotal)) / 100 : total ?? 0)}
+            </p>
+            <span className="line-through text-stone-500">{convertToCurrency(total ?? 0)}</span>
+            <p className="mb-2">{discountTotal}% off</p>
         </h1>
     ) : (
-        <h1 className="text-md font-bold text-black text-2xl">E£{total}</h1>
+        <h1 className="text-md font-bold text-black text-2xl">{convertToCurrency(total ?? 0)}</h1>
     )
 
 export default Cart
