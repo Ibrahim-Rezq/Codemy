@@ -83,17 +83,17 @@ export type Course = {
     bestseller: boolean
     language: string
     subtitle: string[]
-    topic:string[]
+    topic: string[]
     level: string
     features: string[]
 }
 export type Filter = {
     rating: number
     language: string[]
-    videoDuration: {min:number,max:number}[]
+    videoDuration: { min: number; max: number }[]
     features: string[]
     topic: string[]
     level: string[]
-    subtitle:  string[]
+    subtitle: string[]
     price: string[]
 }

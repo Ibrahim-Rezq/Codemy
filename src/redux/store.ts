@@ -7,6 +7,6 @@ export const store = configureStore({
     reducer: {
         cart: cartReducer,
         user: userReducer,
-        course:courseReducer,
+        course: courseReducer,
     },
 })
