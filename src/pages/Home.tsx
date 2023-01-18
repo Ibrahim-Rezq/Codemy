@@ -1,6 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux'
 
+<<<<<<< HEAD
 import { Container, SEOHead } from '../components'
+=======
+import { Container, CourseCard, PageTitle, SEOHead } from '../components'
+>>>>>>> 9b2fa9bb699a6542e7f7ee8349866a287473a91e
 import AboutUs from '../components/home/AboutUs'
 import CoursesCarosel from '../components/home/CoursesCarosel'
 import Hero from '../components/home/Hero'
