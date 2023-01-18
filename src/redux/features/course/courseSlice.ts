@@ -19,49 +19,48 @@ export const courseSlice = createSlice({
     name: 'course',
     initialState,
     reducers: {
-        updateFilters: (state, action) => {
-            return (state.filters = action.payload)
+        updateFilters: (state, action: PayloadAction<Filter>) => {
+            state.filters = action.payload
         },
         filterCourses: {
             reducer: (state, action: PayloadAction<Course[]>) => {
                 state.filteredCourses = action.payload
             },
-            prepare: (courses, filters: Filter) => {
-                let filteredCourses: [] = []
+            prepare: (courses:Course[], filters: Filter) => {
+                let filteredCourses: Course[] = []
                 const { rating, price, language, videoDuration, features, topic, level, subtitle } = filters
                 filteredCourses = courses.filter((course: Course) => {
-                    if(course.ratingStars < rating) return false
+                    if (course.ratingStars < rating) return false
                     if (price.length) {
-                        if (price.indexOf('paid') !== -1 && price.indexOf('free') !== -1) {
+                        if (price.length === 2) {
+                        } else {
+                            if (price.indexOf('paid') !== -1 && course.price === 0) return false
+                            if (price.indexOf('free') !== -1 && course.price > 0) return false
                         }
-                        if (price.indexOf('paid') !== -1 && price.indexOf('free') === -1 && course.price === 0)
-                            return false
-                        if (price.indexOf('paid') === -1 && price.indexOf('free') !== -1 && course.price > 0)
-                            return false
                     }
                     if (language.length) {
-                        if (language.every((lang) => lang !== course.language)) return false
+                        if (language.indexOf(course.language) === -1) return false
                     }
                     if (subtitle.length) {
-                        if (subtitle.every((lang) => !course.subtitle.includes(lang))) return false
+                        if (!subtitle.some((subtitle) => course.subtitle.indexOf(subtitle) !== -1)) return false
                     }
                     if (topic.length) {
-                        if (topic.every((topic) => !course.topic.includes(topic))) return false
+                        if (!topic.some((topic) => course.topic.indexOf(topic) !== -1)) return false
                     }
                     if (level.length) {
                         if (level.indexOf('all') !== -1) {
                         } else {
-                            if (level.every((level) => level !== course.level)) return false
+                            if (!level.some((level) => course.level.indexOf(level) !== -1)) return false
                         }
                     }
                     if (features.length) {
-                        if (features.every((feat) => !course.features.includes(feat))) return false
+                        if (!features.some((features) => course.features.indexOf(features) !== -1)) return false
                     }
                     if (videoDuration.length) {
                         let lengthInHours = course.time / 60
                         if (
-                            videoDuration.every(
-                                (duration) => duration.min > lengthInHours || duration.max < lengthInHours,
+                            !videoDuration.some(
+                                (duration) => duration.min < lengthInHours && duration.max > lengthInHours,
                             )
                         )
                             return false
@@ -76,7 +75,8 @@ export const courseSlice = createSlice({
     },
 })
 export const { updateFilters, filterCourses } = courseSlice.actions
-export const currentFilter = (state: { filters: Filter }) => state.filters
-export const courses = (state: { courses: Course[] }) => state.courses
-export const filteredCourses = (state: { filteredCourses: Course[] }) => state.filteredCourses
+export const selectFilter = (state) => state.filters
+export const courses = (state: { courses: Course[]; filters: {}; filteredCourses: Course[] }) => state.courses
+export const filteredCourses = (state: { courses: Course[]; filters: {}; filteredCourses: Course[] }) =>
+    state.filteredCourses
 export default courseSlice.reducer
