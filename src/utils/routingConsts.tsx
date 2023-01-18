@@ -1,6 +1,13 @@
+import { Elements } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
 import { Outlet } from 'react-router-dom'
+
 import { ForgotPassword, Navigation, SignIn, SignUp } from '../components'
-import { Cart, Home, Join, User, Course } from '../pages'
+import { Cart, Checkout, Course, Home, Join, User } from '../pages'
+
+const promise = loadStripe(
+    'pk_test_51LHoCuCajsSYQyt62Mk7QQpfFB02M0WlxvV2ChvnuLC53AdryXEeCz6IMnrOULpEZxywKLwccWcqNF4EF5Bzgjob00gMQhTwWR',
+)
 
 export const routes = [
     {
@@ -11,6 +18,7 @@ export const routes = [
                 path: '',
                 element: <Home />,
             },
+
             {
                 path: '/join',
                 element: <Join />,
@@ -45,7 +53,20 @@ export const routes = [
             },
             {
                 path: '/cart',
-                element: <Cart />,
+                children: [
+                    {
+                        path: '',
+                        element: <Cart />,
+                    },
+                    {
+                        path: 'checkout',
+                        element: (
+                            <Elements stripe={promise}>
+                                <Checkout />
+                            </Elements>
+                        ),
+                    },
+                ],
             },
         ],
     },
@@ -83,6 +104,6 @@ export const navLinks = [
     },
     {
         path: '/cart',
-        name: 'carte',
+        name: 'cart',
     },
 ]

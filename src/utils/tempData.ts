@@ -1,4 +1,4 @@
-export const user = {
+export const user: User = {
     id: '1',
     name: 'hima',
     avatarUrl: '',
@@ -7,58 +7,78 @@ export const user = {
     courses: [{ id: '1' }],
     type: 'user',
 }
-export const instructor = {
+
+export const instructor: User = {
     id: '1',
     name: 'mohamed',
-    Description:
+    avatarUrl: '',
+    email: 'example@hima.com',
+    passwordHash: '',
+    description:
         "a course to master react from the begining to the end using moderen techeing and more just some more words to make this description seem longer than it seems and to add more data for usage and don't know what to wright next",
-    ratingStars: 4.5,
+    starsRating: 4.5,
     rating: 1902,
-    courses: [{ id: 1 }],
     coursesCount: 1,
     type: 'instructor',
 }
 
-export const review = {
-    id: '1',
-    userId: '1',
-    courseId: '1',
-    Description:
-        "a course to master react from the begining to the end using moderen techeing and more just some more words to make this description seem longer than it seems and to add more data for usage and don't know what to wright next",
-    rate: 4,
-    created_at: '10-10-2020',
+export type User = {
+    id: string
+    name: string
+    avatarUrl: string
+    email: string
+    passwordHash: string
+    type: 'admin' | 'user' | 'instructor'
+    // user
+    courses?: { id: string }[]
+    // instructor
+    description?: string
+    coursesCount?: 1
+    starsRating?: 4.5
+    rating?: 1902
 }
 
-export const lecture = {
-    id: '1',
-    courseId: '1',
-    name: 'react mastery intro',
-    time: 60, //in minutes
-    videoUrl: 'www.example.com',
-    watched: false,
+export type Review = {
+    id: string
+    userId: string
+    courseId: string
+    description: string
+    rate: number
+    created_at: string // to be set to date later
 }
 
-export const course = {
-    id: '1',
-    name: 'react mastery',
-    Description:
-        "a course to master react from the begining to the end using moderen techeing and more just some more words to make this description seem longer than it seems and to add more data for usage and don't know what to wright next",
-    slug: 'react-mastery',
-    requirements: ['English Language', 'javascript Knowlage'],
-    ratingStars: 4.5,
-    rating: 1902,
-    lecturesCount: 10,
-    lectures: [{ id: 1 }],
-    reviews: [{ id: 1 }],
-    time: 6050, //in minutes
-    progress: 16, // in percent
-    students: 5900,
-    instructor: 'mohamed',
-    instructorId: '1',
-    created_at: '10-10-2020',
-    updated_at: '15-12-2020',
-    price: 34999, // cents 349.99$
-    onSale: true,
-    discount: 50, // in percent  34999 * 50%
-    bestseller: false,
+export type Lecture = {
+    id: string
+    name: string
+    courseId: string
+    time: number //in minutes
+    videoUrl?: string
+    watched?: boolean
+}
+
+export type Course = {
+    id: string
+    title: string
+    description: string
+    imageURL: string
+    slug: string
+    requirements: string[]
+    starsRating: number
+    rating: number
+    lecturesCount: number
+    lectures: Lecture[]
+    reviews: { id: string }[]
+    whatYouWellLearn: { id: string; text: string }[]
+    time: number //in minutes
+    progress: number // in percent
+    students: number
+    instructor: string
+    instructorId: string
+    created_at: string
+    updated_at: string
+    price: number // cents 349.99$
+    onSale: boolean
+    isDiscounted: boolean
+    discount: number // in percent  34999 * 50%
+    isBestSeller: boolean
 }

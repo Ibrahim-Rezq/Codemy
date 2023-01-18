@@ -1,6 +1,4 @@
-import React from 'react'
-// const image = require('./imgs/about_us.webp')
-import imy from './imgs/about.jpg'
+import imy from '../../assets/about.jpg'
 
 const AboutUs = () => {
     return (
@@ -18,7 +16,7 @@ const AboutUs = () => {
                     <img
                         className="w-[100%] md:w-[83%] md:block md:border border-[e1e2f4] md:border-[#070b5b] relative md:z-10 "
                         src={imy}
-                        alt="image about us"
+                        alt="about us"
                     />
                     <div className="hidden md:block bg-indigo-900 w-[83%] h-full absolute top-6 -left-6"></div>
                 </div>

@@ -1,11 +1,11 @@
-import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Container, CourseCard, PageTitle, SEOHead } from '../components'
+import { Container, SEOHead } from '../components'
 import AboutUs from '../components/home/AboutUs'
+import CoursesCarosel from '../components/home/CoursesCarosel'
 import Hero from '../components/home/Hero'
 import { selectUser } from '../redux/features/user/userSlice'
-
+import { createRandomCourse } from '../utils/fakerData'
 const Home = () => {
     const state = useSelector(selectUser)
     const dispatch = useDispatch()
@@ -20,7 +20,7 @@ const Home = () => {
                     {[...Array(5)].map(() => {
                         return (
                             <>
-                                <CourseCard wide={false} />
+                                <CourseCard />
                             </>
                         )
                     })}
@@ -30,7 +30,7 @@ const Home = () => {
                     {[...Array(5)].map(() => {
                         return (
                             <>
-                                <CourseCard wide={false} />
+                                <CourseCard />
                             </>
                         )
                     })}

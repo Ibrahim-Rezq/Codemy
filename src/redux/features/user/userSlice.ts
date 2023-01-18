@@ -20,6 +20,6 @@ export const userSlice = createSlice({
 })
 
 export const { register, login } = userSlice.actions
-export const selectUser = (state) => state.user
+export const selectUser = (state: { user: string }) => state.user
 
 export default userSlice.reducer
