@@ -26,7 +26,7 @@ export const courseSlice = createSlice({
             reducer: (state, action: PayloadAction<Course[]>) => {
                 state.filteredCourses = action.payload
             },
-            prepare: (courses:Course[], filters: Filter) => {
+            prepare: (courses: Course[], filters: Filter) => {
                 let filteredCourses: Course[] = []
                 const { rating, price, language, videoDuration, features, topic, level, subtitle } = filters
                 filteredCourses = courses.filter((course: Course) => {
@@ -75,8 +75,10 @@ export const courseSlice = createSlice({
     },
 })
 export const { updateFilters, filterCourses } = courseSlice.actions
-export const selectFilter = (state) => state.filters
-export const courses = (state: { courses: Course[]; filters: {}; filteredCourses: Course[] }) => state.courses
-export const filteredCourses = (state: { courses: Course[]; filters: {}; filteredCourses: Course[] }) =>
-    state.filteredCourses
+export const filterState = (state: { course: { courses: Course[]; filters: {}; filteredCourses: Course[] } }) =>
+    state.course.filters
+export const coursesState = (state: { course: { courses: Course[]; filters: {}; filteredCourses: Course[] } }) =>
+    state.course.courses
+export const filteredCoursesState = (state: { course: { courses: Course[]; filters: {}; filteredCourses: Course[] } }) =>
+    state.course.filteredCourses
 export default courseSlice.reducer

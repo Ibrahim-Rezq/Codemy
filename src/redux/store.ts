@@ -10,5 +10,3 @@ export const store = configureStore({
         course:courseReducer,
     },
 })
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
