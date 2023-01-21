@@ -9,7 +9,6 @@ import { createRandomCourse } from '../utils/fakerData'
 const Home = () => {
     const state = useSelector(selectUser)
     const dispatch = useDispatch()
-
     return (
         <div className="bg-white w-screen min-h-screen text-black">
             <SEOHead title="Main Page" />

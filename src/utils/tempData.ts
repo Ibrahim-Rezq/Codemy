@@ -80,5 +80,20 @@ export type Course = {
     onSale: boolean
     isDiscounted: boolean
     discount: number // in percent  34999 * 50%
-    isBestSeller: boolean
+    bestseller: boolean
+    language: string
+    subtitle: string[]
+    topic: string[]
+    level: string
+    features: string[]
+}
+export type Filter = {
+    rating: number
+    language: string[]
+    videoDuration: { min: number; max: number }[]
+    features: string[]
+    topic: string[]
+    level: string[]
+    subtitle: string[]
+    price: string[]
 }
