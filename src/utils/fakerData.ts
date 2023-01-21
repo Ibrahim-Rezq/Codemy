@@ -65,5 +65,10 @@ export function createRandomCourse(): Course {
         isDiscounted: isDiscounted,
         discount: faker.datatype.number(60),
         isBestSeller: isDiscounted,
+        language: faker.helpers.arrayElement(['english', 'arabic', 'spanish', 'dutch', 'french']),
+        subtitle: faker.helpers.arrayElements(['english', 'arabic', 'spanish', 'dutch', 'french']),
+        topic: faker.helpers.arrayElements(['dev', 'eng', 'art', 'math', 'medicen']),
+        level: faker.helpers.arrayElement(['begginer', 'advanced']),
+        features: faker.helpers.arrayElements(['dev', 'eng', 'art', 'math', 'medicen']),
     }
 }
