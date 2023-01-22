@@ -1,17 +1,65 @@
+import { objectTraps } from 'immer/dist/internal'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import InputField from '../global/InputField'
 import Container from '../UI/Container'
 
 function SignUp() {
+    // retired all vaule in input field in object (searche controlle form react)
+    // dispatche for action for register  ->active preload -> sent to
+
+    const [formValue, setFormValue] = useState({ name: '', email: '', password: '' })
+    const [formErrors, setFormErrors] = useState({})
+    const [isSubmit, setIsSubmit] = useState(false)
+
+    const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+        console.log(e.target.value)
+
+        const [name, value]: string[] = e.target
+        setFormValue({ ...formValue, [name]: value })
+    }
+
+    const handleSubmit: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+        e.preventDefault()
+        setFormErrors(validate(formValue))
+        setIsSubmit(true)
+    }
+    useEffect(() => {
+        console.log(formErrors)
+        if (Object.keys(formErrors).length === 0 && isSubmit) {
+            console.log('go to profile')
+        }
+    })
+
+    const validate = (values: { name: string; email: string; password: string }) => {
+        const errors = {}
+        const regex = /^[^s@]+@[^\s@]+\.[^\s@]{2,}$/i
+        if (!values.name) {
+            errors.name = 'user name is required'
+        }
+        if (!values.email) {
+            errors.email = 'email is required'
+        } else if (!regex.test(values.email)) {
+            errors.email = 'this is not a valide email'
+        }
+        if (!values.password) {
+            errors.password = 'password  is required'
+        }
+        return errors
+    }
+
     return (
         <div className="sign-up">
             <Container>
-                <form className="form w-96 flex flex-col gap-3 items-center mt-16 mb-8 m-auto ">
+                <form className="form w-96 flex flex-col gap-3 items-center mt-16 mb-8 m-auto " onSubmit={handleSubmit}>
                     <h2 className="font-bold text-center">Sign up and start learning</h2>
-                    <InputField type={'text'} />
-                    <InputField type={'email'} />
-                    <InputField type={'password'} />
+                    <InputField type={'text'} value={formValue.name} onChange={handleChange} />
+                    <p>{formErrors.name}</p>
+                    <InputField type={'email'} value={formValue.email} onChange={handleChange} />
+                    <p>{formErrors.email}</p>
+                    <InputField type={'password'} value={formValue.password} onChange={handleChange} />
+                    <p>{formErrors.email}</p>
                     <ul className="password-strength flex gap-2 justify-start mr-auto">
                         <li className="w-12 bg-slate-300 h-1 rounded-full"></li>
                         <li className="w-12 bg-slate-300 h-1 rounded-full"></li>

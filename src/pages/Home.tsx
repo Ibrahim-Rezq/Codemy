@@ -20,7 +20,34 @@ const Home = () => {
                     {[...Array(5)].map(() => {
                         return (
                             <>
-                                <CourseCard />
+                                <CourseCard
+                                    course={{
+                                        id: '',
+                                        title: '',
+                                        description: '',
+                                        imageURL: '',
+                                        slug: '',
+                                        requirements: [],
+                                        starsRating: 0,
+                                        rating: 0,
+                                        lecturesCount: 0,
+                                        lectures: [],
+                                        reviews: [],
+                                        whatYouWellLearn: [],
+                                        time: 0,
+                                        progress: 0,
+                                        students: 0,
+                                        instructor: '',
+                                        instructorId: '',
+                                        created_at: '',
+                                        updated_at: '',
+                                        price: 0,
+                                        onSale: false,
+                                        isDiscounted: false,
+                                        discount: 0,
+                                        isBestSeller: false,
+                                    }}
+                                />
                             </>
                         )
                     })}
@@ -30,7 +57,34 @@ const Home = () => {
                     {[...Array(5)].map(() => {
                         return (
                             <>
-                                <CourseCard />
+                                <CourseCard
+                                    course={{
+                                        id: '',
+                                        title: '',
+                                        description: '',
+                                        imageURL: '',
+                                        slug: '',
+                                        requirements: [],
+                                        starsRating: 0,
+                                        rating: 0,
+                                        lecturesCount: 0,
+                                        lectures: [],
+                                        reviews: [],
+                                        whatYouWellLearn: [],
+                                        time: 0,
+                                        progress: 0,
+                                        students: 0,
+                                        instructor: '',
+                                        instructorId: '',
+                                        created_at: '',
+                                        updated_at: '',
+                                        price: 0,
+                                        onSale: false,
+                                        isDiscounted: false,
+                                        discount: 0,
+                                        isBestSeller: false,
+                                    }}
+                                />
                             </>
                         )
                     })}
