@@ -117,7 +117,7 @@ const PaymentMethodForm = ({
     </form>
 )
 
-const CompleteCheckout = () => {
+export const CompleteCheckout = () => {
     return (
         <></> // The right section in udemy course
     )

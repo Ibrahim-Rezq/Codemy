@@ -11,7 +11,7 @@
         "lint": "eslint . --ext .ts,.tsx",
         "lint-fix": "eslint . --ext .ts,.tsx --fix",
         "prettier": "prettier --config .prettierrc \"./src/*.tsx\" \"./src/*/*.ts\" \"./src/*/*.tsx\" --write",
-        "watch": "watch \"npm run build\" src",
+        "watch": "vite build --watch",
         "firebase": "firebase emulators:start",
         "fire-dev": "concurrently \"npm run watch\"  \"npm run firebase\""
     },

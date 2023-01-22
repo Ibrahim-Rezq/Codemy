@@ -10,11 +10,10 @@ import {
     FaRegPlayCircle,
     FaTv,
 } from 'react-icons/fa'
-import { useParams } from 'react-router-dom'
-import { createRandomCourse } from '../utils/fakerData'
 
+// import { useParams } from 'react-router-dom'
+import { createRandomCourse } from '../utils/fakerData'
 import { convertToCurrency, formatNumber, minutesToHoursMinutes } from '../utils/helper'
-import { Lecture } from '../utils/tempData'
 
 const course = createRandomCourse()
 type CoursePropsType = {
@@ -169,8 +168,7 @@ const BestSeller = () => (
 )
 
 export default function Course() {
-    const { id } = useParams()
-
+    // const { slug } = useParams()
     return (
         <>
             <div className="bg-black px-10 py-10">
