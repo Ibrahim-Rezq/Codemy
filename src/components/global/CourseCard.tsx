@@ -5,9 +5,9 @@ type CourseCardPropsType = {
     wide?: boolean
 }
 
-// const CardImage = ({ imageURL, title }: { imageURL: string; title: string }) => (
-//     <img src={imageURL} alt={title} className={'w-full h-[130px] object-cover'} />
-// )
+const CardImage = ({ imageURL, title }: { imageURL: string; title: string }) => (
+    <img src={imageURL} alt={title} className={'w-full h-[130px] object-cover'} />
+)
 
 const CardTitle = ({ title }: { title: string }) => <h1 className="text-lg font-bold text-black capitalize">{title}</h1>
 
