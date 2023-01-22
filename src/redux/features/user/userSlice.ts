@@ -1,7 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
-    user: { name: 'name => Coming from redux' },
+import { createRandomUser } from '../../../utils/fakerData'
+import { User } from '../../../utils/user/userTypes'
+
+type userStateType = {
+    user: User
+}
+const initialState: userStateType = {
+    user: createRandomUser(),
 }
 
 export const userSlice = createSlice({
@@ -20,6 +26,6 @@ export const userSlice = createSlice({
 })
 
 export const { register, login } = userSlice.actions
-export const selectUser = (state: { user: string }) => state.user
+export const selectUser = (state: { user: userStateType }) => state.user
 
 export default userSlice.reducer

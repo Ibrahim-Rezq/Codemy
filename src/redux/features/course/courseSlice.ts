@@ -1,6 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Course, Filter } from '../../../utils/tempData'
-const initialState: { courses: Course[]; filters: {}; filteredCourses: Course[] } = {
+type coursesStateType = {
+    courses: Course[]
+    filters: JsonB
+    filteredCourses: Course[]
+}
+
+const initialState: coursesStateType = {
     courses: [],
     filters: {
         rating: 0,
@@ -32,8 +37,7 @@ export const courseSlice = createSlice({
                 filteredCourses = courses.filter((course: Course) => {
                     if (course.starsRating < rating) return false
                     if (price.length) {
-                        if (price.length === 2) {
-                        } else {
+                        if (price.length !== 2) {
                             if (price.indexOf('paid') !== -1 && course.price === 0) return false
                             if (price.indexOf('free') !== -1 && course.price > 0) return false
                         }
@@ -48,8 +52,7 @@ export const courseSlice = createSlice({
                         if (!topic.some((topic) => course.topic.indexOf(topic) !== -1)) return false
                     }
                     if (level.length) {
-                        if (level.indexOf('all') !== -1) {
-                        } else {
+                        if (level.indexOf('all') === -1) {
                             if (!level.some((level) => course.level.indexOf(level) !== -1)) return false
                         }
                     }
@@ -57,7 +60,7 @@ export const courseSlice = createSlice({
                         if (!features.some((features) => course.features.indexOf(features) !== -1)) return false
                     }
                     if (videoDuration.length) {
-                        let lengthInHours = course.time / 60
+                        const lengthInHours = course.time / 60
                         if (
                             !videoDuration.some(
                                 (duration) => duration.min < lengthInHours && duration.max > lengthInHours,
@@ -75,10 +78,5 @@ export const courseSlice = createSlice({
     },
 })
 export const { updateFilters, filterCourses } = courseSlice.actions
-export const filterState = (state: { course: { courses: Course[]; filters: {}; filteredCourses: Course[] } }) =>
-    state.course.filters
-export const coursesState = (state: { course: { courses: Course[]; filters: {}; filteredCourses: Course[] } }) =>
-    state.course.courses
-export const filteredCoursesState = (state: { course: { courses: Course[]; filters: {}; filteredCourses: Course[] } }) =>
-    state.course.filteredCourses
+export const coursesState = (state: { course: { courses: coursesStateType } }) => state.course
 export default courseSlice.reducer

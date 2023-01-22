@@ -1,4 +1,3 @@
-import { Course } from '../../utils/tempData'
 import CourseCard from '../global/CourseCard'
 import PageTitle from '../UI/PageTitle'
 

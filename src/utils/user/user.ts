@@ -4,35 +4,39 @@ import { httpsCallable } from 'firebase/functions'
 import { auth, functions } from '../firebase'
 import { SignInData, SignUpData, User } from './userTypes'
 
-//  uncomment in case of running local emulator
-
-export const SignIn = async ({ email, password }: SignInData) => {
-    if (email && password) {
-        const UserCredintials = await signInWithEmailAndPassword(auth, email, password)
-        const user: User = UserCredintials.user
-        console.log(user)
-    } else console.log('email or password is not found')
-}
-export const SignUp = async ({ email, password, name }: SignUpData) => {
-    if (email && password) {
-        const UserCredintials = await createUserWithEmailAndPassword(auth, email, password)
-        const user: User = UserCredintials.user
-        console.log(user)
-        UpdateUserProfile({ displayName: name })
-    } else console.log('email or password is not found')
+export const SignIn = async ({ email, password }: SignInData): Promise<User | unknown> => {
+    try {
+        if (email && password) {
+            const UserCredintials = await signInWithEmailAndPassword(auth, email, password)
+            const user: User = UserCredintials.user
+            return user
+        } else return 'email or password is not found'
+    } catch (e) {
+        return e
+    }
 }
 
-const UpdateRole = ({ UserEmail, UserRole = 'user' }: { UserEmail: string; UserRole: string }) => {
+export const SignUp = async ({ email, password, name, role = 'user' }: SignUpData): Promise<User | unknown> => {
+    try {
+        if (email && password) {
+            const UserCredintials = await createUserWithEmailAndPassword(auth, email, password)
+            const user: User = UserCredintials.user
+            UpdateUserProfile({ displayName: name }, role)
+            return user
+        } else return 'email or password is not found'
+    } catch (e) {
+        return e
+    }
+}
+
+const UpdateRole = ({ UserEmail, UserRole }: { UserEmail: string; UserRole: User['role'] }) => {
     const addRole = httpsCallable(functions, 'addRole')
-    addRole({ email: UserEmail, role: UserRole }).then((result) => {
-        const data = result.data
-        console.log(data)
-    })
+    addRole({ email: UserEmail, role: UserRole }).catch((e) => console.log('could not set role', e))
 }
 
-const UpdateUserProfile = (data: JsonB) => {
+const UpdateUserProfile = (data: JsonB, role?: User['role']) => {
     if (auth?.currentUser && auth?.currentUser?.email) {
-        UpdateRole({ UserEmail: auth.currentUser.email, UserRole: 'user' })
+        UpdateRole({ UserEmail: auth.currentUser.email, UserRole: role })
         updateProfile(auth.currentUser, {
             ...data,
         })
