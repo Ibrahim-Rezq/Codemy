@@ -1,9 +1,10 @@
 import { objectTraps } from 'immer/dist/internal'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-
+import { register, login } from '../../redux/features/user/userSlice'
 import InputField from '../global/InputField'
 import Container from '../UI/Container'
+import { useDispatch } from 'react-redux'
 
 function SignUp() {
     // retired all vaule in input field in object (searche controlle form react)
@@ -12,7 +13,7 @@ function SignUp() {
     const [formValue, setFormValue] = useState({ name: '', email: '', password: '' })
     const [formErrors, setFormErrors] = useState({})
     const [isSubmit, setIsSubmit] = useState(false)
-
+    const dispatch = useDispatch()
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         console.log(e.target.value)
 
@@ -23,14 +24,12 @@ function SignUp() {
     const handleSubmit: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         e.preventDefault()
         setFormErrors(validate(formValue))
-        setIsSubmit(true)
-    }
-    useEffect(() => {
-        console.log(formErrors)
+
         if (Object.keys(formErrors).length === 0 && isSubmit) {
-            console.log('go to profile')
+            dispatch(register(formValue))
+            setIsSubmit(true)
         }
-    })
+    }
 
     const validate = (values: { name: string; email: string; password: string }) => {
         const errors = {}
@@ -59,7 +58,7 @@ function SignUp() {
                     <InputField type={'email'} value={formValue.email} onChange={handleChange} />
                     <p>{formErrors.email}</p>
                     <InputField type={'password'} value={formValue.password} onChange={handleChange} />
-                    <p>{formErrors.email}</p>
+                    <p>{formErrors.password}</p>
                     <ul className="password-strength flex gap-2 justify-start mr-auto">
                         <li className="w-12 bg-slate-300 h-1 rounded-full"></li>
                         <li className="w-12 bg-slate-300 h-1 rounded-full"></li>
