@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { FaEye } from 'react-icons/fa'
 
-function InputField({ type, label = 'Full Name' }: { type: 'text' | 'password' | 'email'; label?: string }) {
+function InputField({ type, label }: { type: 'text' | 'password' | 'email'; label?: string }) {
     const [passwordShown, setPasswordShown] = useState(false)
 
     return (

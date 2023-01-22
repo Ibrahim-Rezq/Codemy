@@ -6,7 +6,7 @@ import InputField from '../global/InputField'
 import Container from '../UI/Container'
 import { useDispatch } from 'react-redux'
 
-function SignUp() {
+const SignUp = (props: any) => {
     // retired all vaule in input field in object (searche controlle form react)
     // dispatche for action for register  ->active preload -> sent to
 
@@ -17,17 +17,17 @@ function SignUp() {
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         console.log(e.target.value)
 
-        const [name, value]: string[] = e.target
+        const { name, value } = e.target
         setFormValue({ ...formValue, [name]: value })
     }
 
     const handleSubmit: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         e.preventDefault()
-        setFormErrors(validate(formValue))
 
-        if (Object.keys(formErrors).length === 0 && isSubmit) {
+        if (Object.keys(validate(formValue)).length === 0) {
             dispatch(register(formValue))
-            setIsSubmit(true)
+        } else {
+            setFormErrors(validate(formValue))
         }
     }
 
@@ -53,11 +53,11 @@ function SignUp() {
             <Container>
                 <form className="form w-96 flex flex-col gap-3 items-center mt-16 mb-8 m-auto " onSubmit={handleSubmit}>
                     <h2 className="font-bold text-center">Sign up and start learning</h2>
-                    <InputField type={'text'} value={formValue.name} onChange={handleChange} />
+                    <InputField type={'text'} value={formValue.name} onChange={handleChange} label="full name" />
                     <p>{formErrors.name}</p>
-                    <InputField type={'email'} value={formValue.email} onChange={handleChange} />
+                    <InputField type={'email'} value={formValue.email} onChange={handleChange} label="Email" />
                     <p>{formErrors.email}</p>
-                    <InputField type={'password'} value={formValue.password} onChange={handleChange} />
+                    <InputField type={'password'} value={formValue.password} onChange={handleChange} label="Password" />
                     <p>{formErrors.password}</p>
                     <ul className="password-strength flex gap-2 justify-start mr-auto">
                         <li className="w-12 bg-slate-300 h-1 rounded-full"></li>
