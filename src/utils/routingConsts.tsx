@@ -41,11 +41,15 @@ export const routes = [
                         path: 'forgot-password',
                         element: <ForgotPassword />,
                     },
+                    {
+                        path: 'edit',
+                        element: <Home />,
+                    },
                 ],
             },
             {
                 path: '/my-learning',
-                // element: <App />,
+                element: <Home />,
             },
             {
                 path: '/course/:id',

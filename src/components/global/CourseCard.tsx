@@ -1,5 +1,4 @@
 import { convertToCurrency } from '../../utils/helper'
-import { Course } from '../../utils/tempData'
 
 type CourseCardPropsType = {
     course: Course

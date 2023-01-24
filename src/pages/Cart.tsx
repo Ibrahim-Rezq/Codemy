@@ -5,7 +5,6 @@ import { Button, CourseCard, PageTitle } from '../components'
 import { Container } from '../components'
 import { createRandomCourse } from '../utils/fakerData'
 import { convertToCurrency } from '../utils/helper'
-import { Course } from '../utils/tempData'
 
 type CartProps = {
     cartItems?: Course[]

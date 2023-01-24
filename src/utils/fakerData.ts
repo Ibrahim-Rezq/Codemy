@@ -1,8 +1,9 @@
 import { faker } from '@faker-js/faker'
+import { IdTokenResult, UserMetadata } from 'firebase/auth'
 
-import { Course, Lecture, Review } from './tempData'
+import { User } from '../utils/user/userTypes'
 
-function createRandomLecture(): Lecture {
+export function createRandomLecture(): Lecture {
     return {
         id: faker.datatype.uuid(),
         name: faker.commerce.productName(),
@@ -10,7 +11,8 @@ function createRandomLecture(): Lecture {
         time: faker.datatype.number(160),
     }
 }
-function createRandomReview(): Review {
+
+export function createRandomReview(): Review {
     return {
         description: faker.commerce.productDescription(),
         rate: faker.datatype.number({ min: 0, max: 5, precision: 0.01 }),
@@ -18,6 +20,45 @@ function createRandomReview(): Review {
         id: faker.datatype.uuid(),
         userId: faker.datatype.uuid(),
         courseId: faker.datatype.uuid(),
+    }
+}
+
+export function createRandomInstructor(): User {
+    return createRandomUser()
+}
+
+export function createRandomUser(): User {
+    const firstName = faker.name.firstName()
+    const lastName = faker.name.lastName()
+    return {
+        uid: faker.datatype.uuid(),
+        displayName: faker.name.fullName({ firstName, lastName, sex: 'male' }),
+        photoURL: faker.image.avatar(),
+        email: faker.internet.email(firstName).substring(0, 23),
+        emailVerified: faker.datatype.boolean(),
+        isAnonymous: faker.datatype.boolean(),
+        metadata: {} as UserMetadata,
+        providerData: [],
+        refreshToken: '',
+        tenantId: null,
+        delete: function (): Promise<void> {
+            throw new Error('Function not implemented.')
+        },
+        getIdToken: function (): Promise<string> {
+            throw new Error('Function not implemented.')
+        },
+        getIdTokenResult: function (): Promise<IdTokenResult> {
+            throw new Error('Function not implemented.')
+        },
+        reload: function (): Promise<void> {
+            throw new Error('Function not implemented.')
+        },
+        toJSON: function (): object {
+            throw new Error('Function not implemented.')
+        },
+        phoneNumber: null,
+        providerId: '',
+        role: 'user',
     }
 }
 
@@ -65,5 +106,10 @@ export function createRandomCourse(): Course {
         isDiscounted: isDiscounted,
         discount: faker.datatype.number(60),
         isBestSeller: isDiscounted,
+        language: faker.helpers.arrayElement(['english', 'arabic', 'spanish', 'dutch', 'french']),
+        subtitle: faker.helpers.arrayElements(['english', 'arabic', 'spanish', 'dutch', 'french']),
+        topic: faker.helpers.arrayElements(['dev', 'eng', 'art', 'math', 'medicen']),
+        level: faker.helpers.arrayElement(['begginer', 'advanced']),
+        features: faker.helpers.arrayElements(['dev', 'eng', 'art', 'math', 'medicen']),
     }
 }
