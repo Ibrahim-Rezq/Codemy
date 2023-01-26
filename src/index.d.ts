@@ -52,7 +52,7 @@ type Course = {
     isBestSeller: boolean
     language: string
     subtitle: string[]
-    topic: string[]
+    categories: string[]
     level: string
     features: string[]
 }

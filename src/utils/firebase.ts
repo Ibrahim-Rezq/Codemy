@@ -19,8 +19,10 @@ export const functions = getFunctions(app)
 
 connectAuthEmulator(auth, 'http://localhost:9099')
 connectFunctionsEmulator(functions, 'localhost', 5001)
+
 export const db = getFirestore(app)
 connectFirestoreEmulator(db, 'localhost', 8080)
+
 
 //9099 auth
 //5001 func

@@ -12,12 +12,15 @@ export function formatNumber(number: number | undefined): string {
     return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
-export function minutesToHoursMinutes(minutesToFormat: number | undefined): string {
+export function minutesToHoursMinutes(minutesToFormat: number | undefined, colon : boolean = false): string {
     if (minutesToFormat == undefined) {
         return 'you must specify mintues'
     }
     const hours = Math.floor(minutesToFormat / 60)
     const minutes = minutesToFormat % 60
+    if(colon) {
+        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`
+    }
     return `${hours}h ${minutes}m`
 }
 
