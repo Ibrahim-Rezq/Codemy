@@ -1,4 +1,6 @@
-import { Container, SEOHead } from '../components'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { Container, CourseCard, PageTitle, SEOHead } from '../components'
 import AboutUs from '../components/home/AboutUs'
 import CoursesCarosel from '../components/home/CoursesCarosel'
 import Hero from '../components/home/Hero'

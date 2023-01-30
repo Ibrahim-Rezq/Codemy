@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 import { createRandomUser } from '../../../utils/fakerData'
+import { SignUp } from '../../../utils/user/user'
 import { User } from '../../../utils/user/userTypes'
 
 type userStateType = {
@@ -15,8 +16,13 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         register: (state, action) => {
-            console.log('registered', action.payload)
-            return state
+            const newUser = action.payload
+            let newUserInfo
+            SignUp(newUser).then((res) => {
+                newUserInfo = res
+            })
+            console.log('registered', newUserInfo)
+            return newUser
         },
         login: (state, action) => {
             console.log('logedin', action.payload)

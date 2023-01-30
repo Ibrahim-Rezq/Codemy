@@ -11,7 +11,6 @@ const withAuth = (Component: typeof React.Component) => {
                 navigate('/join/login-popup')
             }
         })
-
         return <Component {...props} />
     }
 
