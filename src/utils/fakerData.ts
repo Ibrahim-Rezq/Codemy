@@ -108,7 +108,7 @@ export function createRandomCourse(): Course {
         isBestSeller: isDiscounted,
         language: faker.helpers.arrayElement(['english', 'arabic', 'spanish', 'dutch', 'french']),
         subtitle: faker.helpers.arrayElements(['english', 'arabic', 'spanish', 'dutch', 'french']),
-        topic: faker.helpers.arrayElements(['dev', 'eng', 'art', 'math', 'medicen']),
+        categories: faker.helpers.arrayElements(['dev', 'eng', 'art', 'math', 'medicen']),
         level: faker.helpers.arrayElement(['begginer', 'advanced']),
         features: faker.helpers.arrayElements(['dev', 'eng', 'art', 'math', 'medicen']),
     }
