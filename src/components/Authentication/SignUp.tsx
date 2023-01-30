@@ -12,12 +12,11 @@ const SignUp = (props: any) => {
 
     const [formValue, setFormValue] = useState({ name: '', email: '', password: '' })
     const [formErrors, setFormErrors] = useState({})
-    const [isSubmit, setIsSubmit] = useState(false)
     const dispatch = useDispatch()
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         console.log(e.target.value)
 
-        const { name, value } = e.target
+        const { name, value } = e.target // return input field so name will take name of input and value is equel to value of this field
         setFormValue({ ...formValue, [name]: value })
     }
 
@@ -32,15 +31,13 @@ const SignUp = (props: any) => {
     }
 
     const validate = (values: { name: string; email: string; password: string }) => {
-        const errors = {}
+        const errors = {} as JsonB
         const regex = /^[^s@]+@[^\s@]+\.[^\s@]{2,}$/i
         if (!values.name) {
             errors.name = 'user name is required'
         }
         if (!values.email) {
             errors.email = 'email is required'
-        } else if (!regex.test(values.email)) {
-            errors.email = 'this is not a valide email'
         }
         if (!values.password) {
             errors.password = 'password  is required'
@@ -53,11 +50,29 @@ const SignUp = (props: any) => {
             <Container>
                 <form className="form w-96 flex flex-col gap-3 items-center mt-16 mb-8 m-auto " onSubmit={handleSubmit}>
                     <h2 className="font-bold text-center">Sign up and start learning</h2>
-                    <InputField type={'text'} value={formValue.name} onChange={handleChange} label="full name" />
+                    <InputField
+                        type={'text'}
+                        name="name"
+                        value={formValue.name}
+                        onChange={handleChange}
+                        label="full name"
+                    />
                     <p>{formErrors.name}</p>
-                    <InputField type={'email'} value={formValue.email} onChange={handleChange} label="Email" />
+                    <InputField
+                        type={'email'}
+                        name="email"
+                        value={formValue.email}
+                        onChange={handleChange}
+                        label="Email"
+                    />
                     <p>{formErrors.email}</p>
-                    <InputField type={'password'} value={formValue.password} onChange={handleChange} label="Password" />
+                    <InputField
+                        type={'password'}
+                        name="password"
+                        value={formValue.password}
+                        onChange={handleChange}
+                        label="Password"
+                    />
                     <p>{formErrors.password}</p>
                     <ul className="password-strength flex gap-2 justify-start mr-auto">
                         <li className="w-12 bg-slate-300 h-1 rounded-full"></li>

@@ -17,8 +17,11 @@ export const userSlice = createSlice({
     reducers: {
         register: (state, action) => {
             const newUser = action.payload
-            SignUp(newUser)
-            console.log('registered', SignUp(newUser))
+            let newUserInfo
+            SignUp(newUser).then((res) => {
+                newUserInfo = res
+            })
+            console.log('registered', newUserInfo)
             return newUser
         },
         login: (state, action) => {
