@@ -52,7 +52,7 @@ export const routes = [
                 element: <Home />,
             },
             {
-                path: '/course/:id',
+                path: '/course/:slug',
                 element: <Course />,
             },
             {
