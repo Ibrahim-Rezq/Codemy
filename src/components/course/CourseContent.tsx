@@ -1,7 +1,8 @@
-import { FaPlayCircle } from 'react-icons/fa';
-import { minutesToHoursMinutes } from '../../utils/helper';
+import { FaPlayCircle } from 'react-icons/fa'
 
-const CourseContent = ({ lectures, time }: {lectures? : Lecture[], time?: number}) => {
+import { minutesToHoursMinutes } from '../../utils/helper'
+
+const CourseContent = ({ lectures, time }: { lectures?: Lecture[]; time?: number }) => {
     return (
         <div>
             <h1 className="text-2xl font-bold my-3">Course content</h1>
@@ -40,4 +41,4 @@ const CourseContent = ({ lectures, time }: {lectures? : Lecture[], time?: number
     )
 }
 
-export default CourseContent;
+export default CourseContent

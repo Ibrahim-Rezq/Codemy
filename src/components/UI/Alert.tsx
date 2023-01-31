@@ -1,7 +1,7 @@
-import { FaRegTimesCircle } from "react-icons/fa";
+import { FaRegTimesCircle } from 'react-icons/fa'
 
-const Alert = ({message} : {message: any}) => (
-    <div className='flex justify-center mt-10'>
+const Alert = ({ message }: { message: string }) => (
+    <div className="flex justify-center mt-10">
         <div className="alert alert-error shadow-lg max-w-md">
             <div>
                 <FaRegTimesCircle />
@@ -11,4 +11,4 @@ const Alert = ({message} : {message: any}) => (
     </div>
 )
 
-export default Alert;
+export default Alert

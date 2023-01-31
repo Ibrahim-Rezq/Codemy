@@ -12,7 +12,7 @@ const initialState: coursesStateType = {
         language: [],
         videoDuration: [],
         features: [],
-        topic: [],
+        categories: [],
         level: [],
         subtitle: [],
         price: [],
@@ -33,7 +33,7 @@ export const courseSlice = createSlice({
             },
             prepare: (courses: Course[], filters: Filter) => {
                 let filteredCourses: Course[] = []
-                const { rating, price, language, videoDuration, features, topic, level, subtitle } = filters
+                const { rating, price, language, videoDuration, features, categories, level, subtitle } = filters
                 filteredCourses = courses.filter((course: Course) => {
                     if (course.starsRating < rating) return false
                     if (price.length) {
@@ -48,8 +48,8 @@ export const courseSlice = createSlice({
                     if (subtitle.length) {
                         if (!subtitle.some((subtitle) => course.subtitle.indexOf(subtitle) !== -1)) return false
                     }
-                    if (topic.length) {
-                        if (!topic.some((topic) => course.topic.indexOf(topic) !== -1)) return false
+                    if (categories.length) {
+                        if (!categories.some((categories) => course.categories.indexOf(categories) !== -1)) return false
                     }
                     if (level.length) {
                         if (level.indexOf('all') === -1) {

@@ -1,25 +1,22 @@
-import {
-    FaClosedCaptioning,
-    FaInfoCircle,
-    FaGlobe
-} from 'react-icons/fa'
+import { useState } from 'react'
+import { FaClosedCaptioning, FaGlobe, FaInfoCircle } from 'react-icons/fa'
 import { useParams } from 'react-router-dom'
+
+import { Alert, Categories, CourseContent, Loading, Rating, SideCard, Subtitles, WhatYouWellLearn } from '../components'
+import { useGetCourseQuery } from '../redux/features/course/courseApiSlice'
 import { formatNumber } from '../utils/helper'
-import { useGetCourseQuery } from '../redux/features/course/courseApiSlice';
-import { CourseContent, WhatYouWellLearn, SideCard, Rating, Alert, Loading, Categories, Subtitles } from '../components'
-import { useState } from 'react';
 
 const BestSeller = () => (
     <div className="badge bg-amber-300 text-black rounded-none font-semibold text-xs mr-3">Bestseller</div>
 )
 
 export default function Course() {
-    const [showAllSubtitles, setShowAllSubtitles] = useState(false);
-    const { slug } = useParams();
-    const {data : course, isFetching, isError, error} = useGetCourseQuery(slug ?? '');
+    const [showAllSubtitles, setShowAllSubtitles] = useState(false)
+    const { slug } = useParams()
+    const { data: course, isFetching, isError, error } = useGetCourseQuery(slug ?? '')
 
-    if(isFetching) return <Loading />
-    if(isError) return <Alert message={error} />
+    if (isFetching) return <Loading />
+    if (isError) return <Alert message={error.message} />
 
     return (
         <>
@@ -40,27 +37,30 @@ export default function Course() {
                     <div className="flex text-white text-sm">
                         <div className="flex items-center">
                             <FaInfoCircle />
-                            <span className="pl-2">Last Updated {' '}
-                                {course?.updated_at != null 
-                                    ? new Date(course.updated_at).toLocaleString("en-US", {month: "numeric", year: "numeric"}) 
-                                    : null
-                                }
+                            <span className="pl-2">
+                                Last Updated{' '}
+                                {course?.updated_at != null
+                                    ? new Date(course.updated_at).toLocaleString('en-US', {
+                                          month: 'numeric',
+                                          year: 'numeric',
+                                      })
+                                    : null}
                             </span>
                         </div>
                         <div className="flex items-center ml-5">
                             <FaGlobe />
                             <span className="pl-2">{course?.language}</span>
                         </div>
-                        {showAllSubtitles == false && <Subtitles subtitle={course?.subtitle} showSubtitles={setShowAllSubtitles} />}
+                        {showAllSubtitles == false && (
+                            <Subtitles subtitle={course?.subtitle} showSubtitles={setShowAllSubtitles} />
+                        )}
                     </div>
-                    {showAllSubtitles && 
+                    {showAllSubtitles && (
                         <div className="flex items-center text-white">
                             <FaClosedCaptioning />
-                            <span className="pl-2">
-                                {course?.subtitle.join(', ')}
-                            </span>
+                            <span className="pl-2">{course?.subtitle.join(', ')}</span>
                         </div>
-                    }
+                    )}
                 </div>
             </div>
             <div className="flex mt-5">
@@ -77,17 +77,18 @@ export default function Course() {
                     <div>
                         <h1 className="text-2xl font-bold my-3">Requirements</h1>
                         <ul className="list-disc list-inside">
-                            {course?.requirements.map((requirement : string, index: number) => (
+                            {course?.requirements.map((requirement: string, index: number) => (
                                 <li key={index}>{requirement}</li>
                             ))}
                         </ul>
                     </div>
                 </div>
                 <div className="w-1/3">
-                    <SideCard time={course?.time}
-                        onSale={course?.onSale} 
-                        price={course?.price} 
-                        discount={course?.discount} 
+                    <SideCard
+                        time={course?.time}
+                        onSale={course?.onSale}
+                        price={course?.price}
+                        discount={course?.discount}
                         imageURL={course?.imageURL}
                     />
                 </div>

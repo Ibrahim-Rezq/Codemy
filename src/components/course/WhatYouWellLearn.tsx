@@ -1,6 +1,6 @@
-import { FaCheck } from "react-icons/fa";
+import { FaCheck } from 'react-icons/fa'
 
-const WhatYouWellLearn = ({ whatYouWellLearn }: {whatYouWellLearn?: { id: string; text: string }[]}) => {
+const WhatYouWellLearn = ({ whatYouWellLearn }: { whatYouWellLearn?: { id: string; text: string }[] }) => {
     return (
         <div className="border p-5">
             <h1 className="text-2xl font-bold mb-3">What you&apos;ll learn</h1>
@@ -15,4 +15,4 @@ const WhatYouWellLearn = ({ whatYouWellLearn }: {whatYouWellLearn?: { id: string
     )
 }
 
-export default WhatYouWellLearn;
+export default WhatYouWellLearn

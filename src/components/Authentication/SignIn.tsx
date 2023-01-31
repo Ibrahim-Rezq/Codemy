@@ -27,8 +27,8 @@ function SignIn() {
                             <p>Continue with {box.type}</p>
                         </div>
                     ))}
-                    <InputField type={'email'} />
-                    <InputField type={'password'} />
+                    <InputField type={'email'} name="email" inputlabel="Email" />
+                    <InputField type={'password'} name="password" inputlabel="Password" />
                     <button className="btn btn-primary rounded-none	normal-case w-full  text-base	">Log In</button>
                 </form>
                 <p className="text-center mt-4">

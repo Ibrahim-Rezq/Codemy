@@ -62,7 +62,7 @@ type Filter = {
     language: string[]
     videoDuration: { min: number; max: number }[]
     features: string[]
-    topic: string[]
+    categories: string[]
     level: string[]
     subtitle: string[]
     price: string[]

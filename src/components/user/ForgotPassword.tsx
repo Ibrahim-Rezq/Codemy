@@ -9,7 +9,7 @@ function ForgotPassword() {
             <div className="forgot-password">
                 <form className="form w-96 flex flex-col gap-3 items-center mt-16 m-auto">
                     <h2 className="font-bold text-center">Forgot Password</h2>
-                    <InputField type={'email'} />
+                    <InputField type={'email'} name="email" inputlabel="Email" />
                     <button className="btn btn-primary rounded-none	normal-case w-full text-base">Reset Password</button>
                 </form>
                 <p className="text-center mt-4">

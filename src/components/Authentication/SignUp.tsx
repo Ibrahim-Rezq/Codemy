@@ -1,26 +1,23 @@
-import { objectTraps } from 'immer/dist/internal'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { register, login } from '../../redux/features/user/userSlice'
+
+import { register } from '../../redux/features/user/userSlice'
 import InputField from '../global/InputField'
 import Container from '../UI/Container'
-import { useDispatch } from 'react-redux'
 
-const SignUp = (props: any) => {
-    // retired all vaule in input field in object (searche controlle form react)
-    // dispatche for action for register  ->active preload -> sent to
-
+const SignUp = () => {
     const [formValue, setFormValue] = useState({ name: '', email: '', password: '' })
-    const [formErrors, setFormErrors] = useState({})
+    const [formErrors, setFormErrors] = useState({ name: '', email: '', password: '' })
     const dispatch = useDispatch()
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         console.log(e.target.value)
 
-        const { name, value } = e.target // return input field so name will take name of input and value is equel to value of this field
+        const { name, value } = e.target
         setFormValue({ ...formValue, [name]: value })
     }
 
-    const handleSubmit: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    const handleSubmit = (e: any) => {
         e.preventDefault()
 
         if (Object.keys(validate(formValue)).length === 0) {
@@ -31,8 +28,8 @@ const SignUp = (props: any) => {
     }
 
     const validate = (values: { name: string; email: string; password: string }) => {
-        const errors = {} as JsonB
-        const regex = /^[^s@]+@[^\s@]+\.[^\s@]{2,}$/i
+        const errors = { name: '', email: '', password: '' }
+        // const regex = /^[^s@]+@[^\s@]+\.[^\s@]{2,}$/i
         if (!values.name) {
             errors.name = 'user name is required'
         }
@@ -55,25 +52,25 @@ const SignUp = (props: any) => {
                         name="name"
                         value={formValue.name}
                         onChange={handleChange}
-                        label="full name"
+                        inputlabel="full name"
                     />
-                    <p>{formErrors.name}</p>
+                    <p>{formErrors?.name ?? ''}</p>
                     <InputField
                         type={'email'}
                         name="email"
                         value={formValue.email}
                         onChange={handleChange}
-                        label="Email"
+                        inputlabel="Email"
                     />
-                    <p>{formErrors.email}</p>
+                    <p>{formErrors?.email ?? ''}</p>
                     <InputField
                         type={'password'}
                         name="password"
                         value={formValue.password}
                         onChange={handleChange}
-                        label="Password"
+                        inputlabel="Password"
                     />
-                    <p>{formErrors.password}</p>
+                    <p>{formErrors?.password ?? ''}</p>
                     <ul className="password-strength flex gap-2 justify-start mr-auto">
                         <li className="w-12 bg-slate-300 h-1 rounded-full"></li>
                         <li className="w-12 bg-slate-300 h-1 rounded-full"></li>

@@ -23,10 +23,8 @@ connectFunctionsEmulator(functions, 'localhost', 5001)
 export const db = getFirestore(app)
 connectFirestoreEmulator(db, 'localhost', 8080)
 
-
 //9099 auth
 //5001 func
 //8080 store
 //5000 host
 //5500 hoUI
-

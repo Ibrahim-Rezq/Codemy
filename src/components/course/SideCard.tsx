@@ -1,25 +1,37 @@
-import { FaClosedCaptioning, FaInfinity, FaMobileAlt, FaRegHeart, FaRegPlayCircle, FaTv } from "react-icons/fa"
+import { FaClosedCaptioning, FaInfinity, FaMobileAlt, FaRegHeart, FaRegPlayCircle, FaTv } from 'react-icons/fa'
+
 import { convertToCurrency } from '../../utils/helper'
 
-const OnSale = ({ onSale, price, discount }: {onSale?: boolean, price?: number, discount?: number}) => {
+const OnSale = ({ onSale, price, discount }: { onSale?: boolean; price?: number; discount?: number }) => {
     if (onSale) {
         return (
             <>
                 <div className="flex items-center">
                     <h2 className="card-title text-3xl pr-3">
-                        {convertToCurrency((price! * (discount! / 100)) / 100)}
+                        {convertToCurrency(price && discount ? (price * (discount / 100)) / 100 : 0)}
                     </h2>
-                    <h4 className="text-lg text-gray-400 line-through">{convertToCurrency(price! / 100)}</h4>
+                    <h4 className="text-lg text-gray-400 line-through">{convertToCurrency(price ? price / 100 : 0)}</h4>
                 </div>
                 <p className="text-base font-semibold text-gray-500">{discount}% off</p>
             </>
         )
     }
-    return <h2 className="card-title text-2xl pr-3">{convertToCurrency(price! / 100)}</h2>
+    return <h2 className="card-title text-2xl pr-3">{convertToCurrency(price ? price / 100 : 0)}</h2>
 }
 
-const SideCard = ({ time, onSale, price, discount, imageURL }: 
-    { time?: number, onSale?: boolean, price?: number, discount?: number, imageURL?: string}) => {
+const SideCard = ({
+    time,
+    onSale,
+    price,
+    discount,
+    imageURL,
+}: {
+    time?: number
+    onSale?: boolean
+    price?: number
+    discount?: number
+    imageURL?: string
+}) => {
     return (
         <div className="card w-80 card-compact bg-base-100 shadow-xl rounded-none">
             <figure className="relative">
@@ -66,4 +78,4 @@ const SideCard = ({ time, onSale, price, discount, imageURL }:
     )
 }
 
-export default SideCard;
+export default SideCard
