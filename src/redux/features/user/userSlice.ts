@@ -1,14 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { createRandomUser } from '../../../utils/fakerData'
-import { SignUp } from '../../../utils/user/user'
 import { User } from '../../../utils/user/userTypes'
 
 type userStateType = {
     user: User
 }
 const initialState: userStateType = {
-    user: createRandomUser(),
+    user: {} as User,
 }
 
 export const userSlice = createSlice({
@@ -16,22 +14,20 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         register: (state, action) => {
-            const newUser = action.payload
-            let newUserInfo
-            SignUp(newUser).then((res) => {
-                newUserInfo = res
-            })
-            console.log('registered', newUserInfo)
-            return newUser
+            return state
         },
         login: (state, action) => {
             console.log('logedin', action.payload)
             return state
         },
+        setUser: (state, action) => {
+            state.user = { ...action.payload.user, displayName: action.payload.name, photoURL: action.payload.photo }
+            return state
+        },
     },
 })
 
-export const { register, login } = userSlice.actions
+export const { register, login, setUser } = userSlice.actions
 export const selectUser = (state: { user: userStateType }) => state.user
 
 export default userSlice.reducer

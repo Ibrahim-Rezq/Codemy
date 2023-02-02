@@ -1,8 +1,8 @@
-import { Children } from 'react'
+import { Children, useEffect } from 'react'
 import { IconType } from 'react-icons'
 import { BsCart, BsHeart } from 'react-icons/bs'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 
 import udemyLogo from '../../assets/udemy.svg'
 import { selectUser } from '../../redux/features/user/userSlice'
@@ -36,7 +36,12 @@ const profileData = [
 ]
 
 export default function Navigation() {
+    const navigate = useNavigate()
+
     const state = useSelector(selectUser)
+    useEffect(() => {
+        if (state.user.uid) navigate('/')
+    }, [state])
 
     return (
         <div>
@@ -68,6 +73,12 @@ export default function Navigation() {
                         <CartDropDown />
                         {/* <NotificationsDropDown /> */}
                         {state.user.uid && <UserProfileDropDown userData={state.user} />}
+                        {!state.user.uid && (
+                            <>
+                                <NavigationLink path={'/join/login-popup'}>Login </NavigationLink>{' '}
+                                <NavigationLink path={'/join/signup-popup'}>Signup </NavigationLink>
+                            </>
+                        )}
                     </div>
                 </div>
                 <div className="navbar bg-base-100 shadow p-0">

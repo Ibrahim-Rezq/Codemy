@@ -1,27 +1,25 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { register } from '../../redux/features/user/userSlice'
+import { useUser } from '../../utils/user/useUser'
 import InputField from '../global/InputField'
 import Container from '../UI/Container'
 
 const SignUp = () => {
     const [formValue, setFormValue] = useState({ name: '', email: '', password: '' })
     const [formErrors, setFormErrors] = useState({ name: '', email: '', password: '' })
-    const dispatch = useDispatch()
+    const { SignUp: signUpFunc } = useUser()
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         console.log(e.target.value)
-
         const { name, value } = e.target
         setFormValue({ ...formValue, [name]: value })
     }
 
     const handleSubmit = (e: any) => {
         e.preventDefault()
-
-        if (Object.keys(validate(formValue)).length === 0) {
-            dispatch(register(formValue))
+        const validation = validate(formValue)
+        if (!validation.name && !validation.email && !validation.password) {
+            signUpFunc(formValue)
         } else {
             setFormErrors(validate(formValue))
         }
@@ -29,7 +27,6 @@ const SignUp = () => {
 
     const validate = (values: { name: string; email: string; password: string }) => {
         const errors = { name: '', email: '', password: '' }
-        // const regex = /^[^s@]+@[^\s@]+\.[^\s@]{2,}$/i
         if (!values.name) {
             errors.name = 'user name is required'
         }
@@ -86,7 +83,9 @@ const SignUp = () => {
                         <span> Send me special offers, personalized recommendations, and learning tips.</span>
                     </label>
 
-                    <button className="btn btn-primary rounded-none	 w-full normal-case text-base	">Sign Up</button>
+                    <button className="btn btn-primary rounded-none	 w-full normal-case text-base" type="submit">
+                        Sign Up
+                    </button>
                 </form>
                 <p className="text-xs  w-fit m-auto  border-b pb-4 px-4 mb-4">
                     By signing up, you agree to our
