@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom'
 
 import { ForgotPassword, Navigation, SignIn, SignUp } from '../components'
 import { Cart, Checkout, Course, Home, Join, User } from '../pages'
+import CourseLearn from '../pages/CourseLearn'
 
 const promise = loadStripe(
     'pk_test_51LHoCuCajsSYQyt62Mk7QQpfFB02M0WlxvV2ChvnuLC53AdryXEeCz6IMnrOULpEZxywKLwccWcqNF4EF5Bzgjob00gMQhTwWR',
@@ -54,6 +55,10 @@ export const routes = [
             {
                 path: '/course/:slug',
                 element: <Course />,
+            },
+            {
+                path:'/learn/course/:id',
+                element: <CourseLearn/>,
             },
             {
                 path: '/cart',
